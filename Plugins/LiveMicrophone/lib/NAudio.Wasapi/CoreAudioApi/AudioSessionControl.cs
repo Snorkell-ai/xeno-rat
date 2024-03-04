@@ -34,11 +34,11 @@ namespace NAudio.CoreAudioApi
                 SimpleAudioVolume = new SimpleAudioVolume(volume);
         }
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioSessionEventCallback != null)
@@ -174,9 +174,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// the grouping param for an audio session grouping
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public Guid GetGroupingParam()
         {
             Marshal.ThrowExceptionForHR(audioSessionControlInterface.GetGroupingParam(out var groupingId));
@@ -185,19 +186,20 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// For chanigng the grouping param and supplying the context of said change
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="groupingId"></param>
-        /// <param name="context"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetGroupingParam(Guid groupingId, Guid context)
         {
             Marshal.ThrowExceptionForHR(audioSessionControlInterface.SetGroupingParam(groupingId, context));
         }
 
         /// <summary>
-        /// Registers an even client for callbacks
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="eventClient"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RegisterEventClient(IAudioSessionEventsHandler eventClient)
         {
             // we could have an array or list of listeners if we like
@@ -206,9 +208,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Unregisters an event client from receiving callbacks
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="eventClient"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void UnRegisterEventClient(IAudioSessionEventsHandler eventClient)
         {
             // if one is registered, let it go

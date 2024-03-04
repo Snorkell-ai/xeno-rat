@@ -20,15 +20,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Processes a block of data.
-        /// The application supplies a pointer to a block of input data. The DMO processes the data in place.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="size">Size of the data, in bytes.</param>
-        /// <param name="offset">offset into buffer</param>
-        /// <param name="data">In/Out Data Buffer</param>
-        /// <param name="timeStart">Start time of the data.</param>
-        /// <param name="inPlaceFlag">DmoInplaceProcessFlags</param>
-        /// <returns>Return value when Process is executed with IMediaObjectInPlace</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public DmoInPlaceProcessReturn Process(int size, int offset, byte[] data, long timeStart, DmoInPlaceProcessFlags inPlaceFlag)
         {
             var pointer = Marshal.AllocHGlobal(size);
@@ -44,9 +39,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Creates a copy of the DMO in its current state.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Copyed MediaObjectInPlace</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MediaObjectInPlace Clone()
         {
             Marshal.ThrowExceptionForHR(this.mediaObjectInPlace.Clone(out var cloneObj));
@@ -54,9 +50,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Retrieves the latency introduced by this DMO.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>The latency, in 100-nanosecond units</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetLatency()
         {
             Marshal.ThrowExceptionForHR(this.mediaObjectInPlace.GetLatency(out var latencyTime));
@@ -64,17 +61,20 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Get Media Object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Media Object</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MediaObject GetMediaObject()
         {
             return new MediaObject((IMediaObject) mediaObjectInPlace);
         }
 
         /// <summary>
-        /// Dispose code
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (mediaObjectInPlace != null)

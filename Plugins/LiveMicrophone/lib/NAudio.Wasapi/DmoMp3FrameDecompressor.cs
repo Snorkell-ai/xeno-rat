@@ -48,8 +48,10 @@ namespace NAudio.FileFormats.Mp3
         public WaveFormat OutputFormat { get { return pcmFormat; } }
 
         /// <summary>
-        /// Decompress a single frame of MP3
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int DecompressFrame(Mp3Frame frame, byte[] dest, int destOffset)
         {
             // 1. copy into our DMO's input buffer
@@ -84,16 +86,20 @@ namespace NAudio.FileFormats.Mp3
         }
 
         /// <summary>
-        /// Alerts us that a reposition has occured so the MP3 decoder needs to reset its state
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             reposition = true;
         }
 
         /// <summary>
-        /// Dispose of this obejct and clean up resources
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (inputMediaBuffer != null)

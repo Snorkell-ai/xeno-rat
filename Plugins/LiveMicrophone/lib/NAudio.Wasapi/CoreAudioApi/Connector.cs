@@ -15,8 +15,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Connects this connector to a connector in another device-topology object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ConnectTo(Connector other)
         {
             connectorInterface.ConnectTo(other.connectorInterface);
@@ -47,8 +49,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Disconnects this connector from it's connected connector (if connected)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Disconnect()
         {
             connectorInterface.Disconnect();

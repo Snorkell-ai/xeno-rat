@@ -12,6 +12,11 @@ namespace NAudio.CoreAudioApi
             this.parent = parent;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [PreserveSig]
         public int OnSessionCreated(IAudioSessionControl newSession)
         {

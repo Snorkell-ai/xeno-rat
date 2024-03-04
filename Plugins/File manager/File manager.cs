@@ -14,6 +14,12 @@ namespace Plugin
 {
     public class Main
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -58,6 +64,12 @@ namespace Plugin
 
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task FileManagerHandler(Node node)
         {
             byte[] typedata = await node.ReceiveAsync();
@@ -90,6 +102,12 @@ namespace Plugin
             }
             GC.Collect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task DeleteFile(Node node)
         {
             byte[] success = new byte[] { 1 };
@@ -111,6 +129,12 @@ namespace Plugin
                 await node.SendAsync(fail);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartFile(Node node)
         {
             byte[] success = new byte[] { 1 };
@@ -132,6 +156,12 @@ namespace Plugin
                 await node.SendAsync(fail);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<bool> CanRead(string path) 
         {
             try
@@ -149,6 +179,12 @@ namespace Plugin
             }
             return false;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool CanWrite(string path)
         {
             if (string.IsNullOrEmpty(path))
@@ -203,6 +239,11 @@ namespace Plugin
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task FileDownloader(Node node)
         {
             byte[] success = new byte[] { 1 };
@@ -247,6 +288,12 @@ namespace Plugin
             await Task.Delay(500);
             node.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task FileUploader(Node node)
         {
             byte[] success = new byte[] { 1 };
@@ -282,6 +329,12 @@ namespace Plugin
             await Task.Delay(500);
             node.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task FileViewer(Node node) 
         {
             byte[] success = new byte[] { 1 };
@@ -328,6 +381,12 @@ namespace Plugin
             }
             node.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long BytesToLong(byte[] data, int offset = 0)
         {
             if (BitConverter.IsLittleEndian)
@@ -354,6 +413,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] LongToBytes(long data)
         {
             byte[] bytes = new byte[8];

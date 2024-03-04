@@ -25,8 +25,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Dispose and free memory for buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (buffer != IntPtr.Zero)
@@ -45,13 +47,11 @@ namespace NAudio.Dmo
             Dispose();
         }
 
-        #region IMediaBuffer Members
-
         /// <summary>
-        /// Set length of valid data in the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="length">length</param>
-        /// <returns>HRESULT</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         int IMediaBuffer.SetLength(int length)
         {
             //System.Diagnostics.Debug.WriteLine(String.Format("Set Length {0}", length));
@@ -64,10 +64,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Gets the maximum length of the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="maxLength">Max length (output parameter)</param>
-        /// <returns>HRESULT</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         int IMediaBuffer.GetMaxLength(out int maxLength)
         {
             //System.Diagnostics.Debug.WriteLine("Get Max Length");
@@ -76,11 +76,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Gets buffer and / or length
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bufferPointerPointer">Pointer to variable into which buffer pointer should be written</param>
-        /// <param name="validDataLengthPointer">Pointer to variable into which valid data length should be written</param>
-        /// <returns>HRESULT</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         int IMediaBuffer.GetBufferAndLength(IntPtr bufferPointerPointer, IntPtr validDataLengthPointer)
         {
 
@@ -119,10 +118,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Loads data into this buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="data">Data to load</param>
-        /// <param name="bytes">Number of bytes to load</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void LoadData(byte[] data, int bytes)
         {
             this.Length = bytes;
@@ -130,10 +129,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Retrieves the data in the output buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="data">buffer to retrieve into</param>
-        /// <param name="offset">offset within that buffer</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RetrieveData(byte[] data, int offset)
         {
             Marshal.Copy(buffer, data, offset, Length);

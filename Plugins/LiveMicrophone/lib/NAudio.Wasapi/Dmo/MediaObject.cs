@@ -46,16 +46,12 @@ namespace NAudio.Dmo
         {
             get { return outputStreams; }
         }
-        #endregion
-
-        #region Get Input and Output Types
 
         /// <summary>
-        /// Gets the input media type for the specified input stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStream">Input stream index</param>
-        /// <param name="inputTypeIndex">Input type index</param>
-        /// <returns>DMO Media Type or null if there are no more input types</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public DmoMediaType? GetInputType(int inputStream, int inputTypeIndex)
         {
             try
@@ -82,11 +78,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Gets the DMO Media Output type
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStream">The output stream</param>
-        /// <param name="outputTypeIndex">Output type index</param>
-        /// <returns>DMO Media Type or null if no more available</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public DmoMediaType? GetOutputType(int outputStream, int outputTypeIndex)
         {
             try
@@ -112,11 +107,11 @@ namespace NAudio.Dmo
             return null;
         }
 
-         /// <summary>
-        /// retrieves the media type that was set for an output stream, if any
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output stream index</param>
-        /// <returns>DMO Media Type or null if no more available</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public DmoMediaType GetOutputCurrentType(int outputStreamIndex)
         {
             DmoMediaType mediaType;
@@ -143,10 +138,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Enumerates the supported input types
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input stream index</param>
-        /// <returns>Enumeration of input types</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IEnumerable<DmoMediaType> GetInputTypes(int inputStreamIndex)
         {
             int typeIndex = 0;
@@ -159,10 +154,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Enumerates the output types
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output stream index</param>
-        /// <returns>Enumeration of supported output types</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IEnumerable<DmoMediaType> GetOutputTypes(int outputStreamIndex)
         {
             int typeIndex = 0;
@@ -174,27 +169,21 @@ namespace NAudio.Dmo
             }
         }
 
-        #endregion
-
-        #region Set Input Type
-
         /// <summary>
-        /// Querys whether a specified input type is supported
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input stream index</param>
-        /// <param name="mediaType">Media type to check</param>
-        /// <returns>true if supports</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool SupportsInputType(int inputStreamIndex, DmoMediaType mediaType)
         {
             return SetInputType(inputStreamIndex, mediaType, DmoSetTypeFlags.DMO_SET_TYPEF_TEST_ONLY);
         }
 
         /// <summary>
-        /// Sets the input type helper method
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input stream index</param>
-        /// <param name="mediaType">Media type</param>
-        /// <param name="flags">Flags (can be used to test rather than set)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool SetInputType(int inputStreamIndex, DmoMediaType mediaType, DmoSetTypeFlags flags)
         {
             int hResult = mediaObject.SetInputType(inputStreamIndex, ref mediaType, flags);
@@ -228,10 +217,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Sets the input type to the specified Wave format
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input stream index</param>
-        /// <param name="waveFormat">Wave format</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetInputWaveFormat(int inputStreamIndex, WaveFormat waveFormat)
         {
             DmoMediaType mediaType = CreateDmoMediaTypeForWaveFormat(waveFormat);
@@ -244,11 +233,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Requests whether the specified Wave format is supported as an input
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input stream index</param>
-        /// <param name="waveFormat">Wave format</param>
-        /// <returns>true if supported</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool SupportsInputWaveFormat(int inputStreamIndex, WaveFormat waveFormat)
         {
             DmoMediaType mediaType = CreateDmoMediaTypeForWaveFormat(waveFormat);
@@ -258,8 +246,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Helper function to make a DMO Media Type to represent a particular WaveFormat
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private DmoMediaType CreateDmoMediaTypeForWaveFormat(WaveFormat waveFormat)
         {
             DmoMediaType mediaType = new DmoMediaType();
@@ -269,29 +259,21 @@ namespace NAudio.Dmo
             return mediaType;
         }
 
-        #endregion
-
-        #region Set Output Type
-
         /// <summary>
-        /// Checks if a specified output type is supported
-        /// n.b. you may need to set the input type first
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output stream index</param>
-        /// <param name="mediaType">Media type</param>
-        /// <returns>True if supported</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool SupportsOutputType(int outputStreamIndex, DmoMediaType mediaType)
         {
             return SetOutputType(outputStreamIndex, mediaType, DmoSetTypeFlags.DMO_SET_TYPEF_TEST_ONLY);
         }
 
         /// <summary>
-        /// Tests if the specified Wave Format is supported for output
-        /// n.b. may need to set the input type first
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output stream index</param>
-        /// <param name="waveFormat">Wave format</param>
-        /// <returns>True if supported</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool SupportsOutputWaveFormat(int outputStreamIndex, WaveFormat waveFormat)
         {
             DmoMediaType mediaType = CreateDmoMediaTypeForWaveFormat(waveFormat);
@@ -301,8 +283,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Helper method to call SetOutputType
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool SetOutputType(int outputStreamIndex, DmoMediaType mediaType, DmoSetTypeFlags flags)
         {
             int hresult = mediaObject.SetOutputType(outputStreamIndex, ref mediaType, flags);
@@ -335,11 +319,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Set output type to the specified wave format
-        /// n.b. may need to set input type first
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output stream index</param>
-        /// <param name="waveFormat">Wave format</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetOutputWaveFormat(int outputStreamIndex, WaveFormat waveFormat)
         {
             DmoMediaType mediaType = CreateDmoMediaTypeForWaveFormat(waveFormat);
@@ -350,15 +333,12 @@ namespace NAudio.Dmo
                 throw new ArgumentException("Media Type not supported");
             }
         }
-        
-        #endregion
 
-        #region Get Input and Output Size Info
         /// <summary>
-        /// Get Input Size Info
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input Stream Index</param>
-        /// <returns>Input Size Info</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MediaObjectSizeInfo GetInputSizeInfo(int inputStreamIndex)
         {
             int size;
@@ -369,10 +349,10 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Get Output Size Info
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputStreamIndex">Output Stream Index</param>
-        /// <returns>Output Size Info</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MediaObjectSizeInfo GetOutputSizeInfo(int outputStreamIndex)
         {
             int size;
@@ -381,17 +361,11 @@ namespace NAudio.Dmo
             return new MediaObjectSizeInfo(size, 0, alignment);
         }
 
-        #endregion
-
-        #region Buffer Processing
         /// <summary>
-        /// Process Input
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input Stream index</param>
-        /// <param name="mediaBuffer">Media Buffer</param>
-        /// <param name="flags">Flags</param>
-        /// <param name="timestamp">Timestamp</param>
-        /// <param name="duration">Duration</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ProcessInput(int inputStreamIndex, IMediaBuffer mediaBuffer, DmoInputDataBufferFlags flags,
             long timestamp, long duration)
         {
@@ -399,39 +373,41 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Process Output
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="flags">Flags</param>
-        /// <param name="outputBufferCount">Output buffer count</param>
-        /// <param name="outputBuffers">Output buffers</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ProcessOutput(DmoProcessOutputFlags flags, int outputBufferCount, DmoOutputDataBuffer[] outputBuffers)
         {
             int reserved;
             Marshal.ThrowExceptionForHR(mediaObject.ProcessOutput(flags, outputBufferCount, outputBuffers, out reserved));
         }
-        #endregion
 
         /// <summary>
-        /// Gives the DMO a chance to allocate any resources needed for streaming
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AllocateStreamingResources()
         {
             Marshal.ThrowExceptionForHR(mediaObject.AllocateStreamingResources());
         }
 
         /// <summary>
-        /// Tells the DMO to free any resources needed for streaming
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void FreeStreamingResources()
         {
             Marshal.ThrowExceptionForHR(mediaObject.FreeStreamingResources());
         }
 
         /// <summary>
-        /// Gets maximum input latency
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">input stream index</param>
-        /// <returns>Maximum input latency as a ref-time</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetInputMaxLatency(int inputStreamIndex)
         {
             long maxLatency;
@@ -440,27 +416,30 @@ namespace NAudio.Dmo
         }
 
         /// <summary>
-        /// Flushes all buffered data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Flush()
         {
             Marshal.ThrowExceptionForHR(mediaObject.Flush());
         }
 
         /// <summary>
-        /// Report a discontinuity on the specified input stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input Stream index</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Discontinuity(int inputStreamIndex)
         {
             Marshal.ThrowExceptionForHR(mediaObject.Discontinuity(inputStreamIndex));
         }
 
         /// <summary>
-        /// Is this input stream accepting data?
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputStreamIndex">Input Stream index</param>
-        /// <returns>true if accepting data</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool IsAcceptingData(int inputStreamIndex)
         {
             DmoInputStatusFlags flags;
@@ -469,14 +448,11 @@ namespace NAudio.Dmo
             return (flags & DmoInputStatusFlags.DMO_INPUT_STATUSF_ACCEPT_DATA) == DmoInputStatusFlags.DMO_INPUT_STATUSF_ACCEPT_DATA;
         }
 
-        // TODO: there are still several IMediaObject functions to be wrapped
-
-        #region IDisposable Members
-
         /// <summary>
-        /// Experimental code, not currently being called
-        /// Not sure if it is necessary anyway
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (mediaObject != null)
