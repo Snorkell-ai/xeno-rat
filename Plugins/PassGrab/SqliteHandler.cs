@@ -38,6 +38,11 @@ namespace InfoGrab
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private ulong ConvertToInteger(int startIndex, int Size)
         {
             if (Size > 8 | Size == 0)
@@ -53,6 +58,11 @@ namespace InfoGrab
             return num;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long CVL(int startIndex, int endIndex)
         {
             endIndex++;
@@ -98,11 +108,21 @@ namespace InfoGrab
             return BitConverter.ToInt64(array, 0);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int GetRowCount()
         {
             return this.table_entries.Length;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string[] GetTableNames()
         {
             string[] array = null;
@@ -120,6 +140,11 @@ namespace InfoGrab
             return array;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetValue(int row_num, int field)
         {
             if (row_num >= this.table_entries.Length)
@@ -152,6 +177,11 @@ namespace InfoGrab
             return this.GetValue(row_num, num);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int GVL(int startIndex)
         {
             if (startIndex > this.db_bytes.Length)
@@ -173,11 +203,21 @@ namespace InfoGrab
             return startIndex + 8;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool IsOdd(long value)
         {
             return (value & 1L) == 1L;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadMasterTable(ulong Offset)
         {
             if (this.db_bytes[(int)Offset] == 13)
@@ -293,6 +333,11 @@ namespace InfoGrab
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool ReadTable(string TableName)
         {
             int num = -1;
@@ -332,6 +377,11 @@ namespace InfoGrab
             return this.ReadTableFromOffset((ulong)((this.master_table_entries[num].root_num - 1L) * (long)((ulong)this.page_size)));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool ReadTableFromOffset(ulong Offset)
         {
             if (this.db_bytes[(int)Offset] == 13)
