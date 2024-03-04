@@ -4,6 +4,12 @@ namespace NAudio.SoundFont
 {
     class ModulatorBuilder : StructureBuilder<Modulator>
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override Modulator Read(BinaryReader br)
         {
             Modulator m = new Modulator();
@@ -16,6 +22,11 @@ namespace NAudio.SoundFont
             return m;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, Modulator o)
         {
             //Zone z = (Zone) o;

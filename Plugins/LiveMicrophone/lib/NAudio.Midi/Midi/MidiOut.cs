@@ -25,8 +25,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Gets the MIDI Out device info
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiOutCapabilities DeviceInfo(int midiOutDeviceNumber)
         {
             MidiOutCapabilities caps = new MidiOutCapabilities();
@@ -45,18 +47,22 @@ namespace NAudio.Midi
             this.callback = new MidiInterop.MidiOutCallback(Callback);
             MmException.Try(MidiInterop.midiOutOpen(out hMidiOut, (IntPtr)deviceNo, callback, IntPtr.Zero, MidiInterop.CALLBACK_FUNCTION), "midiOutOpen");
         }
-        
+
         /// <summary>
-        /// Closes this MIDI out device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Close() 
         {
             Dispose();
         }
 
         /// <summary>
-        /// Closes this MIDI out device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose() 
         {
             GC.KeepAlive(callback);
@@ -83,28 +89,30 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Resets the MIDI out device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset() 
         {
             MmException.Try(MidiInterop.midiOutReset(hMidiOut),"midiOutReset");
         }
 
         /// <summary>
-        /// Sends a MIDI out message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="message">Message</param>
-        /// <param name="param1">Parameter 1</param>
-        /// <param name="param2">Parameter 2</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SendDriverMessage(int message, int param1, int param2) 
         {
             MmException.Try(MidiInterop.midiOutMessage(hMidiOut,message,(IntPtr)param1,(IntPtr)param2),"midiOutMessage");
         }
 
         /// <summary>
-        /// Sends a MIDI message to the MIDI out device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="message">The message to send</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Send(int message) 
         {
             MmException.Try(MidiInterop.midiOutShortMsg(hMidiOut,message),"midiOutShortMsg");
@@ -124,14 +132,20 @@ namespace NAudio.Midi
             disposed = true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Callback(IntPtr midiInHandle, MidiInterop.MidiOutMessage message, IntPtr userData, IntPtr messageParameter1, IntPtr messageParameter2)
         {
         }
 
         /// <summary>
-        /// Send a long message, for example sysex.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="byteBuffer">The bytes to send.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SendBuffer(byte[] byteBuffer)
         {
             var header = new MidiInterop.MIDIHDR();

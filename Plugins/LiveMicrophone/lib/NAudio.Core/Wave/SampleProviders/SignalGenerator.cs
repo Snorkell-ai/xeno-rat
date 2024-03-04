@@ -111,8 +111,10 @@ namespace NAudio.Wave.SampleProviders
         public double SweepLengthSecs { get; set; }
 
         /// <summary>
-        /// Reads from this provider.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int outIndex = offset;
@@ -234,9 +236,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Private :: Random for WhiteNoise &amp; Pink Noise (Value form -1 to 1)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Random value from -1 to +1</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private double NextRandomTwo()
         {
             return 2*random.NextDouble() - 1;

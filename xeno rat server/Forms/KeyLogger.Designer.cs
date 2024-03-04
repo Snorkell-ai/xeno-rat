@@ -9,9 +9,10 @@ namespace xeno_rat_server.Forms
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,12 +22,11 @@ namespace xeno_rat_server.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();

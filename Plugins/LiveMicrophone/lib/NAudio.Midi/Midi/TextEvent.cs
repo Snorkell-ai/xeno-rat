@@ -35,8 +35,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a deep clone of this MIDI event.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override MidiEvent Clone() => (TextEvent)MemberwiseClone();
 
         /// <summary>
@@ -74,19 +76,20 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Describes this MIDI text event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A string describing this event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             return String.Format("{0} {1}",base.ToString(),Text);
         }
 
         /// <summary>
-        /// Calls base class export first, then exports the data 
-        /// specific to this event
-        /// <seealso cref="MidiEvent.Export">MidiEvent.Export</seealso>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

@@ -17,12 +17,10 @@
         }
 
         /// <summary>
-        /// Reads floating point samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">sample buffer</param>
-        /// <param name="offset">offset within sample buffer to write to</param>
-        /// <param name="count">number of samples required</param>
-        /// <returns>number of samples provided</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(float[] buffer, int offset, int count)
         {
             int sourceBytesRequired = count*4;

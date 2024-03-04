@@ -45,12 +45,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Read bytes from this WaveProvider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to read into</param>
-        /// <param name="offset">Offset within buffer to read to</param>
-        /// <param name="count">Bytes desired</param>
-        /// <returns>Bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             // always read from the source

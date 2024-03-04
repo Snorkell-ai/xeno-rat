@@ -11,11 +11,10 @@ namespace NAudio.Wave.Asio
         public delegate void SampleConvertor(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples);
 
         /// <summary>
-        /// Selects the sample convertor based on the input WaveFormat and the output ASIOSampleTtype.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveFormat">The wave format.</param>
-        /// <param name="asioType">The type.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static SampleConvertor SelectSampleConvertor(WaveFormat waveFormat, AsioSampleType asioType)
         {
             SampleConvertor convertor = null;
@@ -88,8 +87,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorShortToInt2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -116,8 +117,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor for SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorShortToIntGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -144,8 +147,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels FLOAT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorFloatToInt2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -164,8 +169,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor Float to INT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorFloatToIntGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -188,8 +195,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels INT to INT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorIntToInt2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -208,8 +217,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor INT to INT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorIntToIntGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -232,8 +243,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels INT to SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorIntToShort2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -252,8 +265,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor INT to SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorIntToShortGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -276,8 +291,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor INT to FLOAT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorIntToFloatGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -300,8 +317,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorShortToShort2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -323,8 +342,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor for SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorShortToShortGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -348,8 +369,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Optimized convertor for 2 channels FLOAT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorFloatToShort2Channels(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -369,8 +392,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor SHORT
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConvertorFloatToShortGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -394,8 +419,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic converter 24 LSB
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConverterFloatTo24LSBGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -422,8 +449,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Generic convertor for float
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ConverterFloatToFloatGeneric(IntPtr inputInterleavedBuffer, IntPtr[] asioOutputBuffers, int nbChannels, int nbSamples)
         {
             unsafe
@@ -445,18 +474,33 @@ namespace NAudio.Wave.Asio
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static int clampTo24Bit(double sampleValue)
         {
             sampleValue = (sampleValue < -1.0) ? -1.0 : (sampleValue > 1.0) ? 1.0 : sampleValue;
             return (int)(sampleValue * 8388607.0);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static int clampToInt(double sampleValue)
         {
             sampleValue = (sampleValue < -1.0) ? -1.0 : (sampleValue > 1.0) ? 1.0 : sampleValue;
             return (int)(sampleValue * 2147483647.0);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static short clampToShort(double sampleValue)
         {
             sampleValue = (sampleValue < -1.0) ? -1.0 : (sampleValue > 1.0) ? 1.0 : sampleValue;

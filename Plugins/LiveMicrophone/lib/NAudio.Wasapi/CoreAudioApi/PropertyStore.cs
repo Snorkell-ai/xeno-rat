@@ -61,10 +61,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Contains property guid
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="key">Looks for a specific key</param>
-        /// <returns>True if found</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool Contains(PropertyKey key)
         {
             for (int i = 0; i < Count; i++)
@@ -101,10 +101,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets property key at sepecified index
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="index">Index</param>
-        /// <returns>Property key</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public PropertyKey Get(int index)
         {
             Marshal.ThrowExceptionForHR(storeInterface.GetAt(index, out var key));
@@ -112,10 +112,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets property value at specified index
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="index">Index</param>
-        /// <returns>Property value</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public PropVariant GetValue(int index)
         {
             PropertyKey key = Get(index);
@@ -124,18 +124,20 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Sets property value at specified key.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="key">Key of property to set.</param>
-        /// <param name="value">Value to write.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetValue(PropertyKey key, PropVariant value)
         {
             Marshal.ThrowExceptionForHR(storeInterface.SetValue(ref key, ref value));
         }
 
         /// <summary>
-        /// Saves a property change.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Commit()
         {
             Marshal.ThrowExceptionForHR(storeInterface.Commit());

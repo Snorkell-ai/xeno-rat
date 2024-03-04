@@ -73,12 +73,10 @@ namespace NAudio.Wave.SampleProviders
         private float[] inputBuffer;
 
         /// <summary>
-        /// Reads samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to be filled with sample data</param>
-        /// <param name="offset">Offset into buffer to start writing to, usually 0</param>
-        /// <param name="count">Number of samples required</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int sampleFramesRequested = count / outputChannelCount;
@@ -131,10 +129,10 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat => waveFormat;
 
         /// <summary>
-        /// Connects a specified input channel to an output channel
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputChannel">Input Channel index (zero based). Must be less than InputChannelCount</param>
-        /// <param name="outputChannel">Output Channel index (zero based). Must be less than OutputChannelCount</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ConnectInputToOutput(int inputChannel, int outputChannel)
         {
             if (inputChannel < 0 || inputChannel >= InputChannelCount)

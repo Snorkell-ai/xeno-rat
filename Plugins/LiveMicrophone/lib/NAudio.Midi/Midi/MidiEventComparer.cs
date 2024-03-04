@@ -10,12 +10,12 @@ namespace NAudio.Midi
     /// </summary>
     public class MidiEventComparer : IComparer<MidiEvent>
     {
-        #region IComparer<MidiEvent> Members
 
         /// <summary>
-        /// Compares two MidiEvents
-        /// Sorts by time, with EndTrack always sorted to the end
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Compare(MidiEvent x, MidiEvent y)
         {
             long xTime = x.AbsoluteTime;

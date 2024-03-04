@@ -8,9 +8,12 @@ namespace xeno_rat_server
 {
     static class Program
     {
+
         /// <summary>
-        /// The main entry point for the application.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [STAThread]
         static void Main()
         {

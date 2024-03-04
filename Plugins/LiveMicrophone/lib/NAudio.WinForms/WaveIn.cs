@@ -79,10 +79,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Retrieves the capabilities of a waveIn device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="devNumber">Device to test</param>
-        /// <returns>The WaveIn device capabilities</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveInCapabilities GetCapabilities(int devNumber)
         {
             var caps = new WaveInCapabilities();
@@ -106,6 +106,11 @@ namespace NAudio.Wave
         /// </summary>
         public int DeviceNumber { get; set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CreateBuffers()
         {
             // Default to three buffers of 100ms each
@@ -123,8 +128,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Called when we get a new buffer of recorded data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Callback(IntPtr waveInHandle, WaveInterop.WaveMessage message, IntPtr userData, WaveHeader waveHeader, IntPtr reserved)
         {
             if (message == WaveInterop.WaveMessage.WaveInData)
@@ -151,11 +158,21 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaiseDataAvailable(WaveInBuffer buffer)
         {
             DataAvailable?.Invoke(this, new WaveInEventArgs(buffer.Data, buffer.BytesRecorded));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaiseRecordingStopped(Exception e)
         {
             var handler = RecordingStopped;
@@ -172,6 +189,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OpenWaveInDevice()
         {
             CloseWaveInDevice();
@@ -181,8 +203,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Start recording
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StartRecording()
         {
             if (recording)
@@ -195,6 +219,11 @@ namespace NAudio.Wave
             recording = true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnqueueBuffers()
         {
             foreach (var buffer in buffers)
@@ -207,8 +236,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stop recording
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StopRecording()
         {
             if (recording)
@@ -232,10 +263,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the current position in bytes from the wave input device.
-        /// it calls directly into waveInGetPosition)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Position in bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetPosition()
         {
             MmTime mmTime = new MmTime();
@@ -254,8 +285,10 @@ namespace NAudio.Wave
         public WaveFormat WaveFormat { get; set; }
 
         /// <summary>
-        /// Dispose pattern
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
@@ -271,6 +304,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CloseWaveInDevice()
         {
             if (waveInHandle == IntPtr.Zero) return;
@@ -290,8 +328,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Microphone Level
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MixerLine GetMixerLine()
         {
             // TODO use mixerGetID instead to see if this helps with XP

@@ -45,8 +45,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Get Position
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool GetPosition(out ulong position, out ulong qpcPosition)
         {
             var hr = audioClockClientInterface.GetPosition(out position, out qpcPosition);
@@ -98,11 +100,11 @@ namespace NAudio.CoreAudioApi
         /// </summary>
         public bool CanAdjustPosition => Stopwatch.IsHighResolution;
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioClockClientInterface != null)

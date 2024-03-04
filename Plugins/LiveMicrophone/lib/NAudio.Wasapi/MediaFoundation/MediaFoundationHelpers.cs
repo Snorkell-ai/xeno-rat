@@ -13,10 +13,12 @@ namespace NAudio.MediaFoundation
     public static class MediaFoundationApi
     {
         private static bool initialized;
-        
+
         /// <summary>
-        /// initializes MediaFoundation - only needs to be called once per process
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Startup()
         {
             if (!initialized)
@@ -32,10 +34,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Enumerate the installed MediaFoundation transforms in the specified category
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="category">A category from MediaFoundationTransformCategories</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IEnumerable<IMFActivate> EnumerateTransforms(Guid category)
         {
             MediaFoundationInterop.MFTEnumEx(category, _MFT_ENUM_FLAG.MFT_ENUM_FLAG_ALL,
@@ -56,8 +58,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// uninitializes MediaFoundation
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Shutdown()
         {
             if (initialized)
@@ -68,8 +72,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a Media type
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFMediaType CreateMediaType()
         {
             MediaFoundationInterop.MFCreateMediaType(out IMFMediaType mediaType);
@@ -77,8 +83,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a media type from a WaveFormat
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFMediaType CreateMediaTypeFromWaveFormat(WaveFormat waveFormat)
         {
             var mediaType = CreateMediaType();
@@ -95,10 +103,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a memory buffer of the specified size
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bufferSize">Memory buffer size in bytes</param>
-        /// <returns>The memory buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFMediaBuffer CreateMemoryBuffer(int bufferSize)
         {
             MediaFoundationInterop.MFCreateMemoryBuffer(bufferSize, out IMFMediaBuffer buffer);
@@ -106,9 +114,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a sample object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>The sample object</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFSample CreateSample()
         {
             MediaFoundationInterop.MFCreateSample(out IMFSample sample);
@@ -116,10 +125,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a new attributes store
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="initialSize">Initial size</param>
-        /// <returns>The attributes store</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFAttributes CreateAttributes(int initialSize)
         {
             MediaFoundationInterop.MFCreateAttributes(out IMFAttributes attributes, initialSize);
@@ -127,11 +136,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a media foundation byte stream based on a stream object
-        /// (usable with WinRT streams)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="stream">The input stream</param>
-        /// <returns>A media foundation byte stream</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFByteStream CreateByteStream(object stream)
         {
             // n.b. UWP apps should use MediaFoundationInterop.MFCreateMFByteStreamOnStreamEx(stream, out byteStream);
@@ -149,10 +157,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Creates a source reader based on a byte stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="byteStream">The byte stream</param>
-        /// <returns>A media foundation source reader</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IMFSourceReader CreateSourceReaderFromByteStream(IMFByteStream byteStream)
         {
             MediaFoundationInterop.MFCreateSourceReaderFromByteStream(byteStream, null, out IMFSourceReader reader);

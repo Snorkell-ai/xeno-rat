@@ -53,9 +53,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Binds this WaveBuffer instance to a specific byte buffer.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bufferToBoundTo">A byte buffer to bound the WaveBuffer to.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void BindTo(byte[] bufferToBoundTo)
         {   
             /* WaveBuffer assumes the caller knows what they are doing. We will let this pass
@@ -203,27 +204,30 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Clears the associated buffer.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Clear()
         {
             Array.Clear(byteBuffer, 0, byteBuffer.Length);
         }
 
         /// <summary>
-        /// Copy this WaveBuffer to a destination buffer up to ByteBufferCount bytes.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Copy(Array destinationArray)
         {
             Array.Copy(byteBuffer, destinationArray, numberOfBytes);
         }
 
         /// <summary>
-        /// Checks the validity of the count parameters.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="argName">Name of the arg.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="sizeOfValue">The size of value.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int CheckValidityCount(string argName, int value, int sizeOfValue)
         {
             int newNumberOfBytes = value * sizeOfValue;

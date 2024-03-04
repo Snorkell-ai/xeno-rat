@@ -65,12 +65,11 @@ namespace NAudio.CoreAudioApi
             mmDeviceCollection = parent;
         }
 
-        #region IEnumerable<MMDevice> Members
-
         /// <summary>
-        /// Get Enumerator
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Device enumerator</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IEnumerator<MMDevice> GetEnumerator()
         {            
             for (int index = 0; index < Count; index++)

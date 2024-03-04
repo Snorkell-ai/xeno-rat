@@ -5,12 +5,12 @@
     /// </summary>
     public static class BufferHelpers
     {
+
         /// <summary>
-        /// Ensures the buffer is big enough
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="bytesRequired"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] Ensure(byte[] buffer, int bytesRequired)
         {
             if (buffer == null || buffer.Length < bytesRequired)

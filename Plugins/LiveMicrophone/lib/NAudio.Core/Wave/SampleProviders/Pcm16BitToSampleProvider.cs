@@ -18,12 +18,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Reads samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Sample buffer</param>
-        /// <param name="offset">Offset into sample buffer</param>
-        /// <param name="count">Samples required</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(float[] buffer, int offset, int count)
         {
             int sourceBytesRequired = count * 2;

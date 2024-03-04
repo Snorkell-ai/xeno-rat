@@ -2,7 +2,7 @@
 // AForge.NET framework
 // http://www.aforgenet.com/framework/
 //
-// Copyright © AForge.NET, 2009-2013
+// Copyright Â© AForge.NET, 2009-2013
 // contacts@aforgenet.com
 //
 
@@ -99,9 +99,10 @@ namespace AForge.Video.DirectShow.Internals
         }
 
         /// <summary>
-        /// Dispose the object.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        ///
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose( )
         {
             Dispose( true );

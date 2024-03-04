@@ -36,6 +36,12 @@ namespace xeno_rat_server.Forms
             StartAdd();
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void TempOnDisconnect(Node node)
         {
             if (node == client)
@@ -49,6 +55,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task StartAdd() 
         {
             RegInfo HKLM = await GetRegInfo("HKLM");
@@ -72,6 +84,12 @@ namespace xeno_rat_server.Forms
             }
             treeView1.EndUpdate();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<RegInfo> GetRegInfo(string path)
         {
             byte[] opcode = new byte[] { 1 };
@@ -86,6 +104,12 @@ namespace xeno_rat_server.Forms
             byte[] SearlizedData = await client.ReceiveAsync();
             return DeserializeRegInfo(SearlizedData);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> DeleteRegSubKey(string path) 
         {
             byte[] opcode = new byte[] { 2 };
@@ -95,6 +119,12 @@ namespace xeno_rat_server.Forms
             bool worked = (await client.ReceiveAsync())[0] == 1;
             return worked;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> DeleteRegKey(string path, string key)
         {
             byte[] opcode = new byte[] { 3 };
@@ -106,6 +136,12 @@ namespace xeno_rat_server.Forms
             bool worked = (await client.ReceiveAsync())[0] == 1;
             return worked;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static RegInfo DeserializeRegInfo(byte[] data)
         {
             RegInfo regInfo = new RegInfo();
@@ -169,6 +205,12 @@ namespace xeno_rat_server.Forms
 
             return regInfo;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             foreach (TreeNode i in e.Node.Nodes)
@@ -183,6 +225,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (treeView1.SelectedNode != null)
@@ -220,11 +268,22 @@ namespace xeno_rat_server.Forms
                 textBox1.Text = clickedNode.FullPath;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             textBox1.Text = string.Empty;
@@ -234,10 +293,20 @@ namespace xeno_rat_server.Forms
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void treeView1_Click(object sender, EventArgs e)
         {
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Button == MouseButtons.Right)

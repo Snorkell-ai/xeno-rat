@@ -7,9 +7,12 @@ namespace NAudio.SoundFont
     /// </summary>
     class SFVersionBuilder : StructureBuilder<SFVersion>
     {
+
         /// <summary>
-        /// Reads a SoundFont Version structure
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override SFVersion Read(BinaryReader br)
         {
             SFVersion v = new SFVersion();
@@ -20,8 +23,10 @@ namespace NAudio.SoundFont
         }
 
         /// <summary>
-        /// Writes a SoundFont Version structure
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, SFVersion v)
         {
             bw.Write(v.Major);

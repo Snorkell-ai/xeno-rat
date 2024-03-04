@@ -26,10 +26,10 @@ namespace NAudio.Wave
         public event EventHandler<StoppedEventArgs> PlaybackStopped;
 
         /// <summary>
-        /// Retrieves the capabilities of a waveOut device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="devNumber">Device to test</param>
-        /// <returns>The WaveOut device capabilities</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveOutCapabilities GetCapabilities(int devNumber)
         {
             var caps = new WaveOutCapabilities();
@@ -101,9 +101,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Initialises the WaveOut device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">WaveProvider to play</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Init(IWaveProvider waveProvider)
         {
             waveStream = waveProvider;
@@ -125,8 +126,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Start playing the audio from the WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Play()
         {
             if (playbackState == PlaybackState.Stopped)
@@ -143,6 +146,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnqueueBuffers()
         {
             for (int n = 0; n < NumberOfBuffers; n++)
@@ -168,8 +176,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Pause the audio
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Pause()
         {
             if (playbackState == PlaybackState.Playing)
@@ -188,8 +198,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Resume playing after a pause from the same position
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Resume()
         {
             if (playbackState == PlaybackState.Paused)
@@ -208,8 +220,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stop and reset the WaveOut device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             if (playbackState != PlaybackState.Stopped)
@@ -240,11 +254,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the current position in bytes from the wave output device.
-        /// (n.b. this is not the same thing as the position within your reader
-        /// stream - it calls directly into waveOutGetPosition)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Position in bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetPosition() => WaveOutUtils.GetPositionBytes(hWaveOut, waveOutLock);
 
         /// <summary>
@@ -272,11 +285,11 @@ namespace NAudio.Wave
             }
         }
 
-        #region Dispose Pattern
-
         /// <summary>
-        /// Closes this WaveOut device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             GC.SuppressFinalize(this);
@@ -325,9 +338,11 @@ namespace NAudio.Wave
             Dispose(false);
         }
 
-        #endregion
-
-        // made non-static so that playing can be stopped here
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Callback(IntPtr hWaveOut, WaveInterop.WaveMessage uMsg, IntPtr dwInstance, WaveHeader wavhdr, IntPtr dwReserved)
         {
             if (uMsg == WaveInterop.WaveMessage.WaveOutDone)
@@ -378,6 +393,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaisePlaybackStoppedEvent(Exception e)
         {
             var handler = PlaybackStopped;

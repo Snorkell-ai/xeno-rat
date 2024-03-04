@@ -67,6 +67,11 @@ namespace NAudio.Wave.SampleProviders
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void UpdateMultipliers()
         {
             var multipliers = panStrategy.GetMultipliers(Pan);
@@ -80,12 +85,10 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat => waveFormat;
 
         /// <summary>
-        /// Reads samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Sample buffer</param>
-        /// <param name="offset">Offset into sample buffer</param>
-        /// <param name="count">Number of samples desired</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int sourceSamplesRequired = count / 2;
@@ -121,11 +124,12 @@ namespace NAudio.Wave.SampleProviders
     /// </summary>
     public interface IPanStrategy
     {
+
         /// <summary>
-        /// Gets the left and right multipliers for a given pan value
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="pan">Pan value from -1 to 1</param>
-        /// <returns>Left and right multipliers in a stereo sample pair</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         StereoSamplePair GetMultipliers(float pan);
     }
 

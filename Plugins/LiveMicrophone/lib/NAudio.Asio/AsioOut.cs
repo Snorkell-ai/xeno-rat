@@ -92,8 +92,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (driver != null)
@@ -109,41 +111,40 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the names of the installed ASIO Driver.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>an array of driver names</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string[] GetDriverNames()
         {
             return AsioDriver.GetAsioDriverNames();
         }
 
         /// <summary>
-        /// Determines whether ASIO is supported.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>
-        ///     <c>true</c> if ASIO is supported; otherwise, <c>false</c>.
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool isSupported()
         {
             return GetDriverNames().Length > 0;
         }
 
         /// <summary>
-        /// Determines whether this driver supports the specified sample rate.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">The samplerate to check.</param>
-        /// <returns>
-        ///   <c>true</c> if the specified sample rate is supported otherwise, <c>false</c>.
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool IsSampleRateSupported(int sampleRate)
         {
             return driver.IsSampleRateSupported(sampleRate);
         }
 
         /// <summary>
-        /// Inits the driver from the asio driver name.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="driverName">Name of the driver.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitFromName(string driverName)
         {
             this.driverName = driverName;
@@ -165,16 +166,21 @@ namespace NAudio.Wave
             this.ChannelOffset = 0;
         }
 
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnDriverResetRequest()
         {
             DriverResetRequest?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
-        /// Release driver
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReleaseDriver(AsioDriver driver)
         {
             driver.DisposeBuffers();
@@ -182,16 +188,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Shows the control panel
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ShowControlPanel()
         {
             driver.ShowControlPanel();
         }
 
         /// <summary>
-        /// Starts playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Play()
         {
             if (playbackState != PlaybackState.Playing)
@@ -203,8 +213,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stops playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             playbackState = PlaybackState.Stopped;
@@ -214,8 +226,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Pauses playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Pause()
         {
             playbackState = PlaybackState.Paused;
@@ -223,20 +237,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Initialises to play
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">Source wave provider</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Init(IWaveProvider waveProvider)
         {
             InitRecordAndPlayback(waveProvider, 0, -1);
         }
 
         /// <summary>
-        /// Initialises to play, with optional recording
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">Source wave provider - set to null for record only</param>
-        /// <param name="recordChannels">Number of channels to record</param>
-        /// <param name="recordOnlySampleRate">Specify sample rate here if only recording, ignored otherwise</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void InitRecordAndPlayback(IWaveProvider waveProvider, int recordChannels, int recordOnlySampleRate)
         {
             if (isInitialized)
@@ -305,10 +319,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// driver buffer update callback to fill the wave buffer.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputChannels">The input channels.</param>
-        /// <param name="outputChannels">The output channels.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void driver_BufferUpdate(IntPtr[] inputChannels, IntPtr[] outputChannels)
         {
             if (this.NumberOfInputChannels > 0)
@@ -462,6 +476,11 @@ namespace NAudio.Wave
         /// <inheritdoc/>
         public WaveFormat OutputWaveFormat { get; private set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaisePlaybackStopped(Exception e)
         {
             var handler = PlaybackStopped;
@@ -479,20 +498,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Get the input channel name
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="channel">channel index (zero based)</param>
-        /// <returns>channel name</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string AsioInputChannelName(int channel)
         {
             return channel > DriverInputChannelCount ? "" : driver.Capabilities.InputChannelInfos[channel].name;
         }
 
         /// <summary>
-        /// Get the output channel name
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="channel">channel index (zero based)</param>
-        /// <returns>channel name</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string AsioOutputChannelName(int channel)
         {
             return channel > DriverOutputChannelCount ? "" : driver.Capabilities.OutputChannelInfos[channel].name;

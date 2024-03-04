@@ -18,6 +18,12 @@ namespace Plugin
         int quality = 70;
         bool playing = false;
         Node ImageNode;
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -37,6 +43,12 @@ namespace Plugin
             }
             GC.Collect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async void Capture(object sender, NewFrameEventArgs eventArgs)
         {
             if (playing)
@@ -60,6 +72,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private ImageCodecInfo GetEncoderInfo(ImageFormat format)
         {
             var codecs = ImageCodecInfo.GetImageEncoders();
@@ -73,6 +90,11 @@ namespace Plugin
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RecvThread(Node node) 
         {
             while (node.Connected()) 

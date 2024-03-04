@@ -193,6 +193,11 @@ namespace NAudio.Midi
         /// </summary>
         public int DeltaTicksPerQuarterNote => deltaTicksPerQuarterNote;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FindNoteOn(NoteEvent offEvent, List<NoteOnEvent> outstandingNoteOns)
         {
             bool found = false;
@@ -214,21 +219,32 @@ namespace NAudio.Midi
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static uint SwapUInt32(uint i) 
         {
             return ((i & 0xFF000000) >> 24) | ((i & 0x00FF0000) >> 8) | ((i & 0x0000FF00) << 8) | ((i & 0x000000FF) << 24);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static ushort SwapUInt16(ushort i) 
         {
             return (ushort) (((i & 0xFF00) >> 8) | ((i & 0x00FF) << 8));
         }
-        
+
         /// <summary>
-        /// Describes the MIDI file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A string describing the MIDI file and its events</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             var sb = new StringBuilder();
@@ -245,10 +261,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Exports a MIDI file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="filename">Filename to export to</param>
-        /// <param name="events">Events to export</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Export(string filename, MidiEventCollection events)
         {
             if (events.MidiFileType == 0 && events.Tracks > 1)

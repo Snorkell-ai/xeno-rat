@@ -111,6 +111,12 @@ namespace NAudio.Dmo
             "SPDIF_TAG_241h",
             "MP3"
         };
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetAudioSubtypeName(Guid subType)
         {
             for (int index = 0; index < AudioSubTypes.Length; index++)

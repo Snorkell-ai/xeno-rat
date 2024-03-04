@@ -18,12 +18,10 @@ namespace NAudio.Wave
         private string filename;
 
         /// <summary>
-        /// Creates an Aiff file by reading all the data from a WaveProvider
-        /// BEWARE: the WaveProvider MUST return 0 from its Read method when it is finished,
-        /// or the Aiff File will grow indefinitely.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="filename">The filename to use</param>
-        /// <param name="sourceProvider">The source WaveProvider</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void CreateAiffFile(string filename, WaveStream sourceProvider)
         {
             using (var writer = new AiffFileWriter(filename, sourceProvider.WaveFormat))
@@ -75,6 +73,11 @@ namespace NAudio.Wave
             this.filename = filename;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WriteSsndChunkHeader()
         {
             this.writer.Write(System.Text.Encoding.UTF8.GetBytes("SSND"));
@@ -84,6 +87,11 @@ namespace NAudio.Wave
             this.writer.Write(SwapEndian((int)format.BlockAlign));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private byte[] SwapEndian(short n)
         {
             return new byte[] { (byte)(n >> 8), (byte)(n & 0xff) };
@@ -94,6 +102,11 @@ namespace NAudio.Wave
             return new byte[] { (byte)((n >> 24) & 0xff), (byte)((n >> 16) & 0xff), (byte)((n >> 8) & 0xff), (byte)(n & 0xff), };
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CreateCommChunk()
         {
             this.writer.Write(System.Text.Encoding.UTF8.GetBytes("COMM"));
@@ -154,25 +167,30 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Read is not supported for a AiffFileWriter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             throw new InvalidOperationException("Cannot read from an AiffFileWriter");
         }
 
         /// <summary>
-        /// Seek is not supported for a AiffFileWriter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override long Seek(long offset, SeekOrigin origin)
         {
             throw new InvalidOperationException("Cannot seek within an AiffFileWriter");
         }
 
         /// <summary>
-        /// SetLength is not supported for AiffFileWriter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void SetLength(long value)
         {
             throw new InvalidOperationException("Cannot set length of an AiffFileWriter");
@@ -188,11 +206,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Appends bytes to the AiffFile (assumes they are already in the correct format)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="data">the buffer containing the wave data</param>
-        /// <param name="offset">the offset from which to start writing</param>
-        /// <param name="count">the number of bytes to write</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(byte[] data, int offset, int count)
         {
             byte[] swappedData = new byte[data.Length];
@@ -212,9 +229,10 @@ namespace NAudio.Wave
         private byte[] value24 = new byte[3]; // keep this around to save us creating it every time
 
         /// <summary>
-        /// Writes a single sample to the Aiff file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sample">the sample to write (assumed floating point with 1.0f as max value)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void WriteSample(float sample)
         {
             if (WaveFormat.BitsPerSample == 16)
@@ -243,12 +261,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Writes 32 bit floating point samples to the Aiff file
-        /// They will be converted to the appropriate bit depth depending on the WaveFormat of the AIF file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="samples">The buffer containing the floating point samples</param>
-        /// <param name="offset">The offset from which to start writing</param>
-        /// <param name="count">The number of floating point samples to write</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void WriteSamples(float[] samples, int offset, int count)
         {
             for (int n = 0; n < count; n++)
@@ -304,19 +320,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Ensures data is written to disk
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Flush()
         {
             writer.Flush();
         }
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Actually performs the close,making sure the header contains the correct data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">True if called from <see>Dispose</see></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -339,8 +356,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Updates the header with file size information
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual void UpdateHeader(BinaryWriter writer)
         {
             this.Flush();
@@ -350,12 +369,22 @@ namespace NAudio.Wave
             UpdateSsndChunk(writer);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void UpdateCommChunk(BinaryWriter writer)
         {
             writer.Seek((int)commSampleCountPos, SeekOrigin.Begin);
             writer.Write(SwapEndian((int)(dataChunkSize * 8 / format.BitsPerSample / format.Channels)));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void UpdateSsndChunk(BinaryWriter writer)
         {
             writer.Seek((int)dataSizePos, SeekOrigin.Begin);

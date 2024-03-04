@@ -46,8 +46,10 @@ namespace NAudio.Midi
         private static readonly string[] NoteNames = new string[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
 
         /// <summary>
-        /// <see cref="MidiEvent.GetAsShortMessage" />
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetAsShortMessage()
         {
             return base.GetAsShortMessage() + (noteNumber << 8) + (velocity << 16);
@@ -161,9 +163,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Describes the Note Event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Note event as a string</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("{0} {1} Vel:{2}",
@@ -173,8 +176,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// <see cref="MidiEvent.Export"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

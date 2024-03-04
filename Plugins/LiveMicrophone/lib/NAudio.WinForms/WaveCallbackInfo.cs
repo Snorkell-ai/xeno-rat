@@ -20,26 +20,30 @@ namespace NAudio.Wave
         private WaveWindowNative waveOutWindowNative;
 
         /// <summary>
-        /// Sets up a new WaveCallbackInfo for function callbacks
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveCallbackInfo FunctionCallback()
         {
             return new WaveCallbackInfo(WaveCallbackStrategy.FunctionCallback, IntPtr.Zero);
         }
 
         /// <summary>
-        /// Sets up a new WaveCallbackInfo to use a New Window
-        /// IMPORTANT: only use this on the GUI thread
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveCallbackInfo NewWindow()
         {
             return new WaveCallbackInfo(WaveCallbackStrategy.NewWindow, IntPtr.Zero);
         }
 
         /// <summary>
-        /// Sets up a new WaveCallbackInfo to use an existing window
-        /// IMPORTANT: only use this on the GUI thread
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveCallbackInfo ExistingWindow(IntPtr handle)
         {
             if (handle == IntPtr.Zero)
@@ -55,6 +59,11 @@ namespace NAudio.Wave
             this.Handle = handle;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal void Connect(WaveInterop.WaveCallback callback)
         {
             if (Strategy == WaveCallbackStrategy.NewWindow)
@@ -70,6 +79,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal MmResult WaveOutOpen(out IntPtr waveOutHandle, int deviceNumber, WaveFormat waveFormat, WaveInterop.WaveCallback callback)
         {
             MmResult result;
@@ -84,6 +98,11 @@ namespace NAudio.Wave
             return result;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal MmResult WaveInOpen(out IntPtr waveInHandle, int deviceNumber, WaveFormat waveFormat, WaveInterop.WaveCallback callback)
         {
             MmResult result;
@@ -98,6 +117,11 @@ namespace NAudio.Wave
             return result;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal void Disconnect()
         {
             if (waveOutWindow != null)

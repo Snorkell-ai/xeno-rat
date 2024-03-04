@@ -16,8 +16,10 @@ namespace NAudio.Wave
         private byte[] rawData;
 
         /// <summary>
-        /// Reads an ID3v2 tag from a stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static Id3v2Tag ReadTag(Stream input)
         {
             try
@@ -30,23 +32,21 @@ namespace NAudio.Wave
             }
         }
 
-        #region Id3v2 Creation from key-value pairs
-
         /// <summary>
-        /// Creates a new ID3v2 tag from a collection of key-value pairs.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="tags">A collection of key-value pairs containing the tags to include in the ID3v2 tag.</param>
-        /// <returns>A new ID3v2 tag</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static Id3v2Tag Create(IEnumerable<KeyValuePair<string, string>> tags)
         {
             return Id3v2Tag.ReadTag(CreateId3v2TagStream(tags));
         }
 
         /// <summary>
-        /// Convert the frame size to a byte array.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="n">The frame body size.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static byte[] FrameSizeToBytes(int n)
         {
             byte[] result = BitConverter.GetBytes(n);
@@ -55,11 +55,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates an ID3v2 frame for the given key-value pair.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static byte[] CreateId3v2Frame(string key, string value)
         {
             if (string.IsNullOrEmpty(key))
@@ -110,10 +109,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the Id3v2 Header size. The size is encoded so that only 7 bits per byte are actually used.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="size"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static byte[] GetId3TagHeaderSize(int size)
         {
             byte[] result = new byte[4];
@@ -127,10 +126,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates the Id3v2 tag header and returns is as a byte array.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="frames">The Id3v2 frames that will be included in the file. This is used to calculate the ID3v2 tag size.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static byte[] CreateId3v2TagHeader(IEnumerable<byte[]> frames)
         {
             int size = 0;
@@ -148,10 +147,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates the Id3v2 tag for the given key-value pairs and returns it in the a stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="tags"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static Stream CreateId3v2TagStream(IEnumerable<KeyValuePair<string, string>> tags)
         {
             List<byte[]> frames = new List<byte[]>();

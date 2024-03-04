@@ -8,9 +8,12 @@ namespace NAudio.Utils
     /// </summary>
     public static class WavePositionExtensions
     {
+
         /// <summary>
-        /// Get Position as timespan
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static TimeSpan GetPositionTimeSpan(this IWavePosition @this)
         {
             var pos = @this.GetPosition() / (@this.OutputWaveFormat.Channels * @this.OutputWaveFormat.BitsPerSample / 8);

@@ -108,15 +108,21 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets the default audio capture device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>The default audio capture device</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MMDevice GetDefaultCaptureDevice()
         {
             var devices = new MMDeviceEnumerator();
             return devices.GetDefaultAudioEndpoint(DataFlow.Capture, Role.Console);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitializeCaptureDevice()
         {
             if (initialized)
@@ -168,8 +174,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// To allow overrides to specify different flags (e.g. loopback)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual AudioClientStreamFlags GetAudioClientStreamFlags()
         {
             // enable auto-convert PCM
@@ -177,8 +185,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Start Capturing
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StartRecording()
         {
             if (captureState != CaptureState.Stopped)
@@ -192,14 +202,21 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Stop Capturing (requests a stop, wait for RecordingStopped event to know it has finished)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StopRecording()
         {
             if (captureState != CaptureState.Stopped)
                 captureState = CaptureState.Stopping;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CaptureThread(AudioClient client)
         {
             Exception exception = null;
@@ -221,6 +238,11 @@ namespace NAudio.CoreAudioApi
             RaiseRecordingStopped(exception);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DoRecording(AudioClient client)
         {
             //Debug.WriteLine(String.Format("Client buffer frame count: {0}", client.BufferSize));
@@ -257,6 +279,11 @@ namespace NAudio.CoreAudioApi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaiseRecordingStopped(Exception e)
         {
             var handler = RecordingStopped;
@@ -271,6 +298,11 @@ namespace NAudio.CoreAudioApi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadNextPacket(AudioCaptureClient capture)
         {
             int packetSize = capture.GetNextPacketSize();
@@ -309,8 +341,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             StopRecording();

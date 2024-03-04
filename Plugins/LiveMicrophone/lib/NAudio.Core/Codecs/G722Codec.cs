@@ -24,9 +24,12 @@ namespace NAudio.Codecs
     /// </summary>
     public class G722Codec
     {
+
         /// <summary>
-        /// hard limits to 16 bit samples
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static short Saturate(int amp)
         {
             short amp16;
@@ -40,6 +43,11 @@ namespace NAudio.Codecs
             return Int16.MinValue;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static void Block4(G722CodecState s, int band, int d)
         {
             int wd1;
@@ -146,13 +154,10 @@ namespace NAudio.Codecs
         static readonly int[] ihp = { 0, 3, 2 };
 
         /// <summary>
-        /// Decodes a buffer of G722
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="state">Codec state</param>
-        /// <param name="outputBuffer">Output buffer (to contain decompressed PCM samples)</param>
-        /// <param name="inputG722Data"></param>
-        /// <param name="inputLength">Number of bytes in input G722 data to decode</param>
-        /// <returns>Number of samples written into output buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Decode(G722CodecState state, short[] outputBuffer, byte[] inputG722Data, int inputLength)
         {
             int dlowt;
@@ -316,13 +321,10 @@ namespace NAudio.Codecs
         }
 
         /// <summary>
-        /// Encodes a buffer of G722
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="state">Codec state</param>
-        /// <param name="outputBuffer">Output buffer (to contain encoded G722)</param>
-        /// <param name="inputBuffer">PCM 16 bit samples to encode</param>
-        /// <param name="inputBufferCount">Number of samples in the input buffer to encode</param>
-        /// <returns>Number of encoded bytes written into output buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Encode(G722CodecState state, byte[] outputBuffer, short[] inputBuffer, int inputBufferCount)
         {
             int dlow;

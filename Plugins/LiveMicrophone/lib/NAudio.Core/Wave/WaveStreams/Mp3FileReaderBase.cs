@@ -160,6 +160,11 @@ namespace NAudio.Wave
         /// <returns>An MP3 Frame decompressor</returns>
         public delegate IMp3FrameDecompressor FrameDecompressorBuilder(WaveFormat mp3Format);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CreateTableOfContents()
         {
             try
@@ -191,6 +196,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ValidateFrameFormat(Mp3Frame frame)
         {
             if (frame.SampleRate != Mp3WaveFormat.SampleRate)
@@ -213,8 +223,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the total length of this file in milliseconds.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private double TotalSeconds()
         {
             return (double)totalSamples / Mp3WaveFormat.SampleRate;
@@ -233,9 +245,10 @@ namespace NAudio.Wave
         public byte[] Id3v1Tag { get; }
 
         /// <summary>
-        /// Reads the next mp3 frame
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Next mp3 frame, or null if EOF</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public Mp3Frame ReadNextFrame()
         {
             var frame = ReadNextFrame(true);
@@ -332,8 +345,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads decompressed PCM data from our MP3 file.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] sampleBuffer, int offset, int numBytes)
         {
             int bytesRead = 0;
@@ -435,8 +450,10 @@ namespace NAudio.Wave
         public XingHeader XingHeader => xingHeader;
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

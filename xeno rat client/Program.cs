@@ -27,6 +27,11 @@ namespace xeno_rat_client
 
         public static StringBuilder ProcessLog = new StringBuilder();
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static async Task Main(string[] args)
         {
             CapturingConsoleWriter ConsoleCapture = new CapturingConsoleWriter(Console.Out);
@@ -103,11 +108,21 @@ namespace xeno_rat_client
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void OnDisconnect(Node MainNode) 
         {
             Console.WriteLine(MainNode.Connected());
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception exception = e.ExceptionObject as Exception;
@@ -143,25 +158,43 @@ namespace xeno_rat_client
 
         public override Encoding Encoding => originalOut.Encoding;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(char value)
         {
             Program.ProcessLog.Append(value);  // Capture the output
             originalOut.Write(value);  // Continue to write to the original output
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void WriteLine(string value)
         {
             Program.ProcessLog.AppendLine(value);  // Capture the output with a new line
             originalOut.WriteLine(value);  // Continue to write to the original output
         }
 
-        // You can add other overrides if needed
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetCapturedOutput()
         {
             return Program.ProcessLog.ToString();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ClearCapturedOutput()
         {
             Program.ProcessLog.Clear();

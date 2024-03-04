@@ -45,11 +45,12 @@ namespace NAudio.Midi
             this.Controller = controller;
             this.ControllerValue = controllerValue;
         }
-        
+
         /// <summary>
-        /// Describes this control change event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A string describing this event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             return String.Format("{0} Controller {1} Value {2}",
@@ -59,8 +60,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// <see cref="MidiEvent.GetAsShortMessage" />
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetAsShortMessage()
         {
             byte c = (byte)controller;
@@ -68,10 +71,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Calls base class export first, then exports the data 
-        /// specific to this event
-        /// <seealso cref="MidiEvent.Export">MidiEvent.Export</seealso>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

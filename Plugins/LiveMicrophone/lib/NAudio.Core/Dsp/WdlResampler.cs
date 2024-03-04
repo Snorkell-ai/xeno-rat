@@ -67,9 +67,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// sets the mode
-        /// if sinc set, it overrides interp or filtercnt
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetMode(bool interp, int filtercnt, bool sinc, int sinc_size = 64, int sinc_interpsize = 32)
         {
             m_sincsize = sinc && sinc_size >= 4 ? sinc_size > 8192 ? 8192 : sinc_size : 0;
@@ -92,9 +93,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Sets the filter parameters
-        /// used for filtercnt>0 but not sinc
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetFilterParms(float filterpos = 0.693f, float filterq = 0.707f)
         {
             m_filterpos = filterpos;
@@ -102,17 +104,20 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Set feed mode
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="wantInputDriven">if true, that means the first parameter to ResamplePrepare will specify however much input you have, not how much you want</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetFeedMode(bool wantInputDriven)
         {
             m_feedmode = wantInputDriven;
         }
 
         /// <summary>
-        /// Reset
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset(double fracpos = 0.0)
         {
             m_last_requested = 0;
@@ -122,6 +127,11 @@ namespace NAudio.Dsp
             if (m_iirfilter != null) m_iirfilter.Reset();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetRates(double rate_in, double rate_out)
         {
             if (rate_in < 1.0) rate_in = 1.0;
@@ -134,7 +144,11 @@ namespace NAudio.Dsp
             }
         }
 
-        // amount of input that has been received but not yet converted to output, in seconds
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public double GetCurrentLatency()
         {
             double v = ((double)m_samples_in_rsinbuf - m_filtlatency) / m_sratein;
@@ -144,15 +158,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Prepare
-        /// note that it is safe to call ResamplePrepare without calling ResampleOut (the next call of ResamplePrepare will function as normal)
-        /// nb inbuffer was WDL_ResampleSample **, returning a place to put the in buffer, so we return a buffer and offset
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="out_samples">req_samples is output samples desired if !wantInputDriven, or if wantInputDriven is input samples that we have</param>
-        /// <param name="nch"></param>
-        /// <param name="inbuffer"></param>
-        /// <param name="inbufferOffset"></param>
-        /// <returns>returns number of samples desired (put these into *inbuffer)</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int ResamplePrepare(int out_samples, int nch, out WDL_ResampleSample[] inbuffer, out int inbufferOffset)
         {
             if (nch > WDL_RESAMPLE_MAX_NCH || nch < 1)
@@ -210,9 +219,11 @@ namespace NAudio.Dsp
             return sreq;
         }
 
-        // if numsamples_in < the value return by ResamplePrepare(), then it will be flushed to produce all remaining valid samples
-        // do NOT call with nsamples_in greater than the value returned from resamplerprpare()! the extra samples will be ignored.
-        // returns number of samples successfully outputted to out
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int ResampleOut(WDL_ResampleSample[] outBuffer, int outBufferIndex, int nsamples_in, int nsamples_out, int nch)
         {
             if (nch > WDL_RESAMPLE_MAX_NCH || nch < 1)
@@ -475,7 +486,11 @@ namespace NAudio.Dsp
             return ret;
         }
 
-        // only called in sinc modes
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void BuildLowPass(double filtpos)
         {
             int wantsize = m_sincsize;
@@ -527,7 +542,11 @@ namespace NAudio.Dsp
             }
         }
 
-        // SincSample(WDL_ResampleSample *outptr, WDL_ResampleSample *inptr, double fracpos, int nch, WDL_SincFilterSample *filter, int filtsz)
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SincSample(WDL_ResampleSample[] outBuffer, int outBufferIndex, WDL_ResampleSample[] inBuffer, int inBufferIndex, double fracpos, int nch, WDL_SincFilterSample[] filter, int filterIndex, int filtsz)
         {
             int oversize = m_lp_oversize;
@@ -553,7 +572,11 @@ namespace NAudio.Dsp
             }
         }
 
-        // SincSample1(WDL_ResampleSample* outptr, WDL_ResampleSample* inptr, double fracpos, WDL_SincFilterSample* filter, int filtsz)
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SincSample1(WDL_ResampleSample[] outBuffer, int outBufferIndex, WDL_ResampleSample[] inBuffer, int inBufferIndex, double fracpos, WDL_SincFilterSample[] filter, int filterIndex, int filtsz)
         {
             int oversize = m_lp_oversize;
@@ -576,7 +599,11 @@ namespace NAudio.Dsp
             outBuffer[outBufferIndex] = (WDL_ResampleSample)(sum * fracpos + sum2 * (1.0 - fracpos));
         }
 
-        // SincSample2(WDL_ResampleSample* outptr, WDL_ResampleSample* inptr, double fracpos, WDL_SincFilterSample* filter, int filtsz)
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SincSample2(WDL_ResampleSample[] outptr, int outBufferIndex, WDL_ResampleSample[] inBuffer, int inBufferIndex, double fracpos, WDL_SincFilterSample[] filter, int filterIndex, int filtsz)
         {
             int oversize = m_lp_oversize;
@@ -647,6 +674,11 @@ namespace NAudio.Dsp
                 m_hist = new double[WDL_RESAMPLE_MAX_FILTERS * WDL_RESAMPLE_MAX_NCH, 4];
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public void setParms(double fpos, double Q)
             {
                 if (Math.Abs(fpos - m_fpos) < 0.000001) return;
@@ -666,6 +698,11 @@ namespace NAudio.Dsp
 
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public void Apply(WDL_ResampleSample[] inBuffer, int inIndex, WDL_ResampleSample[] outBuffer, int outIndex, int ns, int span, int w)
             {
                 double b0 = m_b0, b1 = m_b1, b2 = m_b2, a1 = m_a1, a2 = m_a2;
@@ -685,6 +722,11 @@ namespace NAudio.Dsp
                 }
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             double denormal_filter(float x)
             {
                 // TODO: implement denormalisation

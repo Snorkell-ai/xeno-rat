@@ -6,6 +6,12 @@ namespace NAudio.Wave
 {
     public static class WaveOutUtils
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static float GetWaveOutVolume(IntPtr hWaveOut, object lockObject)
         {
             int stereoVolume;
@@ -18,6 +24,11 @@ namespace NAudio.Wave
             return (stereoVolume & 0xFFFF) / (float)0xFFFF;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetWaveOutVolume(float value, IntPtr hWaveOut, object lockObject)
         {
             if (value < 0) throw new ArgumentOutOfRangeException(nameof(value), "Volume must be between 0.0 and 1.0");
@@ -34,6 +45,11 @@ namespace NAudio.Wave
             MmException.Try(result, "waveOutSetVolume");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static long GetPositionBytes(IntPtr hWaveOut, object lockObject)
         {
             lock (lockObject)

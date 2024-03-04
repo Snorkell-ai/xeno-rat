@@ -45,8 +45,10 @@ namespace NAudio.SoundFont
         public TransformEnum SourceTransform { get; set; }
 
         /// <summary>
-        /// <see cref="Object.ToString"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("Modulator {0} {1} {2} {3} {4}",

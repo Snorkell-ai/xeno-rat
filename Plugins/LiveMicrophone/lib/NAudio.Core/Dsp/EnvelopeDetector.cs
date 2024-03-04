@@ -1,4 +1,4 @@
-// based on EnvelopeDetector.cpp v1.10 © 2006, ChunkWare Music Software, OPEN-SOURCE
+// based on EnvelopeDetector.cpp v1.10 Â© 2006, ChunkWare Music Software, OPEN-SOURCE
 using System;
 
 namespace NAudio.Dsp
@@ -44,11 +44,21 @@ namespace NAudio.Dsp
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public double Run( double inValue, double state )
         {
             return inValue + coeff * (state - inValue);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SetCoef()
         {
             coeff = Math.Exp(-1.0 / (0.001 * ms * sampleRate));

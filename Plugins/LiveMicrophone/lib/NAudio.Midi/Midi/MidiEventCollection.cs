@@ -43,10 +43,10 @@ namespace NAudio.Midi
         public int DeltaTicksPerQuarterNote { get; }
 
         /// <summary>
-        /// Gets events on a specified track
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="trackNumber">Track number</param>
-        /// <returns>The list of events</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IList<MidiEvent> GetTrackEvents(int trackNumber)
         {
             return trackEvents[trackNumber];
@@ -60,9 +60,10 @@ namespace NAudio.Midi
         public IList<MidiEvent> this[int trackNumber] => trackEvents[trackNumber];
 
         /// <summary>
-        /// Adds a new track
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>The new track event list</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IList<MidiEvent> AddTrack()
         {
             return AddTrack(null);
@@ -85,17 +86,20 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Removes a track
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="track">Track number to remove</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RemoveTrack(int track)
         {
             trackEvents.RemoveAt(track);
         }
 
         /// <summary>
-        /// Clears all events
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Clear()
         {
             trackEvents.Clear();
@@ -127,15 +131,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Adds an event to the appropriate track depending on file type
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="midiEvent">The event to be added</param>
-        /// <param name="originalTrack">The original (or desired) track number</param>
-        /// <remarks>When adding events in type 0 mode, the originalTrack parameter
-        /// is ignored. If in type 1 mode, it will use the original track number to
-        /// store the new events. If the original track was 0 and this is a channel based
-        /// event, it will create new tracks if necessary and put it on the track corresponding
-        /// to its channel number</remarks>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddEvent(MidiEvent midiEvent, int originalTrack)
         {
             if (midiFileType == 0)
@@ -177,7 +176,11 @@ namespace NAudio.Midi
             }
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnsureTracks(int count)
         {
             for (int n = trackEvents.Count; n < count; n++)
@@ -186,6 +189,11 @@ namespace NAudio.Midi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ExplodeToManyTracks()
         {
             IList<MidiEvent> originalList = trackEvents[0];
@@ -197,6 +205,11 @@ namespace NAudio.Midi
             PrepareForExport();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FlattenToOneTrack()
         {
             bool eventsAdded = false;
@@ -222,8 +235,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Sorts, removes empty tracks and adds end track markers
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void PrepareForExport()
         {
             var comparer = new MidiEventComparer();
@@ -275,8 +290,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Gets an enumerator for the lists of track events
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IEnumerator<IList<MidiEvent>> GetEnumerator()
         {
             return trackEvents.GetEnumerator();

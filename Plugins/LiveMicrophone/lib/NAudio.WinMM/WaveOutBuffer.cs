@@ -59,8 +59,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Releases resources held by this WaveBuffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             GC.SuppressFinalize(this);
@@ -93,9 +95,11 @@ namespace NAudio.Wave
             }
         }
 
-        #endregion
-
-        /// this is called by the WAVE callback and should be used to refill the buffer
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool OnDone()
         {
             int bytes;
@@ -131,6 +135,11 @@ namespace NAudio.Wave
         /// </summary>
         public int BufferSize => bufferSize;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WriteToWaveOut()
         {
             MmResult result;

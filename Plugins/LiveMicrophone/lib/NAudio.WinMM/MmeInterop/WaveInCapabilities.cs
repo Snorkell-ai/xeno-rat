@@ -103,8 +103,10 @@ namespace NAudio.Wave
         public static readonly Guid DefaultWaveInGuid = new Guid("E36DC311-6D9A-11D1-A21A-00A0C9223196");
 
         /// <summary>
-        /// The device name from the registry if supported
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetNameFromGuid(Guid guid)
         {
             // n.b it seems many audio drivers just return the default values, which won't be in the registry

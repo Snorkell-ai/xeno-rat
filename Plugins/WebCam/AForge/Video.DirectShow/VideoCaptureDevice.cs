@@ -548,13 +548,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Start video source.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <remarks>Starts video source and return execution to caller. Video source
-        /// object creates background thread and notifies about new frames with the
-        /// help of <see cref="NewFrame"/> event.</remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Start( )
         {
             if ( !IsRunning )
@@ -582,12 +579,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Signal video source to stop its work.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <remarks>Signals video source to stop its background thread, stop to
-        /// provide new frames and free resources.</remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SignalToStop( )
         {
             // stop thread
@@ -599,12 +594,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Wait for video source has stopped.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <remarks>Waits for source stopping after it was signalled to stop using
-        /// <see cref="SignalToStop"/> method.</remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void WaitForStop( )
         {
             if ( thread != null )
@@ -617,17 +610,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Stop video source.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <remarks><para>Stops video source aborting its thread.</para>
-        /// 
-        /// <para><note>Since the method aborts background thread, its usage is highly not preferred
-        /// and should be done only if there are no other options. The correct way of stopping camera
-        /// is <see cref="SignalToStop">signaling it stop</see> and then
-        /// <see cref="WaitForStop">waiting</see> for background thread's completion.</note></para>
-        /// </remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop( )
         {
             if ( this.IsRunning )
@@ -638,9 +624,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Free resource.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Free( )
         {
             thread = null;
@@ -651,21 +638,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Display property window for the video capture device providing its configuration
-        /// capabilities.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="parentWindow">Handle of parent window.</param>
-        /// 
-        /// <remarks><para><note>If you pass parent window's handle to this method, then the
-        /// displayed property page will become modal window and none of the controls from the
-        /// parent window will be accessible. In order to make it modeless it is required
-        /// to pass <see cref="IntPtr.Zero"/> as parent window's handle.
-        /// </note></para>
-        /// </remarks>
-        /// 
-        /// <exception cref="NotSupportedException">The video source does not support configuration property page.</exception>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void DisplayPropertyPage( IntPtr parentWindow )
         {
             // check source
@@ -706,27 +682,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Display property page of video crossbar (Analog Video Crossbar filter).
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="parentWindow">Handle of parent window.</param>
-        /// 
-        /// <remarks><para>The Analog Video Crossbar filter is modeled after a general switching matrix,
-        /// with n inputs and m outputs. For example, a video card might have two external connectors:
-        /// a coaxial connector for TV, and an S-video input. These would be represented as input pins on
-        /// the filter. The displayed property page allows to configure the crossbar by selecting input
-        /// of a video card to use.</para>
-        /// 
-        /// <para><note>This method can be invoked only when video source is running (<see cref="IsRunning"/> is
-        /// <see langword="true"/>). Otherwise it generates exception.</note></para>
-        /// 
-        /// <para>Use <see cref="CheckIfCrossbarAvailable"/> method to check if running video source provides
-        /// crossbar configuration.</para>
-        /// </remarks>
-        /// 
-        /// <exception cref="ApplicationException">The video source must be running in order to display crossbar property page.</exception>
-        /// <exception cref="NotSupportedException">Crossbar configuration is not supported by currently running video source.</exception>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void DisplayCrossbarPropertyPage( IntPtr parentWindow )
         {
             lock ( sync )
@@ -754,16 +713,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Check if running video source provides crossbar for configuration.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <returns>Returns <see langword="true"/> if crossbar configuration is available or
-        /// <see langword="false"/> otherwise.</returns>
-        /// 
-        /// <remarks><para>The method reports if the video source provides crossbar configuration
-        /// using <see cref="DisplayCrossbarPropertyPage"/>.</para>
-        /// </remarks>
-        ///
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool CheckIfCrossbarAvailable( )
         {
             lock ( sync )
@@ -788,38 +741,21 @@ namespace AForge.Video.DirectShow
             }
         }
 
-
         /// <summary>
-        /// Simulates an external trigger.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <remarks><para>The method simulates external trigger for video cameras, which support
-        /// providing still image snapshots. The effect is equivalent as pressing camera's shutter
-        /// button - a snapshot will be provided through <see cref="SnapshotFrame"/> event.</para>
-        /// 
-        /// <para><note>The <see cref="ProvideSnapshots"/> property must be set to <see langword="true"/>
-        /// to enable receiving snapshots.</note></para>
-        /// </remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SimulateTrigger( )
         {
             needToSimulateTrigger = true;
         }
 
         /// <summary>
-        /// Sets a specified property on the camera.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="property">Specifies the property to set.</param>
-        /// <param name="value">Specifies the new value of the property.</param>
-        /// <param name="controlFlags">Specifies the desired control setting.</param>
-        /// 
-        /// <returns>Returns true on sucee or false otherwise.</returns>
-        /// 
-        /// <exception cref="ArgumentException">Video source is not specified - device moniker is not set.</exception>
-        /// <exception cref="ApplicationException">Failed creating device object for moniker.</exception>
-        /// <exception cref="NotSupportedException">The video source does not support camera control.</exception>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool SetCameraProperty( CameraControlProperty property, int value, CameraControlFlags controlFlags )
         {
             bool ret = true;
@@ -861,19 +797,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Gets the current setting of a camera property.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="property">Specifies the property to retrieve.</param>
-        /// <param name="value">Receives the value of the property.</param>
-        /// <param name="controlFlags">Receives the value indicating whether the setting is controlled manually or automatically</param>
-        /// 
-        /// <returns>Returns true on sucee or false otherwise.</returns>
-        /// 
-        /// <exception cref="ArgumentException">Video source is not specified - device moniker is not set.</exception>
-        /// <exception cref="ApplicationException">Failed creating device object for moniker.</exception>
-        /// <exception cref="NotSupportedException">The video source does not support camera control.</exception>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool GetCameraProperty( CameraControlProperty property, out int value, out CameraControlFlags controlFlags )
         {
             bool ret = true;
@@ -915,22 +842,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Gets the range and default value of a specified camera property.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="property">Specifies the property to query.</param>
-        /// <param name="minValue">Receives the minimum value of the property.</param>
-        /// <param name="maxValue">Receives the maximum value of the property.</param>
-        /// <param name="stepSize">Receives the step size for the property.</param>
-        /// <param name="defaultValue">Receives the default value of the property.</param>
-        /// <param name="controlFlags">Receives a member of the <see cref="CameraControlFlags"/> enumeration, indicating whether the property is controlled automatically or manually.</param>
-        /// 
-        /// <returns>Returns true on sucee or false otherwise.</returns>
-        /// 
-        /// <exception cref="ArgumentException">Video source is not specified - device moniker is not set.</exception>
-        /// <exception cref="ApplicationException">Failed creating device object for moniker.</exception>
-        /// <exception cref="NotSupportedException">The video source does not support camera control.</exception>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool GetCameraPropertyRange( CameraControlProperty property, out int minValue, out int maxValue, out int stepSize, out int defaultValue, out CameraControlFlags controlFlags )
         {
             bool ret = true;
@@ -972,9 +887,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Worker thread.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WorkerThread( )
         {
             WorkerThread( true );
@@ -1315,7 +1231,11 @@ namespace AForge.Video.DirectShow
             }
         }
 
-        // Set resolution for the specified stream configuration
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SetResolution( IAMStreamConfig streamConfig, VideoCapabilities resolution )
         {
             if ( resolution == null )
@@ -1357,7 +1277,11 @@ namespace AForge.Video.DirectShow
             }
         }
 
-        // Configure specified pin and collect its capabilities if required
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void GetPinCapabilitiesAndConfigureSizeAndRate( ICaptureGraphBuilder2 graphBuilder, IBaseFilter baseFilter,
             Guid pinCategory, VideoCapabilities resolutionToSet, ref VideoCapabilities[] capabilities )
         {
@@ -1432,7 +1356,11 @@ namespace AForge.Video.DirectShow
             }
         }
 
-        // Collect all video inputs of the specified crossbar
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private VideoInput[] ColletCrossbarVideoInputs( IAMCrossbar crossbar )
         {
             lock ( cacheCrossbarVideoInputs )
@@ -1477,7 +1405,11 @@ namespace AForge.Video.DirectShow
             }
         }
 
-        // Get type of input connected to video output of the crossbar
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private VideoInput GetCurrentCrossbarInput( IAMCrossbar crossbar )
         {
             VideoInput videoInput = VideoInput.Default;
@@ -1523,7 +1455,11 @@ namespace AForge.Video.DirectShow
             return videoInput;
         }
 
-        // Set type of input connected to video output of the crossbar
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SetCurrentCrossbarInput( IAMCrossbar crossbar, VideoInput videoInput )
         {
             if ( videoInput.Type != PhysicalConnectorType.Default )
@@ -1575,11 +1511,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Notifies clients about new frame.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="image">New frame's image.</param>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnNewFrame( Bitmap image )
         {
             framesReceived++;
@@ -1590,11 +1525,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Notifies clients about new snapshot frame.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="image">New snapshot's image.</param>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnSnapshotFrame( Bitmap image )
         {
             TimeSpan timeSinceStarted = DateTime.Now - startTime;
@@ -1637,13 +1571,21 @@ namespace AForge.Video.DirectShow
                 this.snapshotMode = snapshotMode;
             }
 
-            // Callback to receive samples
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public int SampleCB( double sampleTime, IntPtr sample )
             {
                 return 0;
             }
 
-            // Callback method that receives a pointer to the sample buffer
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public int BufferCB( double sampleTime, IntPtr buffer, int bufferLen )
             {
                 if ( parent.NewFrame != null )

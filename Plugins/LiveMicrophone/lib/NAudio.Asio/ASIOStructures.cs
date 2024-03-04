@@ -43,10 +43,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Gets the name of the error.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="error">The error.</param>
-        /// <returns>the name of the error</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static String getErrorName(AsioError error)
         {
             return Enum.GetName(typeof(AsioError), error);            

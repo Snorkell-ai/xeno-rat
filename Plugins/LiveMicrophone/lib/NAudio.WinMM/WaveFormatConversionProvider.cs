@@ -40,8 +40,10 @@ namespace NAudio.Wave
         public WaveFormat WaveFormat { get; }
 
         /// <summary>
-        /// Indicates that a reposition has taken place, and internal buffers should be reset
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reposition()
         {
             leftoverDestBytes = 0;
@@ -51,12 +53,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads bytes from this stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to read into</param>
-        /// <param name="offset">Offset in buffer to read into</param>
-        /// <param name="count">Number of bytes to read</param>
-        /// <returns>Number of bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             int bytesRead = 0;
@@ -141,9 +141,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">true if the user called this</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (!isDisposed)

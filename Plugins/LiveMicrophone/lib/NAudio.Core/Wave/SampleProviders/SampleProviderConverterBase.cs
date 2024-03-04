@@ -34,18 +34,17 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat => waveFormat;
 
         /// <summary>
-        /// Reads samples from the source wave provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Sample buffer</param>
-        /// <param name="offset">Offset into sample buffer</param>
-        /// <param name="count">Number of samples required</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public abstract int Read(float[] buffer, int offset, int count);
 
         /// <summary>
-        /// Ensure the source buffer exists and is big enough
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sourceBytesRequired">Bytes required</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected void EnsureSourceBuffer(int sourceBytesRequired)
         {
             sourceBuffer = BufferHelpers.Ensure(sourceBuffer, sourceBytesRequired);

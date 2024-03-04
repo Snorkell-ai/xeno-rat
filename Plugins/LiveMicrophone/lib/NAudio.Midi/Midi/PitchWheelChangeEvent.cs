@@ -43,11 +43,12 @@ namespace NAudio.Midi
         {
             Pitch = pitchWheel;
         }
-        
+
         /// <summary>
-        /// Describes this pitch wheel change event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>String describing this pitch wheel change event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             return String.Format("{0} Pitch {1} ({2})",
@@ -76,19 +77,20 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Gets a short message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Integer to sent as short message</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetAsShortMessage()
         {
             return base.GetAsShortMessage() + ((pitch & 0x7f) << 8) + (((pitch >> 7) & 0x7f) << 16);
         }
 
         /// <summary>
-        /// Calls base class export first, then exports the data 
-        /// specific to this event
-        /// <seealso cref="MidiEvent.Export">MidiEvent.Export</seealso>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

@@ -7,12 +7,12 @@ namespace NAudio.Wave.SampleProviders
     /// </summary>
     static class SampleProviderConverters
     {
+
         /// <summary>
-        /// Helper function to go from IWaveProvider to a SampleProvider
-        /// Must already be PCM or IEEE float
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">The WaveProvider to convert</param>
-        /// <returns>A sample provider</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider ConvertWaveProviderIntoSampleProvider(IWaveProvider waveProvider)
         {
             ISampleProvider sampleProvider;

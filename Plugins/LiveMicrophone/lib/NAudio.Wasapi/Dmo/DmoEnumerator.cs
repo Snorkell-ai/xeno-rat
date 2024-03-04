@@ -9,33 +9,42 @@ namespace NAudio.Dmo
     /// </summary>
     public class DmoEnumerator
     {
+
         /// <summary>
-        /// Get audio effect names
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Audio effect names</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IEnumerable<DmoDescriptor> GetAudioEffectNames()
         {
             return GetDmos(DmoGuids.DMOCATEGORY_AUDIO_EFFECT);
         }
 
         /// <summary>
-        /// Get audio encoder names
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Audio encoder names</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IEnumerable<DmoDescriptor> GetAudioEncoderNames()
         {
             return GetDmos(DmoGuids.DMOCATEGORY_AUDIO_ENCODER);
         }
 
         /// <summary>
-        /// Get audio decoder names
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Audio decoder names</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IEnumerable<DmoDescriptor> GetAudioDecoderNames()
         {
             return GetDmos(DmoGuids.DMOCATEGORY_AUDIO_DECODER);
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static IEnumerable<DmoDescriptor> GetDmos(Guid category)
         {
             IEnumDmo enumDmo;

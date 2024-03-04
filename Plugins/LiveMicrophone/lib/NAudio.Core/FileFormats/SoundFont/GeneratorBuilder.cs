@@ -4,6 +4,12 @@ namespace NAudio.SoundFont
 {
     internal class GeneratorBuilder : StructureBuilder<Generator>
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override Generator Read(BinaryReader br)
         {
             Generator g = new Generator();
@@ -13,6 +19,11 @@ namespace NAudio.SoundFont
             return g;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, Generator o)
         {
             //Zone z = (Zone) o;
@@ -23,6 +34,11 @@ namespace NAudio.SoundFont
 
         public Generator[] Generators => data.ToArray();
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Load(Instrument[] instruments)
         {
             foreach (Generator g in Generators)

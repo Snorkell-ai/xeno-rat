@@ -20,9 +20,12 @@ namespace NAudio.Utils
         /// E_INVALIDARG (from winerror.h)
         /// </summary>
         public const int E_INVALIDARG = unchecked((int)0x80000003);
+
         /// <summary>
-        /// MAKE_HRESULT macro
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int MAKE_HRESULT(int sev, int fac, int code)
         {
             return (int) (((uint)sev) << 31 | ((uint)fac) << 16 | ((uint)code));
@@ -57,11 +60,10 @@ namespace NAudio.Utils
         const int FACILITY_WINDOWS_CE       = 24; 
 
         /// <summary>
-        /// Helper to deal with the fact that in Win Store apps,
-        /// the HResult property name has changed
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="exception">COM Exception</param>
-        /// <returns>The HResult</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int GetHResult(this COMException exception)
         {
             return exception.ErrorCode;

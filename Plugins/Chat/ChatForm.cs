@@ -23,12 +23,23 @@ namespace Chat
             textBox1.Enabled = false;
             InitializeAsync();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task InitializeAsync() 
         {
             Heartbeat();
             await RecvThread();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Heartbeat() 
         {
             while (server.Connected()) 
@@ -43,6 +54,12 @@ namespace Chat
                 break;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RecvThread()
         {
             while (server.Connected())
@@ -77,6 +94,12 @@ namespace Chat
                 }));
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             string message = textBox2.Text;
@@ -87,6 +110,11 @@ namespace Chat
             textBox1.ScrollToCaret();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -97,11 +125,21 @@ namespace Chat
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ChatForm_Load(object sender, EventArgs e)
         {
             this.Activate();

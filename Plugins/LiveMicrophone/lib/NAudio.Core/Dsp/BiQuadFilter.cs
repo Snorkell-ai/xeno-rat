@@ -43,10 +43,10 @@ namespace NAudio.Dsp
         private float y2;
 
         /// <summary>
-        /// Passes a single sample through the filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inSample">Input sample</param>
-        /// <returns>Output sample</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float Transform(float inSample)
         {
             // compute result
@@ -63,6 +63,11 @@ namespace NAudio.Dsp
             return y1;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SetCoefficients(double aa0, double aa1, double aa2, double b0, double b1, double b2)
         {
             // precompute the coefficients
@@ -74,11 +79,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Set this up as a low pass filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">Sample Rate</param>
-        /// <param name="cutoffFrequency">Cut-off Frequency</param>
-        /// <param name="q">Bandwidth</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetLowPassFilter(float sampleRate, float cutoffFrequency, float q)
         {
             // H(s) = 1 / (s^2 + s/Q + 1)
@@ -96,12 +100,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Set this up as a peaking EQ
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">Sample Rate</param>
-        /// <param name="centreFrequency">Centre Frequency</param>
-        /// <param name="q">Bandwidth (Q)</param>
-        /// <param name="dbGain">Gain in decibels</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetPeakingEq(float sampleRate, float centreFrequency, float q, float dbGain)
         {
             // H(s) = (s^2 + s*(A/Q) + 1) / (s^2 + s/(A*Q) + 1)
@@ -121,8 +123,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Set this as a high pass filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetHighPassFilter(float sampleRate, float cutoffFrequency, float q)
         {
             // H(s) = s^2 / (s^2 + s/Q + 1)
@@ -140,8 +144,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Create a low pass filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter LowPassFilter(float sampleRate, float cutoffFrequency, float q)
         {
             var filter = new BiQuadFilter();
@@ -150,8 +156,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Create a High pass filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter HighPassFilter(float sampleRate, float cutoffFrequency, float q)
         {
             var filter = new BiQuadFilter();
@@ -160,8 +168,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Create a bandpass filter with constant skirt gain
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter BandPassFilterConstantSkirtGain(float sampleRate, float centreFrequency, float q)
         {
             // H(s) = s / (s^2 + s/Q + 1)  (constant skirt gain, peak gain = Q)
@@ -180,8 +190,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Create a bandpass filter with constant peak gain
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter BandPassFilterConstantPeakGain(float sampleRate, float centreFrequency, float q)
         {
             // H(s) = (s/Q) / (s^2 + s/Q + 1)      (constant 0 dB peak gain)
@@ -200,8 +212,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Creates a notch filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter NotchFilter(float sampleRate, float centreFrequency, float q)
         {
             // H(s) = (s^2 + 1) / (s^2 + s/Q + 1)
@@ -220,8 +234,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Creaes an all pass filter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter AllPassFilter(float sampleRate, float centreFrequency, float q)
         {
             //H(s) = (s^2 - s/Q + 1) / (s^2 + s/Q + 1)
@@ -240,8 +256,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Create a Peaking EQ
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter PeakingEQ(float sampleRate, float centreFrequency, float q, float dbGain)
         {
             var filter = new BiQuadFilter();
@@ -250,15 +268,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// H(s) = A * (s^2 + (sqrt(A)/Q)*s + A)/(A*s^2 + (sqrt(A)/Q)*s + 1)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate"></param>
-        /// <param name="cutoffFrequency"></param>
-        /// <param name="shelfSlope">a "shelf slope" parameter (for shelving EQ only).  
-        /// When S = 1, the shelf slope is as steep as it can be and remain monotonically
-        /// increasing or decreasing gain with frequency.  The shelf slope, in dB/octave, 
-        /// remains proportional to S for all other values for a fixed f0/Fs and dBgain.</param>
-        /// <param name="dbGain">Gain in decibels</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter LowShelf(float sampleRate, float cutoffFrequency, float shelfSlope, float dbGain)
         {
             var w0 = 2 * Math.PI * cutoffFrequency / sampleRate;
@@ -278,13 +291,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// H(s) = A * (A*s^2 + (sqrt(A)/Q)*s + 1)/(s^2 + (sqrt(A)/Q)*s + A)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate"></param>
-        /// <param name="cutoffFrequency"></param>
-        /// <param name="shelfSlope"></param>
-        /// <param name="dbGain"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static BiQuadFilter HighShelf(float sampleRate, float cutoffFrequency, float shelfSlope, float dbGain)
         {
             var w0 = 2 * Math.PI * cutoffFrequency / sampleRate;

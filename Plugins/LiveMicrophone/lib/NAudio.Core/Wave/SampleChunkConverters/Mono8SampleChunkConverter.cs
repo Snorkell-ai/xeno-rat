@@ -8,6 +8,11 @@ namespace NAudio.Wave.SampleProviders
         private byte[] sourceBuffer;
         private int sourceBytes;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool Supports(WaveFormat waveFormat)
         {
             return waveFormat.Encoding == WaveFormatEncoding.Pcm &&
@@ -15,6 +20,11 @@ namespace NAudio.Wave.SampleProviders
                 waveFormat.Channels == 1;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void LoadNextChunk(IWaveProvider source, int samplePairsRequired)
         {
             int sourceBytesRequired = samplePairsRequired;
@@ -23,6 +33,11 @@ namespace NAudio.Wave.SampleProviders
             offset = 0;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool GetNextSample(out float sampleLeft, out float sampleRight)
         {
             if (offset < sourceBytes)

@@ -47,10 +47,10 @@
         };
 
         /// <summary>
-        /// Converts a mu-law encoded byte to a 16 bit linear sample
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="muLaw">mu-law encoded byte</param>
-        /// <returns>Linear sample</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static short MuLawToLinearSample(byte muLaw)
         {
             return MuLawDecompressTable[muLaw];

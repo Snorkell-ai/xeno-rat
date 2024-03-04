@@ -79,14 +79,21 @@ namespace NAudio.CoreAudioApi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal void FireSessionCreated(IAudioSessionControl newSession)
         {
             OnSessionCreated?.Invoke(this, newSession);
         }
 
         /// <summary>
-        /// Refresh session of current device.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RefreshSessions()
         {
             UnregisterNotifications();
@@ -107,8 +114,10 @@ namespace NAudio.CoreAudioApi
         public SessionCollection Sessions => sessions;
 
         /// <summary>
-        /// Dispose.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             UnregisterNotifications();
@@ -116,6 +125,11 @@ namespace NAudio.CoreAudioApi
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void UnregisterNotifications()
         {
             sessions = null;

@@ -130,9 +130,11 @@ namespace NAudio.SoundFont
 	    // ReSharper disable once InconsistentNaming
 		public SFVersion ROMVersion { get; set; }
 
-	    /// <summary>
-		/// <see cref="Object.ToString"/>
+		/// <summary>
+		/// Sorts the given array using the bubble sort algorithm.
 		/// </summary>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		public override string ToString() 
 		{
 			return string.Format("Bank Name: {0}\r\nAuthor: {1}\r\nCopyright: {2}\r\nCreation Date: {3}\r\nTools: {4}\r\nComments: {5}\r\nSound Engine: {6}\r\nSoundFont Version: {7}\r\nTarget Product: {8}\r\nData ROM: {9}\r\nROM Version: {10}",

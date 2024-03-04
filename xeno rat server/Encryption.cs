@@ -10,6 +10,12 @@ namespace xeno_rat_server
 {
     class Encryption
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] Encrypt(byte[] data, byte[] Key)
         {
             byte[] encrypted;
@@ -33,6 +39,11 @@ namespace xeno_rat_server
             return encrypted;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] Decrypt(byte[] data, byte[] Key)
         {
             byte[] IV = new byte[16];

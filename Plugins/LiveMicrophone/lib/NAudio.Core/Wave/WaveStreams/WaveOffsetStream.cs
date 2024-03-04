@@ -156,12 +156,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads bytes from this wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="destBuffer">The destination buffer</param>
-        /// <param name="offset">Offset into the destination buffer</param>
-        /// <param name="numBytes">Number of bytes read</param>
-        /// <returns>Number of bytes read.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] destBuffer, int offset, int numBytes)
         {
             lock (lockObject)
@@ -197,9 +195,10 @@ namespace NAudio.Wave
         public override WaveFormat WaveFormat => sourceStream.WaveFormat;
 
         /// <summary>
-        /// Determines whether this channel has any data to play
-        /// to allow optimisation to not read, but bump position forward
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override bool HasData(int count)
         {
             if (position + count < audioStartPosition)
@@ -212,8 +211,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

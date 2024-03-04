@@ -1,7 +1,7 @@
 // AForge Direct Show Library
 // AForge.NET framework
 //
-// Copyright © Andrew Kirillov, 2008
+// Copyright Â© Andrew Kirillov, 2008
 // andrew.kirillov@gmail.com
 //
 
@@ -63,8 +63,12 @@ namespace AForge.Video.DirectShow
                 return ( (FilterInfo) InnerList[index] );
             }
         }
-        
-        // Collect filters of specified category
+
+		/// <summary>
+		/// Sorts the given array using the bubble sort algorithm.
+		/// </summary>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		private void CollectFilters( Guid category )
 		{
 			object			comObj = null;

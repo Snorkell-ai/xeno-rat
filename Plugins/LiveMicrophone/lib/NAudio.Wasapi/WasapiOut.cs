@@ -85,6 +85,11 @@ namespace NAudio.Wave
             OutputWaveFormat = audioClient.MixFormat; // allow the user to query the default format for shared mode streams
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static MMDevice GetDefaultAudioEndpoint()
         {
             if (Environment.OSVersion.Version.Major < 6)
@@ -95,6 +100,11 @@ namespace NAudio.Wave
             return enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void PlayThread()
         {
             ResamplerDmoStream resamplerDmoStream = null;
@@ -172,6 +182,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaisePlaybackStopped(Exception e)
         {
             var handler = PlaybackStopped;
@@ -188,6 +203,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FillBuffer(IWaveProvider playbackProvider, int frameCount)
         {
             var buffer = renderClient.GetBuffer(frameCount);
@@ -213,6 +233,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private WaveFormat GetFallbackFormat()
         {
             var deviceSampleRate = audioClient.MixFormat.SampleRate;
@@ -252,11 +277,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the current position in bytes from the wave output device.
-        /// (n.b. this is not the same thing as the position within your reader
-        /// stream)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Position in bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetPosition()
         {
             ulong pos;
@@ -279,11 +303,11 @@ namespace NAudio.Wave
         /// </summary>
         public WaveFormat OutputWaveFormat { get; private set; }
 
-#region IWavePlayer Members
-
         /// <summary>
-        /// Begin Playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Play()
         {
             if (playbackState != PlaybackState.Playing)
@@ -302,8 +326,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stop playback and flush buffers
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             if (playbackState != PlaybackState.Stopped)
@@ -315,8 +341,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stop playback without flushing buffers
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Pause()
         {
             if (playbackState == PlaybackState.Playing)
@@ -326,9 +354,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Initialize for playing the specified wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">IWaveProvider to play</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Init(IWaveProvider waveProvider)
         {
             long latencyRefTimes = latencyMilliseconds * 10000;
@@ -488,13 +517,11 @@ namespace NAudio.Wave
             }
         }
 
-#endregion
-
-#region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioClient != null)

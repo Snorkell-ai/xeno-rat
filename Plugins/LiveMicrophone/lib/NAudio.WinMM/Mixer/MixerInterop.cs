@@ -17,43 +17,83 @@ namespace NAudio.Mixer
         public const Int32 MIXER_SHORT_NAME_CHARS = 16;
         public const Int32 MIXER_LONG_NAME_CHARS = 64;
 
-        // http://msdn.microsoft.com/en-us/library/dd757304%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern Int32 mixerGetNumDevs();
 
-        // http://msdn.microsoft.com/en-us/library/dd757308%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerOpen(out IntPtr hMixer, int uMxId, IntPtr dwCallback, IntPtr dwInstance, MixerFlags dwOpenFlags);
 
-        // http://msdn.microsoft.com/en-us/library/dd757292%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerClose(IntPtr hMixer);
 
-        // http://msdn.microsoft.com/en-us/library/dd757299%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerGetControlDetails(IntPtr hMixer, ref MIXERCONTROLDETAILS mixerControlDetails, MixerFlags dwDetailsFlags);
 
-        // http://msdn.microsoft.com/en-us/library/dd757300%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerGetDevCaps(IntPtr nMixerID, ref MIXERCAPS mixerCaps, Int32 mixerCapsSize);
 
-        // http://msdn.microsoft.com/en-us/library/dd757301%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerGetID(IntPtr hMixer, out Int32 mixerID, MixerFlags dwMixerIDFlags);
 
-        // http://msdn.microsoft.com/en-us/library/dd757302%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerGetLineControls(IntPtr hMixer, ref MIXERLINECONTROLS mixerLineControls, MixerFlags dwControlFlags);
 
-        // http://msdn.microsoft.com/en-us/library/dd757303%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerGetLineInfo(IntPtr hMixer, ref MIXERLINE mixerLine, MixerFlags dwInfoFlags);
 
-        // http://msdn.microsoft.com/en-us/library/dd757307%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerMessage(IntPtr hMixer, UInt32 nMessage, IntPtr dwParam1, IntPtr dwParam2);
 
-        // http://msdn.microsoft.com/en-us/library/dd757309%28VS.85%29.aspx
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("winmm.dll", CharSet = CharSet.Ansi)]
         public static extern MmResult mixerSetControlDetails(IntPtr hMixer, ref MIXERCONTROLDETAILS mixerControlDetails, MixerFlags dwDetailsFlags);
 

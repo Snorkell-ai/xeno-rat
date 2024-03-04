@@ -47,11 +47,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Enumerate Audio Endpoints
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="dataFlow">Desired DataFlow</param>
-        /// <param name="dwStateMask">State Mask</param>
-        /// <returns>Device Collection</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MMDeviceCollection EnumerateAudioEndPoints(DataFlow dataFlow, DeviceState dwStateMask)
         {
             Marshal.ThrowExceptionForHR(realEnumerator.EnumAudioEndpoints(dataFlow, dwStateMask, out var result));
@@ -59,11 +58,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Get Default Endpoint
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="dataFlow">Data Flow</param>
-        /// <param name="role">Role</param>
-        /// <returns>Device</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MMDevice GetDefaultAudioEndpoint(DataFlow dataFlow, Role role)
         {
             Marshal.ThrowExceptionForHR(((IMMDeviceEnumerator)realEnumerator).GetDefaultAudioEndpoint(dataFlow, role, out var device));
@@ -71,11 +69,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Check to see if a default audio end point exists without needing an exception.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="dataFlow">Data Flow</param>
-        /// <param name="role">Role</param>
-        /// <returns>True if one exists, and false if one does not exist.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool HasDefaultAudioEndpoint(DataFlow dataFlow, Role role)
         {
             const int E_NOTFOUND = unchecked((int)0x80070490);
@@ -94,10 +91,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Get device by ID
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="id">Device ID</param>
-        /// <returns>Device</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MMDevice GetDevice(string id)
         {
             Marshal.ThrowExceptionForHR(((IMMDeviceEnumerator)realEnumerator).GetDevice(id, out var device));
@@ -105,26 +102,30 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Registers a call back for Device Events
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="client">Object implementing IMMNotificationClient type casted as IMMNotificationClient interface</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int RegisterEndpointNotificationCallback([In] [MarshalAs(UnmanagedType.Interface)] IMMNotificationClient client)
         {
             return realEnumerator.RegisterEndpointNotificationCallback(client);
         }
 
         /// <summary>
-        /// Unregisters a call back for Device Events
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="client">Object implementing IMMNotificationClient type casted as IMMNotificationClient interface </param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int UnregisterEndpointNotificationCallback([In] [MarshalAs(UnmanagedType.Interface)] IMMNotificationClient client)
         {
             return realEnumerator.UnregisterEndpointNotificationCallback(client);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             Dispose(true);

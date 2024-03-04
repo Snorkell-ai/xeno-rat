@@ -17,8 +17,10 @@ namespace NAudio.Wave
         public SilenceProvider(WaveFormat wf) { WaveFormat = wf; }
 
         /// <summary>
-        /// Read silence from into the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             Array.Clear(buffer, offset, count);

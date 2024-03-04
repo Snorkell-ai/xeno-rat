@@ -33,12 +33,10 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat { get; }
 
         /// <summary>
-        /// Reads samples from this provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Sample buffer</param>
-        /// <param name="offset">Offset into sample buffer</param>
-        /// <param name="count">Number of samples required</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             var sourceSamplesRequired = count / 2;
@@ -63,6 +61,11 @@ namespace NAudio.Wave.SampleProviders
         /// </summary>
         public float RightVolume { get; set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnsureSourceBuffer(int count)
         {
             if (sourceBuffer == null || sourceBuffer.Length < count)

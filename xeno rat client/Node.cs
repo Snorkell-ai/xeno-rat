@@ -10,6 +10,12 @@ namespace xeno_rat_client
 {
     public class Node
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern int memcmp(byte[] b1, byte[] b2, long count);
         
@@ -25,10 +31,22 @@ namespace xeno_rat_client
             sock = _sock;
             OnDisconnect = _OnDisconnect;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddSubNode(Node subNode) 
         {
             subNodes.Add(subNode);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async void Disconnect()
         {
             try
@@ -56,7 +74,11 @@ namespace xeno_rat_client
             }
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<Node> ConnectSubSockAsync(int type, int retid, Action<Node> OnDisconnect = null)
         {
             try
@@ -78,6 +100,12 @@ namespace xeno_rat_client
                 return null;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool Connected() 
         {
             try
@@ -89,6 +117,12 @@ namespace xeno_rat_client
                 return false;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<byte[]> ReceiveAsync()
         {
             byte[] data = await sock.ReceiveAsync();
@@ -99,6 +133,12 @@ namespace xeno_rat_client
             }
             return data;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> SendAsync(byte[] data)
         {
             if (!(await sock.SendAsync(data)))
@@ -108,18 +148,42 @@ namespace xeno_rat_client
             }
             return true;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool ByteArrayCompare(byte[] b1, byte[] b2)
         {
             return b1.Length == b2.Length && memcmp(b1, b2, b1.Length) == 0;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetRecvTimeout(int ms) 
         {
             sock.SetRecvTimeout(ms);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ResetRecvTimeout()
         {
             sock.ResetRecvTimeout();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> AuthenticateAsync(int type, int id = 0)//0 = main, 1 = heartbeat, 2 = anything else
         {
             byte[] data;

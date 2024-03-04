@@ -43,13 +43,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Ensures valid AIFF header and then finds data offset.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="stream">The stream, positioned at the start of audio data</param>
-        /// <param name="format">The format found</param>
-        /// <param name="dataChunkPosition">The position of the data chunk</param>
-        /// <param name="dataChunkLength">The length of the data chunk</param>
-        /// <param name="chunks">Additional chunks found</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ReadAiffHeader(Stream stream, out WaveFormat format, out long dataChunkPosition, out int dataChunkLength, List<AiffChunk> chunks)
         {
             dataChunkPosition = -1;
@@ -127,8 +124,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Cleans up the resources associated with this AiffFileReader
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -206,11 +205,11 @@ namespace NAudio.Wave
             }
         }
 
-
         /// <summary>
-        /// Reads bytes from the AIFF File
-        /// <see cref="Stream.Read"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] array, int offset, int count)
         {
             if (count % waveFormat.BlockAlign != 0)
@@ -262,13 +261,22 @@ namespace NAudio.Wave
             }
         }
 
-#region Endian Helpers
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static uint ConvertInt(byte[] buffer)
         {
             if (buffer.Length != 4) throw new Exception("Incorrect length for long.");
             return (uint)((buffer[0] << 24) | (buffer[1] << 16) | (buffer[2] << 8) | buffer[3]);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static short ConvertShort(byte[] buffer)
         {
             if (buffer.Length != 2) throw new Exception("Incorrect length for int.");
@@ -309,12 +317,22 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static AiffChunk ReadChunkHeader(BinaryReader br)
         {
             var chunk = new AiffChunk((uint)br.BaseStream.Position, ReadChunkName(br), ConvertInt(br.ReadBytes(4)));
             return chunk;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static string ReadChunkName(BinaryReader br)
         {
             return new string(br.ReadChars(4));

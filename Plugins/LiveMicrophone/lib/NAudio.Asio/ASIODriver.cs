@@ -24,9 +24,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Gets the ASIO driver names installed.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>a list of driver names. Use this name to GetAsioDriverByName</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string[] GetAsioDriverNames()
         {
             var regKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\ASIO");
@@ -40,10 +41,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Instantiate a AsioDriver given its name.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="name">The name of the driver</param>
-        /// <returns>an AsioDriver instance</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static AsioDriver GetAsioDriverByName(String name)
         {
             var regKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\ASIO\\" + name);
@@ -56,10 +57,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Instantiate the ASIO driver by GUID.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="guid">The GUID.</param>
-        /// <returns>an AsioDriver instance</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static AsioDriver GetAsioDriverByGuid(Guid guid)
         {
             var driver = new AsioDriver();
@@ -68,10 +69,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Inits the AsioDriver..
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sysHandle">The sys handle.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool Init(IntPtr sysHandle)
         {
             int ret = asioDriverVTable.init(pAsioComObject, sysHandle);
@@ -79,9 +80,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Gets the name of the driver.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetDriverName() 
         {
             var name = new StringBuilder(256);
@@ -90,17 +92,19 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Gets the driver version.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int GetDriverVersion() {
             return asioDriverVTable.getDriverVersion(pAsioComObject);
         }
 
         /// <summary>
-        /// Gets the error message.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetErrorMessage()
         {
             var errorMessage = new StringBuilder(256);
@@ -109,60 +113,60 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Starts this instance.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Start()
         {
             HandleException(asioDriverVTable.start(pAsioComObject),"start");
         }
 
         /// <summary>
-        /// Stops this instance.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public AsioError Stop()
         {
             return asioDriverVTable.stop(pAsioComObject);
         }
 
         /// <summary>
-        /// Gets the number of channels.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="numInputChannels">The num input channels.</param>
-        /// <param name="numOutputChannels">The num output channels.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void GetChannels(out int numInputChannels, out int numOutputChannels)
         {
             HandleException(asioDriverVTable.getChannels(pAsioComObject, out numInputChannels, out numOutputChannels), "getChannels");
         }
 
         /// <summary>
-        /// Gets the latencies (n.b. does not throw an exception)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputLatency">The input latency.</param>
-        /// <param name="outputLatency">The output latency.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public AsioError GetLatencies(out int inputLatency, out int outputLatency)
         {
             return asioDriverVTable.getLatencies(pAsioComObject, out inputLatency, out outputLatency);
         }
 
         /// <summary>
-        /// Gets the size of the buffer.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="minSize">Size of the min.</param>
-        /// <param name="maxSize">Size of the max.</param>
-        /// <param name="preferredSize">Size of the preferred.</param>
-        /// <param name="granularity">The granularity.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void GetBufferSize(out int minSize, out int maxSize, out int preferredSize, out int granularity)
         {
             HandleException(asioDriverVTable.getBufferSize(pAsioComObject, out minSize, out maxSize, out preferredSize, out granularity), "getBufferSize");
         }
 
         /// <summary>
-        /// Determines whether this instance can use the specified sample rate.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">The sample rate.</param>
-        /// <returns>
-        /// 	<c>true</c> if this instance [can sample rate] the specified sample rate; otherwise, <c>false</c>.
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool CanSampleRate(double sampleRate)
         {
             var error = asioDriverVTable.canSampleRate(pAsioComObject, sampleRate);
@@ -179,9 +183,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Gets the sample rate.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public double GetSampleRate()
         {
             double sampleRate;
@@ -190,49 +195,50 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Sets the sample rate.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">The sample rate.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetSampleRate(double sampleRate)
         {
             HandleException(asioDriverVTable.setSampleRate(pAsioComObject, sampleRate), "setSampleRate");
         }
 
         /// <summary>
-        /// Gets the clock sources.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="clocks">The clocks.</param>
-        /// <param name="numSources">The num sources.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void GetClockSources(out long clocks, int numSources)
         {
             HandleException(asioDriverVTable.getClockSources(pAsioComObject, out clocks,numSources), "getClockSources");
         }
 
         /// <summary>
-        /// Sets the clock source.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="reference">The reference.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetClockSource(int reference)
         {
             HandleException(asioDriverVTable.setClockSource(pAsioComObject, reference), "setClockSources");
         }
 
         /// <summary>
-        /// Gets the sample position.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="samplePos">The sample pos.</param>
-        /// <param name="timeStamp">The time stamp.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void GetSamplePosition(out long samplePos, ref Asio64Bit timeStamp)
         {
             HandleException(asioDriverVTable.getSamplePosition(pAsioComObject, out samplePos, ref timeStamp), "getSamplePosition");
         }
 
         /// <summary>
-        /// Gets the channel info.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="channelNumber">The channel number.</param>
-        /// <param name="trueForInputInfo">if set to <c>true</c> [true for input info].</param>
-        /// <returns>Channel Info</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public AsioChannelInfo GetChannelInfo(int channelNumber, bool trueForInputInfo)
         {
             var info = new AsioChannelInfo {channel = channelNumber, isInput = trueForInputInfo};
@@ -241,12 +247,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Creates the buffers.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bufferInfos">The buffer infos.</param>
-        /// <param name="numChannels">The num channels.</param>
-        /// <param name="bufferSize">Size of the buffer.</param>
-        /// <param name="callbacks">The callbacks.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void CreateBuffers(IntPtr bufferInfos, int numChannels, int bufferSize, ref AsioCallbacks callbacks)
         {
             // next two lines suggested by droidi on codeplex issue tracker
@@ -256,8 +260,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Disposes the buffers.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public AsioError DisposeBuffers()
         {
             AsioError result = asioDriverVTable.disposeBuffers(pAsioComObject);
@@ -266,45 +272,50 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Controls the panel.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ControlPanel()
         {
             HandleException(asioDriverVTable.controlPanel(pAsioComObject), "controlPanel");
         }
 
         /// <summary>
-        /// Futures the specified selector.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="selector">The selector.</param>
-        /// <param name="opt">The opt.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Future(int selector, IntPtr opt)
         {
             HandleException(asioDriverVTable.future(pAsioComObject, selector, opt), "future");
         }
 
         /// <summary>
-        /// Notifies OutputReady to the AsioDriver.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public AsioError OutputReady()
         {
             return asioDriverVTable.outputReady(pAsioComObject);
         }
 
         /// <summary>
-        /// Releases this instance.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ReleaseComAsioDriver()
         {
             Marshal.Release(pAsioComObject);
         }
 
         /// <summary>
-        /// Handles the exception. Throws an exception based on the error.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="error">The error to check.</param>
-        /// <param name="methodName">Method name</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void HandleException(AsioError error, string methodName)
         {
             if (error != AsioError.ASE_OK && error != AsioError.ASE_SUCCESS)
@@ -317,9 +328,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Inits the vTable method from GUID. This is a tricky part of this class.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="asioGuid">The ASIO GUID.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitFromGuid(Guid asioGuid)
         {
             const uint CLSCTX_INPROC_SERVER = 1;
@@ -452,6 +464,11 @@ namespace NAudio.Wave.Asio
             public ASIOoutputReady outputReady = null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("ole32.Dll")]
         private static extern int CoCreateInstance(ref Guid clsid,
            IntPtr inner,

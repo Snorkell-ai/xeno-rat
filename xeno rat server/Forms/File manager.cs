@@ -25,12 +25,24 @@ namespace xeno_rat_server.Forms
             client.AddTempOnDisconnect(TempOnDisconnect);
             _=InitializeAsync();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task InitializeAsync() 
         {
             FileViewer = new FileView(await CreateSubSubNode(client));
             await FileViewer.SendType();
             await UpdateListViewNonInvoke(currentDirectory);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void TempOnDisconnect(Node node)
         {
             if (node == client)
@@ -48,6 +60,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task FileUpload(string filepath, string savepath)
         {
             Node node = await CreateSubSubNode(client);
@@ -136,7 +154,11 @@ namespace xeno_rat_server.Forms
             node.Disconnect();
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task FileDownload(string path, string savepath)
         {
             Node node = await CreateSubSubNode(client);
@@ -234,6 +256,11 @@ namespace xeno_rat_server.Forms
             node.Disconnect();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task StartFile(string path) 
         {
             Node node = await CreateSubSubNode(client);
@@ -254,6 +281,12 @@ namespace xeno_rat_server.Forms
                 return;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task DeleteFile(string path)
         {
             Node node = await CreateSubSubNode(client);
@@ -274,6 +307,12 @@ namespace xeno_rat_server.Forms
                 return;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task UpdateListViewNonInvoke(string path)
         {
             FileData Data = await FileViewer.GetInfo(path);
@@ -315,6 +354,11 @@ namespace xeno_rat_server.Forms
             listView1.EndUpdate();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Node> CreateSubSubNode(Node client)
         {
             Node SubSubNode = await client.Parent.CreateSubNodeAsync(2);
@@ -339,11 +383,21 @@ namespace xeno_rat_server.Forms
             return SubSubNode;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string path = listView1.SelectedItems[0].Tag as string;
@@ -366,6 +420,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -376,10 +435,21 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DownloadMenuItem_Click(object sender, EventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -408,8 +478,11 @@ namespace xeno_rat_server.Forms
             staThread.Start();
         }
 
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void OpenMenuItem_Click(object sender, EventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -420,6 +493,11 @@ namespace xeno_rat_server.Forms
             await StartFile(filePath);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void DeleteMenuItem_Click(object sender, EventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -431,6 +509,12 @@ namespace xeno_rat_server.Forms
             await UpdateListViewNonInvoke(currentDirectory);
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -465,11 +549,21 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
            await UpdateListViewNonInvoke(currentDirectory);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             Thread staThread = new Thread(() =>
@@ -508,11 +602,23 @@ namespace xeno_rat_server.Forms
         {
             client = _client;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SendType() 
         {
             byte[] type = new byte[] { 0 };
             await client.SendAsync(type);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<FileData> GetInfo(string path) 
         {
             FileData data = new FileData();

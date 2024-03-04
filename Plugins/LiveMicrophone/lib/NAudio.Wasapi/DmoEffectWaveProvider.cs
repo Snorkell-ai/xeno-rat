@@ -51,12 +51,10 @@ namespace NAudio.Wave
         public WaveFormat WaveFormat => inputProvider.WaveFormat;
 
         /// <summary>
-        /// Reads data from input stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">buffer</param>
-        /// <param name="offset">offset into buffer</param>
-        /// <param name="count">Bytes required</param>
-        /// <returns>Number of bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             var readNum = inputProvider.Read(buffer, offset, count);
@@ -85,8 +83,10 @@ namespace NAudio.Wave
         public TEffectorParam EffectParams => effector.EffectParams;
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (effector != null)

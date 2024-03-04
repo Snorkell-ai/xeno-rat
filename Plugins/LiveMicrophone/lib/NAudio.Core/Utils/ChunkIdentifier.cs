@@ -9,11 +9,12 @@ namespace NAudio.Utils
     /// </summary>
     public class ChunkIdentifier
     {
+
         /// <summary>
-        /// Chunk identifier to Int32 (replaces mmioStringToFOURCC)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="s">four character chunk identifier</param>
-        /// <returns>Chunk identifier as int 32</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int ChunkIdentifierToInt32(string s)
         {
             if (s.Length != 4) throw new ArgumentException("Must be a four character string");

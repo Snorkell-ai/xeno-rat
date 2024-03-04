@@ -13,6 +13,12 @@ namespace Plugin
 {
     public class Main
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node) 
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -66,6 +72,11 @@ namespace Plugin
             this.subnode = subnode;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Socket CreateSocket(int TIMEOUT_SOCKET)
         {
             try
@@ -81,6 +92,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task DisconnectSockAsync(Socket sock) 
         {
             try
@@ -97,6 +113,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Start() 
         {
             try
@@ -163,6 +184,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task RecvSendLoop(Socket remote_socket, Node subnode, int bufferSize)
         {
             while (remote_socket.Connected && subnode.Connected())

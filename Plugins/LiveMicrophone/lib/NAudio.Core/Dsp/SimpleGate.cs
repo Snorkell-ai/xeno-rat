@@ -1,4 +1,4 @@
-// based on SimpleGate v1.10 © 2006, ChunkWare Music Software, OPEN-SOURCE
+// based on SimpleGate v1.10 Â© 2006, ChunkWare Music Software, OPEN-SOURCE
 using System;
 using NAudio.Utils;
 
@@ -21,6 +21,11 @@ namespace NAudio.Dsp
             env = DC_OFFSET;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Process( ref double in1, ref double in2 )
         {
             // in/out pointers are assummed to reference stereo data

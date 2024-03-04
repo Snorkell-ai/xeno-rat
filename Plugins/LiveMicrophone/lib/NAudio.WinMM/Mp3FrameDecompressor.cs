@@ -37,12 +37,10 @@ namespace NAudio.Wave
         public WaveFormat OutputFormat { get { return pcmFormat; } }
 
         /// <summary>
-        /// Decompresses a frame
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="frame">The MP3 frame</param>
-        /// <param name="dest">destination buffer</param>
-        /// <param name="destOffset">Offset within destination buffer</param>
-        /// <returns>Bytes written into destination buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int DecompressFrame(Mp3Frame frame, byte[] dest, int destOffset)
         {
             if (frame == null)
@@ -61,16 +59,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Resets the MP3 Frame Decompressor after a reposition operation
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             conversionStream.Reposition();
         }
 
         /// <summary>
-        /// Disposes of this MP3 frame decompressor
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (!disposed)
