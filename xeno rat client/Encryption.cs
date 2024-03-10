@@ -11,6 +11,7 @@ namespace xeno_rat_client
     {
         public static byte[] Encrypt(byte[] data, byte[] Key)
         {
+            
             byte[] encrypted;
             byte[] IV = new byte[16];
             using (Aes aesAlg = Aes.Create())
