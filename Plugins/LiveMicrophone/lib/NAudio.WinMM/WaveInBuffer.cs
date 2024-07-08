@@ -42,8 +42,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Place this buffer back to record more audio
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reuse()
         {
             // TEST: we might not actually need to bother unpreparing and repreparing
@@ -65,8 +67,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Releases resources held by this WaveBuffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             GC.SuppressFinalize(this);

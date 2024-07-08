@@ -27,6 +27,12 @@ namespace xeno_rat_server.Forms
             comboBox2.Items.AddRange(qualitys);
             InitializeAsync();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task InitializeAsync() 
         {
             ImageNode = await CreateImageNode();
@@ -34,6 +40,12 @@ namespace xeno_rat_server.Forms
             await RefreshCams();
             RecvThread();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RecvThread()
         {
             while (ImageNode.Connected())
@@ -68,6 +80,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RefreshCams()
         {
             string[] mics = await GetCamera();
@@ -84,18 +102,36 @@ namespace xeno_rat_server.Forms
                 await SetCamera(0);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SetCamera(int index)
         {
             byte[] opcode = new byte[] { 1 };
             await client.SendAsync(opcode);
             await client.SendAsync(client.sock.IntToBytes(index));
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SetQuality(int quality)
         {
             byte[] opcode = new byte[] { 5 };
             await client.SendAsync(opcode);
             await client.SendAsync(client.sock.IntToBytes(quality));
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<string[]> GetCamera()
         {
             byte[] opcode = new byte[] { 0 };
@@ -109,6 +145,12 @@ namespace xeno_rat_server.Forms
             Cameras = result;
             return result;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void TempOnDisconnect(Node node)
         {
             if (node == client || (node == ImageNode && ImageNode != null))
@@ -124,6 +166,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Node> CreateImageNode()
         {
             if (ImageNode != null)
@@ -152,11 +200,22 @@ namespace xeno_rat_server.Forms
             }
             return SubSubNode;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WebCam_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button2_Click(object sender, EventArgs e)
         {
             button3.Enabled = true;
@@ -167,6 +226,11 @@ namespace xeno_rat_server.Forms
             playing = true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button3_Click(object sender, EventArgs e)
         {
             button2.Enabled = true;
@@ -182,11 +246,21 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             await RefreshCams();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox1.SelectedIndex;
@@ -196,6 +270,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox2.SelectedIndex;

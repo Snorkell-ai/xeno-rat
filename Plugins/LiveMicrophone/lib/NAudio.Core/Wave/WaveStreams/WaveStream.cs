@@ -36,15 +36,17 @@ namespace NAudio.Wave
         public override bool CanWrite => false;
 
         /// <summary>
-        /// Flush does not need to do anything
-        /// See <see cref="Stream.Flush"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Flush() { }
 
         /// <summary>
-        /// An alternative way of repositioning.
-        /// See <see cref="Stream.Seek"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override long Seek(long offset, SeekOrigin origin)
         {
             if (origin == SeekOrigin.Begin)
@@ -57,17 +59,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Sets the length of the WaveStream. Not Supported.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="length"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void SetLength(long length)
         {
             throw new NotSupportedException("Can't set length of a WaveFormatString");
         }
 
         /// <summary>
-        /// Writes to the WaveStream. Not Supported.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(byte[] buffer, int offset, int count)
         {
             throw new NotSupportedException("Can't write to a WaveFormatString");
@@ -80,9 +85,10 @@ namespace NAudio.Wave
         public virtual int BlockAlign => WaveFormat.BlockAlign;
 
         /// <summary>
-        /// Moves forward or backwards the specified number of seconds in the stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="seconds">Number of seconds to move, can be negative</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Skip(int seconds)
         {
             long newPosition = Position + WaveFormat.AverageBytesPerSecond*seconds;
@@ -121,10 +127,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Whether the WaveStream has non-zero sample data at the current position for the 
-        /// specified count
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="count">Number of bytes to read</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public virtual bool HasData(int count)
         {
             return Position < Length;

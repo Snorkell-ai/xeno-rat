@@ -89,12 +89,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads bytes from this wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="destBuffer">Destination buffer</param>
-        /// <param name="offset">Offset into destination buffer</param>
-        /// <param name="numBytes"></param>
-        /// <returns>Number of bytes read.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] destBuffer, int offset, int numBytes)
         {
             lock (lockObject)
@@ -109,8 +107,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Conversion to 16 bit and clipping
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private unsafe void Convert32To16(byte[] destBuffer, int offset, byte[] source, int bytesRead)
         {
             fixed (byte* pDestBuffer = &destBuffer[offset],
@@ -162,8 +162,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -16,11 +16,10 @@ namespace NAudio.Midi
         private long absoluteTime;
 
         /// <summary>
-        /// Creates a MidiEvent from a raw message received using
-        /// the MME MIDI In APIs
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="rawMessage">The short MIDI message</param>
-        /// <returns>A new MIDI Event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiEvent FromRawMessage(int rawMessage)
         {
             long absoluteTime = 0;
@@ -85,11 +84,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Constructs a MidiEvent from a BinaryStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="br">The binary stream of MIDI data</param>
-        /// <param name="previous">The previous MIDI event (pass null for first event)</param>
-        /// <returns>A new MidiEvent</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiEvent ReadNextEvent(BinaryReader br, MidiEvent previous) 
         {
             int deltaTime = ReadVarInt(br);
@@ -161,11 +159,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Converts this MIDI event to a short message (32 bit integer) that
-        /// can be sent by the Windows MIDI out short message APIs
-        /// Cannot be implemented for all MIDI messages
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A short message</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public virtual int GetAsShortMessage()
         {
             return (channel - 1) + (int)commandCode;
@@ -192,8 +189,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a deep clone of this MIDI event.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public virtual MidiEvent Clone() => (MidiEvent)MemberwiseClone();
 
         object ICloneable.Clone() => Clone();
@@ -253,8 +252,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Whether this is a note off event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsNoteOff(MidiEvent midiEvent)
         {
             if (midiEvent != null)
@@ -270,8 +271,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Whether this is a note on event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsNoteOn(MidiEvent midiEvent)
         {
             if (midiEvent != null)
@@ -286,8 +289,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Determines if this is an end track event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsEndTrack(MidiEvent midiEvent)
         {
             if (midiEvent != null)
@@ -301,11 +306,11 @@ namespace NAudio.Midi
             return false;
         }
 
-        
         /// <summary>
-        /// Displays a summary of the MIDI event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A string containing a brief description of this MIDI event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             if(commandCode >= MidiCommandCode.Sysex)
@@ -313,12 +318,12 @@ namespace NAudio.Midi
             else
                 return String.Format("{0} {1} Ch: {2}", absoluteTime, commandCode, channel);
         }
-        
+
         /// <summary>
-        /// Utility function that can read a variable length integer from a binary stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="br">The binary stream</param>
-        /// <returns>The integer read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int ReadVarInt(BinaryReader br) 
         {
             int value = 0;
@@ -337,10 +342,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Writes a variable length integer to a binary stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="writer">Binary stream</param>
-        /// <param name="value">The value to write</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void WriteVarInt(BinaryWriter writer, int value)
         {
             if (value < 0)
@@ -371,12 +376,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Exports this MIDI event's data
-        /// Overriden in derived classes, but they should call this version
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="absoluteTime">Absolute time used to calculate delta. 
-        /// Is updated ready for the next delta calculation</param>
-        /// <param name="writer">Stream to write to</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public virtual void Export(ref long absoluteTime, BinaryWriter writer)
         {
             if (this.absoluteTime < absoluteTime)

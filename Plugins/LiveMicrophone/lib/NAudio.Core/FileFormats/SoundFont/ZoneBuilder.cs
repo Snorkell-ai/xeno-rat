@@ -7,6 +7,11 @@ namespace NAudio.SoundFont
     {
         private Zone lastZone = null;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override Zone Read(BinaryReader br)
         {
             Zone z = new Zone();
@@ -22,11 +27,21 @@ namespace NAudio.SoundFont
             return z;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, Zone zone)
         {
             //bw.Write(p.---);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Load(Modulator[] modulators, Generator[] generators)
         {
             // don't do the last zone, which is simply EOZ

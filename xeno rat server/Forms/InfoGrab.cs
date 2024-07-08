@@ -22,6 +22,11 @@ namespace xeno_rat_server.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DisableAllButtons()
         {
             foreach (Control control in Controls)
@@ -33,6 +38,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EnableAllButtons()
         {
             foreach (Control control in Controls)
@@ -44,6 +54,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static List<Login> DeserializeLoginList(byte[] bytes)
         {
             List<Login> loginList = new List<Login>();
@@ -62,6 +77,11 @@ namespace xeno_rat_server.Forms
             return loginList;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static List<Cookie> DeserializeCookieList(byte[] bytes)
         {
             List<Cookie> cookieList = new List<Cookie>();
@@ -82,6 +102,11 @@ namespace xeno_rat_server.Forms
             return cookieList;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static List<WebHistory> DeserializeWebHistoryList(byte[] bytes)
         {
             List<WebHistory> historyList = new List<WebHistory>();
@@ -100,6 +125,11 @@ namespace xeno_rat_server.Forms
             return historyList;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static List<Download> DeserializeDownloadList(byte[] bytes)
         {
             List<Download> downloadList = new List<Download>();
@@ -117,6 +147,11 @@ namespace xeno_rat_server.Forms
             return downloadList;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static List<CreditCard> DeserializeCreditCardList(byte[] bytes)
         {
             List<CreditCard> creditCardList = new List<CreditCard>();
@@ -137,11 +172,21 @@ namespace xeno_rat_server.Forms
             return creditCardList;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InfoGrab_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             DisableAllButtons();
@@ -162,6 +207,11 @@ namespace xeno_rat_server.Forms
             EnableAllButtons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button3_Click(object sender, EventArgs e)
         {
             DisableAllButtons();
@@ -182,6 +232,11 @@ namespace xeno_rat_server.Forms
             EnableAllButtons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button5_Click(object sender, EventArgs e)
         {
             DisableAllButtons();
@@ -202,6 +257,11 @@ namespace xeno_rat_server.Forms
             EnableAllButtons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button7_Click(object sender, EventArgs e)
         {
             DisableAllButtons();
@@ -222,6 +282,11 @@ namespace xeno_rat_server.Forms
             EnableAllButtons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button9_Click(object sender, EventArgs e)
         {
             DisableAllButtons();
@@ -242,13 +307,21 @@ namespace xeno_rat_server.Forms
             EnableAllButtons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-
-        
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             Thread thread = new Thread(() =>
@@ -282,6 +355,11 @@ namespace xeno_rat_server.Forms
             thread.Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button4_Click(object sender, EventArgs e)
         {
             Thread thread = new Thread(() =>
@@ -315,6 +393,11 @@ namespace xeno_rat_server.Forms
             thread.Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button6_Click(object sender, EventArgs e)
         {
             Thread thread = new Thread(() =>
@@ -348,6 +431,11 @@ namespace xeno_rat_server.Forms
             thread.Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button8_Click(object sender, EventArgs e)
         {
             Thread thread = new Thread(() =>
@@ -380,6 +468,11 @@ namespace xeno_rat_server.Forms
             thread.Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button10_Click(object sender, EventArgs e)
         {
             Thread thread = new Thread(() =>
@@ -429,6 +522,11 @@ namespace xeno_rat_server.Forms
         public string username { get; set; }
         public string password { get; set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return $"URL: {url}\nUsername: {username}\nPassword: {password}\n";

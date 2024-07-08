@@ -21,10 +21,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Adds a cue to the Wave file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="position">Sample position</param>
-        /// <param name="label">Label text</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddCue(int position, string label)
         {
             if (cues == null)
@@ -34,6 +34,11 @@ namespace NAudio.Wave
             cues.Add(new Cue(position, label));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WriteCues(BinaryWriter w)
         {
             // write the cue chunks to the end of the stream
@@ -55,8 +60,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Updates the header, and writes the cues out
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void UpdateHeader(BinaryWriter writer)
         {
             base.UpdateHeader(writer);

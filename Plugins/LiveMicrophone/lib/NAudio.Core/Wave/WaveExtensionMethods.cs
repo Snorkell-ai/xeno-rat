@@ -8,23 +8,22 @@ namespace NAudio.Wave
     /// </summary>
     public static class WaveExtensionMethods
     {
+
         /// <summary>
-        /// Converts a WaveProvider into a SampleProvider (only works for PCM)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">WaveProvider to convert</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider ToSampleProvider(this IWaveProvider waveProvider)
         {
             return SampleProviderConverters.ConvertWaveProviderIntoSampleProvider(waveProvider);
         }
 
         /// <summary>
-        /// Allows sending a SampleProvider directly to an IWavePlayer without needing to convert
-        /// back to an IWaveProvider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="wavePlayer">The WavePlayer</param>
-        /// <param name="sampleProvider"></param>
-        /// <param name="convertTo16Bit"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Init(this IWavePlayer wavePlayer, ISampleProvider sampleProvider, bool convertTo16Bit = false)
         {
             IWaveProvider provider = convertTo16Bit ? (IWaveProvider)new SampleToWaveProvider16(sampleProvider) : new SampleToWaveProvider(sampleProvider);
@@ -32,10 +31,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Turns WaveFormatExtensible into a standard waveformat if possible
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveFormat">Input wave format</param>
-        /// <returns>A standard PCM or IEEE waveformat, or the original waveformat</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat AsStandardWaveFormat(this WaveFormat waveFormat)
         {
             var wfe = waveFormat as WaveFormatExtensible;
@@ -43,31 +42,30 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Converts a ISampleProvider to a IWaveProvider but still 32 bit float
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleProvider">SampleProvider to convert</param>
-        /// <returns>An IWaveProvider</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IWaveProvider ToWaveProvider(this ISampleProvider sampleProvider)
         {
             return new SampleToWaveProvider(sampleProvider);
         }
 
         /// <summary>
-        /// Converts a ISampleProvider to a IWaveProvider but and convert to 16 bit
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleProvider">SampleProvider to convert</param>
-        /// <returns>A 16 bit IWaveProvider</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IWaveProvider ToWaveProvider16(this ISampleProvider sampleProvider)
         {
             return new SampleToWaveProvider16(sampleProvider);
         }
 
         /// <summary>
-        /// Concatenates one Sample Provider on the end of another
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleProvider">The sample provider to play first</param>
-        /// <param name="next">The sample provider to play next</param>
-        /// <returns>A single sampleprovider to play one after the other</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider FollowedBy(this ISampleProvider sampleProvider, ISampleProvider next)
         {
             return new ConcatenatingSampleProvider(new[] { sampleProvider, next});
@@ -87,34 +85,30 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Skips over a specified amount of time (by consuming source stream)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleProvider">Source sample provider</param>
-        /// <param name="skipDuration">Duration to skip over</param>
-        /// <returns>A sample provider that skips over the specified amount of time</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider Skip(this ISampleProvider sampleProvider, TimeSpan skipDuration)
         {
             return new OffsetSampleProvider(sampleProvider) { SkipOver = skipDuration};            
         }
 
         /// <summary>
-        /// Takes a specified amount of time from the source stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleProvider">Source sample provider</param>
-        /// <param name="takeDuration">Duration to take</param>
-        /// <returns>A sample provider that reads up to the specified amount of time</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider Take(this ISampleProvider sampleProvider, TimeSpan takeDuration)
         {
             return new OffsetSampleProvider(sampleProvider) { Take = takeDuration };
         }
 
         /// <summary>
-        /// Converts a Stereo Sample Provider to mono, allowing mixing of channel volume
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sourceProvider">Stereo Source Provider</param>
-        /// <param name="leftVol">Amount of left channel to mix in (0 = mute, 1 = full, 0.5 for mixing half from each channel)</param>
-        /// <param name="rightVol">Amount of right channel to mix in (0 = mute, 1 = full, 0.5 for mixing half from each channel)</param>
-        /// <returns>A mono SampleProvider</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider ToMono(this ISampleProvider sourceProvider, float leftVol = 0.5f, float rightVol = 0.5f)
         {
             if(sourceProvider.WaveFormat.Channels == 1) return sourceProvider;
@@ -122,12 +116,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Converts a Mono ISampleProvider to stereo
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sourceProvider">Mono Source Provider</param>
-        /// <param name="leftVol">Amount to mix to left channel (1.0 is full volume)</param>
-        /// <param name="rightVol">Amount to mix to right channel (1.0 is full volume)</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ISampleProvider ToStereo(this ISampleProvider sourceProvider, float leftVol = 1.0f, float rightVol = 1.0f)
         {
             if (sourceProvider.WaveFormat.Channels == 2) return sourceProvider;

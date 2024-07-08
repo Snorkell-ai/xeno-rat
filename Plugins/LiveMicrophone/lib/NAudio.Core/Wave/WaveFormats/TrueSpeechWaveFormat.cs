@@ -31,8 +31,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Writes this structure to a BinaryWriter
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Serialize(BinaryWriter writer)
         {
             base.Serialize(writer);

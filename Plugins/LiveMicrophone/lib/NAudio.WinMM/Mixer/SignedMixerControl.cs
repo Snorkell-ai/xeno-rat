@@ -22,10 +22,12 @@ namespace NAudio.Mixer
 			this.mixerControlDetails = new MixerInterop.MIXERCONTROLDETAILS();
 			GetControlDetails();
 		}
-		
+
 		/// <summary>
-		/// Gets details for this contrl
+		/// Sorts the given array using the bubble sort algorithm.
 		/// </summary>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		protected override void GetDetails(IntPtr pDetails) 
 		{
 			signedDetails = Marshal.PtrToStructure<MixerInterop.MIXERCONTROLDETAILS_SIGNED>(mixerControlDetails.paDetails);
@@ -89,9 +91,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// String Representation for debugging purposes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("{0} {1}%", base.ToString(), Percent);

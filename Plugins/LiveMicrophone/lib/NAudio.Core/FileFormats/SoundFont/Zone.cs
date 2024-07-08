@@ -13,8 +13,10 @@ namespace NAudio.SoundFont
         internal ushort modulatorCount;
 
         /// <summary>
-        /// <see cref="Object.ToString"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("Zone {0} Gens:{1} {2} Mods:{3}", generatorCount, generatorIndex,

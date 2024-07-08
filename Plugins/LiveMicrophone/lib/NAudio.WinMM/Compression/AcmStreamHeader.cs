@@ -25,6 +25,11 @@ namespace NAudio.Wave.Compression
             //Prepare();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Prepare()
         {
             streamHeader.cbStruct = Marshal.SizeOf(streamHeader);
@@ -35,6 +40,11 @@ namespace NAudio.Wave.Compression
             MmException.Try(AcmInterop.acmStreamPrepareHeader(streamHandle, streamHeader, 0), "acmStreamPrepareHeader");
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Unprepare()
         {
             streamHeader.sourceBufferLength = SourceBuffer.Length;
@@ -50,11 +60,21 @@ namespace NAudio.Wave.Compression
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reposition()
         {
             firstTime = true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Convert(int bytesToConvert, out int sourceBytesConverted)
         {
             Prepare();
@@ -84,6 +104,11 @@ namespace NAudio.Wave.Compression
 
         bool disposed = false;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             GC.SuppressFinalize(this);

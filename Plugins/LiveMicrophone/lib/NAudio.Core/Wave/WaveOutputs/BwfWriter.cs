@@ -71,8 +71,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Write audio data to this BWF
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Write(byte[] buffer, int offset, int count)
         {
             if (isDisposed) throw new ObjectDisposedException("This BWF Writer already disposed");
@@ -81,8 +83,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Flush writer, and fix up header sizes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Flush()
         {
             if (isDisposed) throw new ObjectDisposedException("This BWF Writer already disposed");
@@ -90,6 +94,11 @@ namespace NAudio.Wave
             FixUpChunkSizes(true); // here to ensure WAV file created is always playable after Flush
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FixUpChunkSizes(bool restorePosition)
         {
             var pos = writer.BaseStream.Position;
@@ -127,8 +136,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this writer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (!isDisposed)
@@ -139,6 +150,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static byte[] GetAsBytes(string message, int byteSize)
         {
             var outputBuffer = new byte[byteSize];

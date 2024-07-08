@@ -26,6 +26,11 @@ namespace NAudio.Wave
         private int bytesOffset = -1;
         private Mp3Frame frame;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static int ReadBigEndian(byte[] buffer, int offset)
         {
             int x;
@@ -41,6 +46,11 @@ namespace NAudio.Wave
             return x;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void WriteBigEndian(byte[] buffer, int offset, int value)
         {
             byte[] littleEndian = BitConverter.GetBytes(value);
@@ -51,10 +61,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Load Xing Header
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="frame">Frame</param>
-        /// <returns>Xing Header</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static XingHeader LoadXingHeader(Mp3Frame frame)
         {
             XingHeader xingHeader = new XingHeader();

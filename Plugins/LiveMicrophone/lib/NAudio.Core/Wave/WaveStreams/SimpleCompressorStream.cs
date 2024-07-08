@@ -112,14 +112,11 @@ namespace NAudio.Wave
         /// </summary>
         public WaveFormat WaveFormat => sourceStream.WaveFormat;
 
-
         /// <summary>
-        /// Reads bytes from this stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="array">Buffer to read into</param>
-        /// <param name="offset">Offset in array to read into</param>
-        /// <param name="count">Number of bytes to read</param>
-        /// <returns>Number of bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] array, int offset, int count)
         {
             lock (lockObject)

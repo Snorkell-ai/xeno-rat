@@ -8,9 +8,12 @@ namespace NAudio.Utils
     /// </summary>
     public static class ByteArrayExtensions
     {
+
         /// <summary>
-        /// Checks if the buffer passed in is entirely full of nulls
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsEntirelyNull(byte[] buffer)
         {
             foreach (byte b in buffer)
@@ -20,8 +23,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Converts to a string containing the buffer described in hex
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string DescribeAsHex(byte[] buffer, string separator, int bytesPerLine)
         {
             StringBuilder sb = new StringBuilder();
@@ -35,10 +40,12 @@ namespace NAudio.Utils
             sb.Append("\r\n");
             return sb.ToString();
         }
-        
+
         /// <summary>
-        /// Decodes the buffer using the specified encoding, stopping at the first null
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string DecodeAsString(byte[] buffer, int offset, int length, Encoding encoding)
         {
             for (int n = 0; n < length; n++)
@@ -50,10 +57,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Concatenates the given arrays into a single array.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="byteArrays">The arrays to concatenate</param>
-        /// <returns>The concatenated resulting array.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] Concat(params byte[][] byteArrays)
         {
             int size = 0;

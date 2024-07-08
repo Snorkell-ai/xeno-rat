@@ -7,12 +7,12 @@ namespace NAudio.Dsp
     /// </summary>
     public class ImpulseResponseConvolution
     {
+
         /// <summary>
-        /// A very simple mono convolution algorithm
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <remarks>
-        /// This will be very slow
-        /// </remarks>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float[] Convolve(float[] input, float[] impulseResponse)
         {
             var output = new float[input.Length + impulseResponse.Length];
@@ -31,8 +31,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// This is actually a downwards normalize for data that will clip
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Normalize(float[] data)
         {
             float max = 0;

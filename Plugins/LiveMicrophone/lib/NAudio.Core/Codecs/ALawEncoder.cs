@@ -26,12 +26,12 @@
              7,7,7,7,7,7,7,7,
              7,7,7,7,7,7,7,7
         };
-        
+
         /// <summary>
-        /// Encodes a single 16 bit sample to a-law
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sample">16 bit PCM sample</param>
-        /// <returns>a-law encoded byte</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte LinearToALawSample(short sample)
         {
             int sign;

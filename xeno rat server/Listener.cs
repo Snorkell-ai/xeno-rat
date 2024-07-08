@@ -19,6 +19,11 @@ namespace xeno_rat_server
             ConnectCallBack = _ConnectCallBack;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool PortInUse(int port)
         {
             IPGlobalProperties ipProperties = IPGlobalProperties.GetIPGlobalProperties();
@@ -33,6 +38,11 @@ namespace xeno_rat_server
             return false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void CreateListener(int port)
         {
             if (PortInUse(port))
@@ -58,6 +68,11 @@ namespace xeno_rat_server
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StopListener(int port)
         {
             listeners[port].StopListening();
@@ -75,6 +90,11 @@ namespace xeno_rat_server
             port = _port;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task StartListening(Func<Socket, Task> connectCallBack)
         {
             IPAddress ipAddress = IPAddress.Any;
@@ -102,6 +122,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StopListening()
         {
             listening= false;

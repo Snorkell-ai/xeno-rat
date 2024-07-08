@@ -49,11 +49,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// WaveFormatExtensible for PCM or floating point can be awkward to work with
-        /// This creates a regular WaveFormat structure representing the same audio format
-        /// Returns the WaveFormat unchanged for non PCM or IEEE float
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public WaveFormat ToStandardWaveFormat()
         {
             if (subFormat == AudioMediaSubtypes.MEDIASUBTYPE_IEEE_FLOAT && bitsPerSample == 32)
@@ -70,9 +69,10 @@ namespace NAudio.Wave
         public Guid SubFormat { get { return subFormat; } }
 
         /// <summary>
-        /// Serialize
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="writer"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Serialize(System.IO.BinaryWriter writer)
         {
             base.Serialize(writer);
@@ -83,8 +83,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// String representation
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return $"WAVE_FORMAT_EXTENSIBLE {AudioMediaSubtypes.GetAudioSubtypeName(subFormat)} " +

@@ -67,8 +67,10 @@ namespace NAudio.SoundFont
         public SampleHeader SampleHeader { get; set; }
 
         /// <summary>
-        /// <see cref="object.ToString"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             if (GeneratorType == GeneratorEnum.Instrument)

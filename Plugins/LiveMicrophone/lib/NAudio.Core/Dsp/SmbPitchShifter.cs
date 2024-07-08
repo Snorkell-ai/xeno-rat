@@ -68,8 +68,10 @@ namespace NAudio.Dsp
         private long gRover;
 
         /// <summary>
-        /// Pitch Shift 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void PitchShift(float pitchShift, long numSampsToProcess,
             float sampleRate, float[] indata)
         {
@@ -235,10 +237,12 @@ namespace NAudio.Dsp
                 }
             }
         }
-        /// <summary>
-        /// Short Time Fourier Transform
-        /// </summary>
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ShortTimeFourierTransform(float[] fftBuffer, long fftFrameSize, long sign)
         {
             float wr, wi, arg, temp;

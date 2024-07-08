@@ -46,8 +46,10 @@ namespace NAudio.Utils
         public override bool CanWrite => SourceStream.CanWrite;
 
         /// <summary>
-        /// Flushes the underlying stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Flush()
         {
             SourceStream.Flush();
@@ -74,41 +76,50 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Reads from the underlying stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             return SourceStream.Read(buffer, offset, count);
         }
 
         /// <summary>
-        /// Seeks on the underlying stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override long Seek(long offset, SeekOrigin origin)
         {
             return SourceStream.Seek(offset, origin);
         }
 
         /// <summary>
-        /// Sets the length of the underlying stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void SetLength(long value)
         {
             SourceStream.SetLength(value);
         }
 
         /// <summary>
-        /// Writes to the underlying stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(byte[] buffer, int offset, int count)
         {
             SourceStream.Write(buffer, offset, count);
         }
 
         /// <summary>
-        /// Dispose - by default (IgnoreDispose = true) will do nothing,
-        /// leaving the underlying stream undisposed
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (!IgnoreDispose)

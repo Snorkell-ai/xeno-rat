@@ -17,9 +17,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets a pointer to the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Pointer to the buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IntPtr GetBuffer(
             out int numFramesToRead,
             out AudioClientBufferFlags bufferFlags,
@@ -45,8 +46,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets the size of the next packet
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int GetNextPacketSize()
         {
             Marshal.ThrowExceptionForHR(audioCaptureClientInterface.GetNextPacketSize(out var numFramesInNextPacket));
@@ -54,17 +57,20 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Release buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="numFramesWritten">Number of frames written</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ReleaseBuffer(int numFramesWritten)
         {
             Marshal.ThrowExceptionForHR(audioCaptureClientInterface.ReleaseBuffer(numFramesWritten));
         }
 
         /// <summary>
-        /// Release the COM object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioCaptureClientInterface != null)

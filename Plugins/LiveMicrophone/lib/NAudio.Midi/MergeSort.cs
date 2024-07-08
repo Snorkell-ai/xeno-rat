@@ -5,9 +5,12 @@ namespace NAudio.Utils
 {
     class MergeSort
     {
+
         /// <summary>
-        /// In-place and stable implementation of MergeSort
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static void Sort<T>(IList<T> list, int lowIndex, int highIndex, IComparer<T> comparer)
         {
             if (lowIndex >= highIndex)

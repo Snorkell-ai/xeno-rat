@@ -72,8 +72,10 @@ namespace NAudio.Wave
         public List<RiffChunk> ExtraChunks { get; }
 
         /// <summary>
-        /// Gets the data for the specified chunk
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] GetChunkData(RiffChunk chunk)
         {
             long oldPosition = waveStream.Position;
@@ -85,8 +87,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Cleans up the resources associated with this WaveFileReader
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -167,9 +171,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads bytes from the Wave File
-        /// <see cref="Stream.Read"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] array, int offset, int count)
         {
             if (count % waveFormat.BlockAlign != 0)
@@ -187,12 +192,12 @@ namespace NAudio.Wave
                 return waveStream.Read(array, offset, count);
             }
         }
-        
+
         /// <summary>
-        /// Attempts to read the next sample or group of samples as floating point normalised into the range -1.0f to 1.0f
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>An array of samples, 1 for mono, 2 for stereo etc. Null indicates end of file reached
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float[] ReadNextSampleFrame()
         {
             switch (waveFormat.Encoding)
@@ -242,10 +247,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Attempts to read a sample into a float. n.b. only applicable for uncompressed formats
-        /// Will normalise the value read into the range -1.0f to 1.0f if it comes from a PCM encoding
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>False if the end of the WAV data chunk was reached</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [Obsolete("Use ReadNextSampleFrame instead (this version does not support stereo properly)")]
         public bool TryReadFloat(out float sampleValue)
         {

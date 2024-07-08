@@ -5,6 +5,12 @@ namespace Plugin
 {
     class SystemUtility//thanks for https://github.com/vrnobody/V2RayGCon/blob/8169e9a4622dcc5a5640bf65a186aab1a2f3b7a8/3rd/ZipExtractor/SystemUtility.cs, saved me a lot of time
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void ExecuteProcessUnElevated(
             string process,
             string args,

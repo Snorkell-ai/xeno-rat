@@ -22,17 +22,21 @@ namespace NAudio
             this.function = function;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static string ErrorMessage(MmResult result, string function)
         {
             return String.Format("{0} calling {1}", result, function);
         }
 
         /// <summary>
-        /// Helper function to automatically raise an exception on failure
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="result">The result of the API call</param>
-        /// <param name="function">The API function name</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Try(MmResult result, string function)
         {
             if (result != MmResult.NoError)

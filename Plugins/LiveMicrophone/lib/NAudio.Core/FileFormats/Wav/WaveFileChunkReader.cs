@@ -25,6 +25,11 @@ namespace NAudio.FileFormats.Wav
             strictMode = false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ReadWaveHeader(Stream stream)
         {
             this.dataChunkPosition = -1;
@@ -117,8 +122,10 @@ namespace NAudio.FileFormats.Wav
         }
 
         /// <summary>
-        /// http://tech.ebu.ch/docs/tech/tech3306-2009.pdf
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadDs64Chunk(BinaryReader reader)
         {
             int ds64ChunkId = ChunkIdentifier.ChunkIdentifierToInt32("ds64");
@@ -134,11 +141,21 @@ namespace NAudio.FileFormats.Wav
             reader.ReadBytes(chunkSize - 24); // get to the end of this chunk (should parse extra stuff later)
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static RiffChunk GetRiffChunk(Stream stream, Int32 chunkIdentifier, Int32 chunkLength)
         {
             return new RiffChunk(chunkIdentifier, chunkLength, stream.Position);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadRiffHeader(BinaryReader br)
         {
             int header = br.ReadInt32();

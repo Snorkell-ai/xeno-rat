@@ -2,7 +2,7 @@
 // AForge.NET framework
 // http://www.aforgenet.com/framework/
 //
-// Copyright © AForge.NET, 2009-2013
+// Copyright Â© AForge.NET, 2009-2013
 // contacts@aforgenet.com
 //
 
@@ -57,7 +57,11 @@ namespace AForge.Video.DirectShow
 
         internal VideoCapabilities( ) { }
 
-        // Retrieve capabilities of a video device
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static internal VideoCapabilities[] FromStreamConfig( IAMStreamConfig videoStreamConfig )
         {
             if ( videoStreamConfig == null )
@@ -164,13 +168,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Check if the video capability equals to the specified object.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="obj">Object to compare with.</param>
-        /// 
-        /// <returns>Returns true if both are equal are equal or false otherwise.</returns>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override bool Equals( object obj )
         {
             return Equals( obj as VideoCapabilities );
@@ -195,10 +196,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Get hash code of the object.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <returns>Returns hash code ot the object </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetHashCode( )
         {
             return FrameSize.GetHashCode( ) ^ BitCount;

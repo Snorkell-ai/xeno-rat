@@ -31,9 +31,10 @@
         }
 
         /// <summary>
-        /// Requests that a fade-in begins (will start on the next call to Read)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="fadeDurationInMilliseconds">Duration of fade in milliseconds</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void BeginFadeIn(double fadeDurationInMilliseconds)
         {
             lock (lockObject)
@@ -45,9 +46,10 @@
         }
 
         /// <summary>
-        /// Requests that a fade-out begins (will start on the next call to Read)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="fadeDurationInMilliseconds">Duration of fade in milliseconds</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void BeginFadeOut(double fadeDurationInMilliseconds)
         {
             lock (lockObject)
@@ -59,12 +61,10 @@
         }
 
         /// <summary>
-        /// Reads samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to read into</param>
-        /// <param name="offset">Offset within buffer to write to</param>
-        /// <param name="count">Number of samples desired</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int sourceSamplesRead = source.Read(buffer, offset, count);
@@ -86,6 +86,11 @@
             return sourceSamplesRead;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static void ClearBuffer(float[] buffer, int offset, int count)
         {
             for (int n = 0; n < count; n++)
@@ -94,6 +99,11 @@
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FadeOut(float[] buffer, int offset, int sourceSamplesRead)
         {
             int sample = 0;
@@ -115,6 +125,11 @@
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FadeIn(float[] buffer, int offset, int sourceSamplesRead)
         {
             int sample = 0;

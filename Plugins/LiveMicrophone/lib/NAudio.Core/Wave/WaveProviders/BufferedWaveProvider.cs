@@ -85,8 +85,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Adds samples. Takes a copy of buffer, so that buffer can be reused if necessary
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddSamples(byte[] buffer, int offset, int count)
         {
             // create buffer here to allow user to customise buffer length
@@ -103,9 +105,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads from this WaveProvider
-        /// Will always return count bytes, since we will zero-fill the buffer if not enough available
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count) 
         {
             int read = 0;
@@ -123,8 +126,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Discards all audio from the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ClearBuffer()
         {
             if (circularBuffer != null)

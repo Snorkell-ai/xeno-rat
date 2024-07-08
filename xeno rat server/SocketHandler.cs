@@ -27,7 +27,11 @@ namespace xeno_rat_server
             EncryptionKey =_EncryptionKey;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<byte[]> RecvAllAsync_ddos_unsafer(int size)
         {
             byte[] data = new byte[size];
@@ -55,7 +59,11 @@ namespace xeno_rat_server
             return data;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<byte[]> RecvAllAsync_ddos_safer(int size)
         {
             byte[] data = new byte[size];
@@ -114,11 +122,11 @@ namespace xeno_rat_server
             return data;
         }
 
-
-
-
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> SendAsync(byte[] data)
         {
             if (data == null)
@@ -185,6 +193,12 @@ namespace xeno_rat_server
                 return false; // should probably disconnect
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<byte[]> ReceiveAsync()
         {
             try
@@ -255,6 +269,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] Concat(byte[] b1, byte[] b2)
         {
             if (b1 == null) b1 = new byte[] { };
@@ -263,6 +282,12 @@ namespace xeno_rat_server
             d.Add(b2);
             return d.SelectMany(a => a).ToArray();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private header ParseHeader(byte[] data) 
         {
             header Header = new header();
@@ -278,12 +303,24 @@ namespace xeno_rat_server
             }
             return Header;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] BTruncate(byte[] bytes, int offset) 
         {
             byte[] T_data = new byte[bytes.Length-offset];
             Buffer.BlockCopy(bytes, offset, T_data, 0, T_data.Length);
             return T_data;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int BytesToInt(byte[] data, int offset = 0)
         {
             if (BitConverter.IsLittleEndian)
@@ -296,6 +333,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] IntToBytes(int data)
         {
             byte[] bytes = new byte[4];
@@ -318,11 +360,22 @@ namespace xeno_rat_server
             return bytes;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetRecvTimeout(int ms) 
         {
             socktimeout=ms;
             sock.ReceiveTimeout = ms;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ResetRecvTimeout()
         {
             socktimeout=0;

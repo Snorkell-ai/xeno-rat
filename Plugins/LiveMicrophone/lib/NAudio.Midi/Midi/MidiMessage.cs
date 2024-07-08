@@ -30,18 +30,21 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a Note On message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="note">Note number (0 to 127)</param>
-        /// <param name="volume">Volume (0 to 127)</param>
-        /// <param name="channel">MIDI channel (1 to 16)</param>
-        /// <returns>A new MidiMessage object</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiMessage StartNote(int note, int volume, int channel)
         {
             ValidateNoteParameters(note, volume, channel);
             return new MidiMessage((int)MidiCommandCode.NoteOn + channel - 1, note, volume);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static void ValidateNoteParameters(int note, int volume, int channel)
         {
             ValidateChannel(channel);
@@ -55,6 +58,11 @@ namespace NAudio.Midi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static void ValidateChannel(int channel)
         {
             if ((channel < 1) || (channel > 16))
@@ -65,12 +73,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a Note Off message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="note">Note number</param>
-        /// <param name="volume">Volume </param>
-        /// <param name="channel">MIDI channel (1-16)</param>
-        /// <returns>A new MidiMessage object</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiMessage StopNote(int note, int volume, int channel)
         {
             ValidateNoteParameters(note, volume, channel);
@@ -78,11 +84,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a patch change message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="patch">The patch number</param>
-        /// <param name="channel">The MIDI channel number (1-16)</param>
-        /// <returns>A new MidiMessageObject</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiMessage ChangePatch(int patch, int channel)
         {
             ValidateChannel(channel);
@@ -90,12 +95,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a Control Change message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="controller">The controller number to change</param>
-        /// <param name="value">The value to set the controller to</param>
-        /// <param name="channel">The MIDI channel number (1-16)</param>
-        /// <returns>A new MidiMessageObject</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiMessage ChangeControl(int controller, int value, int channel)
         {
             ValidateChannel(channel);

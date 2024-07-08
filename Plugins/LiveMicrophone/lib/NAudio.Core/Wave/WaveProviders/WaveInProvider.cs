@@ -20,14 +20,21 @@
             bufferedWaveProvider = new BufferedWaveProvider(WaveFormat);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OnDataAvailable(object sender, WaveInEventArgs e)
         {
             bufferedWaveProvider.AddSamples(e.Buffer, 0, e.BytesRecorded);
         }
 
         /// <summary>
-        /// Reads data from the WaveInProvider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             return bufferedWaveProvider.Read(buffer, offset, count);

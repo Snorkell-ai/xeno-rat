@@ -11,13 +11,12 @@ namespace NAudio.Midi
     public class SysexEvent : MidiEvent 
     {
         private byte[] data;
-        //private int length;
-        
+
         /// <summary>
-        /// Reads a sysex message from a MIDI stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="br">Stream of MIDI data</param>
-        /// <returns>a new sysex message</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static SysexEvent ReadSysexEvent(BinaryReader br) 
         {
             SysexEvent se = new SysexEvent();
@@ -45,14 +44,17 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a deep clone of this MIDI event.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override MidiEvent Clone() => new SysexEvent { data = (byte[])data?.Clone() };
 
         /// <summary>
-        /// Describes this sysex message
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A string describing the sysex message</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             StringBuilder sb = new StringBuilder();
@@ -62,12 +64,12 @@ namespace NAudio.Midi
             }
             return String.Format("{0} Sysex: {1} bytes\r\n{2}",this.AbsoluteTime,data.Length,sb.ToString());
         }
-        
+
         /// <summary>
-        /// Calls base class export first, then exports the data 
-        /// specific to this event
-        /// <seealso cref="MidiEvent.Export">MidiEvent.Export</seealso>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

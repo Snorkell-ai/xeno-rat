@@ -1,7 +1,7 @@
 // AForge Direct Show Library
 // AForge.NET framework
 //
-// Copyright © Andrew Kirillov, 2008
+// Copyright Â© Andrew Kirillov, 2008
 // andrew.kirillov@gmail.com
 //
 
@@ -54,13 +54,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Compare the object with another instance of this class.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="value">Object to compare with.</param>
-        /// 
-        /// <returns>A signed number indicating the relative values of this instance and <b>value</b>.</returns>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int CompareTo( object value )
         {
             FilterInfo f = (FilterInfo) value;
@@ -72,15 +69,10 @@ namespace AForge.Video.DirectShow
         }
 
         /// <summary>
-        /// Create an instance of the filter.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// 
-        /// <param name="filterMoniker">Filter's moniker string.</param>
-        /// 
-        /// <returns>Returns filter's object, which implements <b>IBaseFilter</b> interface.</returns>
-        /// 
-        /// <remarks>The returned filter's object should be released using <b>Marshal.ReleaseComObject()</b>.</remarks>
-        /// 
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static object CreateFilter( string filterMoniker )
         {
             // filter's object
@@ -108,9 +100,11 @@ namespace AForge.Video.DirectShow
             return filterObject;
         }
 
-        //
-        // Get moniker string of the moniker
-        //
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private string GetMonikerString( IMoniker moniker )
         {
             string str;
@@ -118,9 +112,11 @@ namespace AForge.Video.DirectShow
             return str;
         }
 
-        //
-        // Get filter name represented by the moniker
-        //
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private string GetName( IMoniker moniker )
         {
             Object bagObj = null;

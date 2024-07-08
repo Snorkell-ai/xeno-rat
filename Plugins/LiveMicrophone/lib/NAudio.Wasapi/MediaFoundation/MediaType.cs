@@ -40,6 +40,11 @@ namespace NAudio.MediaFoundation
             mediaType = MediaFoundationApi.CreateMediaTypeFromWaveFormat(waveFormat);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int GetUInt32(Guid key)
         {
             int value;
@@ -47,6 +52,11 @@ namespace NAudio.MediaFoundation
             return value;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Guid GetGuid(Guid key)
         {
             Guid value;
@@ -55,11 +65,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Tries to get a UINT32 value, returning a default value if it doesn't exist
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="key">Attribute key</param>
-        /// <param name="defaultValue">Default value</param>
-        /// <returns>Value or default if key doesn't exist</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int TryGetUInt32(Guid key, int defaultValue = -1)
         {
             int intValue = defaultValue;

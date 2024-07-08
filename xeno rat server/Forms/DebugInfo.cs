@@ -20,11 +20,21 @@ namespace xeno_rat_server.Forms
             AsyncInit();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task AsyncInit() 
         {
             await ResetAndPopulateListView();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<string[]> GetDlls() 
         {
             await client.SendAsync(new byte[] { 4, 0 });
@@ -33,6 +43,11 @@ namespace xeno_rat_server.Forms
             return dll_info.Split('\n');
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> UnLoadDll(string dllname) 
         {
             byte[] payload = new byte[] { 4, 1 };
@@ -42,6 +57,11 @@ namespace xeno_rat_server.Forms
             return worked;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<string> getConsoleOutput() 
         {
             await client.SendAsync(new byte[] { 4, 2 });
@@ -50,6 +70,11 @@ namespace xeno_rat_server.Forms
             return console_output;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<string> GetConsoleOutput() 
         {
             await client.SendAsync(new byte[] { 4, 2 });
@@ -57,6 +82,11 @@ namespace xeno_rat_server.Forms
             return Encoding.UTF8.GetString(console_output_bytes);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task ResetAndPopulateListView() 
         {
             listView1.Items.Clear();
@@ -66,6 +96,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RemoveClick(string dllname) 
         {
             if (await UnLoadDll(dllname))
@@ -79,19 +114,32 @@ namespace xeno_rat_server.Forms
             await ResetAndPopulateListView();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task PopulateConsoleOutput() 
         {
             string console_output = await getConsoleOutput();
             richTextBox1.Text = console_output;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             await ResetAndPopulateListView();
         }
 
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (listView1.SelectedItems.Count == 0) return;
@@ -102,11 +150,21 @@ namespace xeno_rat_server.Forms
             contextMenu.Show(Cursor.Position);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button2_Click(object sender, EventArgs e)
         {
             await PopulateConsoleOutput();

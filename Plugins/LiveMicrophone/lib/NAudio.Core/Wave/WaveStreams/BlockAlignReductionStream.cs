@@ -27,6 +27,11 @@ namespace NAudio.Wave
             circularBuffer = new CircularBuffer(sourceStream.WaveFormat.AverageBytesPerSecond * 4);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private byte[] GetSourceBuffer(int size)
         {
             if (sourceBuffer == null || sourceBuffer.Length < size)
@@ -105,8 +110,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -125,12 +132,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads data from this stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer"></param>
-        /// <param name="offset"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             lock (lockObject)

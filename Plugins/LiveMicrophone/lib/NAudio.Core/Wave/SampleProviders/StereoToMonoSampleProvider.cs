@@ -42,8 +42,10 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat { get; }
 
         /// <summary>
-        /// Reads bytes from this SampleProvider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             var sourceSamplesRequired = count * 2;

@@ -74,10 +74,12 @@ namespace NAudio.Mixer
 				return caps.wPid;
 			}
 		}
-		
-		/// <summary>Retrieve the specified MixerDestination object</summary>
-        /// <param name="destinationIndex">The ID of the destination to use.
-		/// Should be between 0 and DestinationCount - 1</param>
+
+		/// <summary>
+		/// Sorts the given array using the bubble sort algorithm.
+		/// </summary>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		public MixerLine GetDestination(int destinationIndex) 
 		{
 			if(destinationIndex < 0 || destinationIndex >= DestinationCount) 

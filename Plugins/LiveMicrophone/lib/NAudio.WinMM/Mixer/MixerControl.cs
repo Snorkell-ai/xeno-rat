@@ -30,12 +30,10 @@ namespace NAudio.Mixer
         protected MixerFlags mixerHandleType;
 
         /// <summary>
-        /// Gets all the mixer controls
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="mixerHandle">Mixer Handle</param>
-        /// <param name="mixerLine">Mixer Line</param>
-        /// <param name="mixerHandleType">Mixer Handle Type</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IList<MixerControl> GetMixerControls(IntPtr mixerHandle, MixerLine mixerLine,
                                                            MixerFlags mixerHandleType)
         {
@@ -79,14 +77,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Gets a specified Mixer Control
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="mixerHandle">Mixer Handle</param>
-        /// <param name="nLineId">Line ID</param>
-        /// <param name="controlId">Control ID</param>
-        /// <param name="nChannels">Number of Channels</param>
-        /// <param name="mixerFlags">Flags to use (indicates the meaning of mixerHandle)</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MixerControl GetMixerControl(IntPtr mixerHandle, int nLineId, int controlId, int nChannels,
                                                    MixerFlags mixerFlags)
         {
@@ -143,8 +137,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Gets the control details
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected void GetControlDetails()
         {
             mixerControlDetails.cbStruct = Marshal.SizeOf(mixerControlDetails);
@@ -222,9 +218,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Gets the control details
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="pDetails"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected abstract void GetDetails(IntPtr pDetails);
 
         /// <summary>
@@ -238,9 +235,10 @@ namespace NAudio.Mixer
         public MixerControlType ControlType => mixerControl.dwControlType;
 
         /// <summary>
-        /// Returns true if this is a boolean control
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="controlType">Control type</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsControlBoolean(MixerControlType controlType)
         {
             switch (controlType)
@@ -269,8 +267,10 @@ namespace NAudio.Mixer
         public bool IsBoolean => IsControlBoolean(mixerControl.dwControlType);
 
         /// <summary>
-        /// Determines whether a specified mixer control type is a list text control
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsControlListText(MixerControlType controlType)
         {
             switch (controlType)
@@ -291,6 +291,11 @@ namespace NAudio.Mixer
         /// </summary>
         public bool IsListText => IsControlListText(mixerControl.dwControlType);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsControlSigned(MixerControlType controlType)
         {
             switch (controlType)
@@ -313,6 +318,11 @@ namespace NAudio.Mixer
         /// </summary>
         public bool IsSigned => IsControlSigned(mixerControl.dwControlType);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsControlUnsigned(MixerControlType controlType)
         {
             switch (controlType)
@@ -338,6 +348,11 @@ namespace NAudio.Mixer
         /// </summary>
         public bool IsUnsigned => IsControlUnsigned(mixerControl.dwControlType);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsControlCustom(MixerControlType controlType)
         {
             return controlType == MixerControlType.Custom;
@@ -349,8 +364,10 @@ namespace NAudio.Mixer
         public bool IsCustom => IsControlCustom(mixerControl.dwControlType);
 
         /// <summary>
-        /// String representation for debug purposes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() => $"{Name} {ControlType}";
     }
 }

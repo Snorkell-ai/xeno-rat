@@ -14,20 +14,20 @@ namespace NAudio.Utils
         private const double DB_2_LOG = 0.11512925464970228420089957273422;
 
         /// <summary>
-        /// linear to dB conversion
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="lin">linear value</param>
-        /// <returns>decibel value</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static double LinearToDecibels(double lin)
         {
             return Math.Log(lin) * LOG_2_DB;
         }
 
         /// <summary>
-        /// dB to linear conversion
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="dB">decibel value</param>
-        /// <returns>linear value</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static double DecibelsToLinear(double dB)
         {
             return Math.Exp(dB * DB_2_LOG);

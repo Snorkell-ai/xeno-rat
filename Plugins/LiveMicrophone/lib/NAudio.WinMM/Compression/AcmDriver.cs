@@ -20,10 +20,10 @@ namespace NAudio.Wave.Compression
         private IntPtr localDllHandle;
 
         /// <summary>
-        /// Helper function to determine whether a particular codec is installed
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="shortName">The short name of the function</param>
-        /// <returns>Whether the codec is installed</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool IsCodecInstalled(string shortName)
         {
             foreach (AcmDriver driver in EnumerateAcmDrivers())
@@ -37,10 +37,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Attempts to add a new ACM driver from a file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="driverFile">Full path of the .acm or dll file containing the driver</param>
-        /// <returns>Handle to the driver</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static AcmDriver AddLocalDriver(string driverFile)
         {
             IntPtr handle = NativeMethods.LoadLibrary(driverFile);
@@ -72,9 +72,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Removes a driver previously added using AddLocalDriver
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="localDriver">Local driver to remove</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void RemoveLocalDriver(AcmDriver localDriver)
         {
             if (localDriver.localDllHandle == IntPtr.Zero)
@@ -87,16 +88,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Show Format Choose Dialog
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="ownerWindowHandle">Owner window handle, can be null</param>
-        /// <param name="windowTitle">Window title</param>
-        /// <param name="enumFlags">Enumeration flags. None to get everything</param>
-        /// <param name="enumFormat">Enumeration format. Only needed with certain enumeration flags</param>
-        /// <param name="selectedFormat">The selected format</param>
-        /// <param name="selectedFormatDescription">Textual description of the selected format</param>
-        /// <param name="selectedFormatTagDescription">Textual description of the selected format tag</param>
-        /// <returns>True if a format was selected</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static bool ShowFormatChooseDialog(
             IntPtr ownerWindowHandle,
             string windowTitle,
@@ -160,10 +155,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Finds a Driver by its short name
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="shortName">Short Name</param>
-        /// <returns>The driver, or null if not found</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static AcmDriver FindByShortName(string shortName)
         {
             foreach (AcmDriver driver in AcmDriver.EnumerateAcmDrivers())
@@ -177,8 +172,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Gets a list of the ACM Drivers installed
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IEnumerable<AcmDriver> EnumerateAcmDrivers()
         {
             drivers = new List<AcmDriver>();
@@ -187,8 +184,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// The callback for acmDriverEnum
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool DriverEnumCallback(IntPtr hAcmDriver, IntPtr dwInstance, AcmDriverDetailsSupportFlags flags)
         {
             drivers.Add(new AcmDriver(hAcmDriver));
@@ -241,8 +240,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// ToString
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return LongName;
@@ -270,12 +271,11 @@ namespace NAudio.Wave.Compression
             }
         }
 
-        
         /// <summary>
-        /// Gets all the supported formats for a given format tag
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="formatTag">Format tag</param>
-        /// <returns>Supported formats</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IEnumerable<AcmFormat> GetFormats(AcmFormatTag formatTag)
         {
             if (driverHandle == IntPtr.Zero)
@@ -299,8 +299,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Opens this driver
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Open()
         {
             if (driverHandle == IntPtr.Zero)
@@ -310,8 +312,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Closes this driver
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Close()
         {
             if(driverHandle != IntPtr.Zero)
@@ -321,23 +325,33 @@ namespace NAudio.Wave.Compression
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool AcmFormatTagEnumCallback(IntPtr hAcmDriverId, ref AcmFormatTagDetails formatTagDetails, IntPtr dwInstance, AcmDriverDetailsSupportFlags flags)
         {
             formatTags.Add(new AcmFormatTag(formatTagDetails));
             return true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool AcmFormatEnumCallback(IntPtr hAcmDriverId, ref AcmFormatDetails formatDetails, IntPtr dwInstance, AcmDriverDetailsSupportFlags flags)
         {
             tempFormatsList.Add(new AcmFormat(formatDetails));
             return true;
         }
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (driverHandle != IntPtr.Zero)

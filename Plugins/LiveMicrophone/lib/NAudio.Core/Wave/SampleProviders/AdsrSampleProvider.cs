@@ -61,8 +61,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Reads audio from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             if (adsr.State == EnvelopeGenerator.EnvelopeState.Idle) return 0; // we've finished
@@ -75,8 +77,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Enters the Release phase
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             adsr.Gate(false);

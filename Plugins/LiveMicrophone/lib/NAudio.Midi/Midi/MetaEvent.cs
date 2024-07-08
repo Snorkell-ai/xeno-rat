@@ -44,15 +44,17 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Creates a deep clone of this MIDI event.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override MidiEvent Clone() => new MetaEvent(metaEvent, metaDataLength, AbsoluteTime);
 
         /// <summary>
-        /// Reads a meta-event from a stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="br">A binary reader based on the stream of MIDI data</param>
-        /// <returns>A new MetaEvent object</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MetaEvent ReadMetaEvent(BinaryReader br) 
         {
             MetaEventType metaEvent = (MetaEventType) br.ReadByte();
@@ -112,16 +114,20 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Describes this meta event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString() 
         {
             return $"{AbsoluteTime} {metaEvent}";
         }
 
         /// <summary>
-        /// <see cref="MidiEvent.Export"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

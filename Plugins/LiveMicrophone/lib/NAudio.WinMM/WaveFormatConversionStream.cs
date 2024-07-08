@@ -32,10 +32,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates a stream that can convert to PCM
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sourceStream">The source stream</param>
-        /// <returns>A PCM stream</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveStream CreatePcmStream(WaveStream sourceStream)
         {
             if (sourceStream.WaveFormat.Encoding == WaveFormatEncoding.Pcm)
@@ -80,8 +80,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Converts source bytes to destination bytes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [Obsolete("can be unreliable, use of this method not encouraged")]
         public int SourceToDest(int source)
         {
@@ -89,6 +91,11 @@ namespace NAudio.Wave
             //return conversionStream.SourceToDest(source);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long EstimateSourceToDest(long source)
         {
             var dest = ((source * targetFormat.AverageBytesPerSecond) / sourceStream.WaveFormat.AverageBytesPerSecond);
@@ -96,15 +103,23 @@ namespace NAudio.Wave
             return dest;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long EstimateDestToSource(long dest)
         {
             var source = ((dest * sourceStream.WaveFormat.AverageBytesPerSecond) / targetFormat.AverageBytesPerSecond);
             source -= (source % sourceStream.WaveFormat.BlockAlign);
             return (int)source;
         }
+
         /// <summary>
-        /// Converts destination bytes to source bytes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [Obsolete("can be unreliable, use of this method not encouraged")]
         public int DestToSource(int dest)
         {
@@ -135,12 +150,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Buffer to read into</param>
-        /// <param name="offset">Offset within buffer to write to</param>
-        /// <param name="count">Number of bytes to read</param>
-        /// <returns>Bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             var bytesRead = conversionProvider.Read(buffer, offset, count);
@@ -149,9 +162,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">true if the user called this</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (!isDisposed)

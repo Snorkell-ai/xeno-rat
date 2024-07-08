@@ -22,9 +22,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// String representation
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return Description;

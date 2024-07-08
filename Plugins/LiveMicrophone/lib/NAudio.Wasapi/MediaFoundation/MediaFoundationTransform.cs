@@ -45,6 +45,11 @@ namespace NAudio.MediaFoundation
             outputBuffer = new byte[outputWaveFormat.AverageBytesPerSecond + outputWaveFormat.BlockAlign]; // we will grow this buffer if needed, but try to make something big enough
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitializeTransformForStreaming()
         {
             transform.ProcessMessage(MFT_MESSAGE_TYPE.MFT_MESSAGE_COMMAND_FLUSH, IntPtr.Zero);
@@ -54,15 +59,17 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// To be implemented by overriding classes. Create the transform object, set up its input and output types,
-        /// and configure any custom properties in here
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>An object implementing IMFTrasform</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected abstract IMFTransform CreateTransform();
 
         /// <summary>
-        /// Disposes this MediaFoundation transform
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (transform != null)
@@ -98,12 +105,10 @@ namespace NAudio.MediaFoundation
         public WaveFormat WaveFormat { get { return outputWaveFormat; } }
 
         /// <summary>
-        /// Reads data out of the source, passing it through the transform
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Output buffer</param>
-        /// <param name="offset">Offset within buffer to write to</param>
-        /// <param name="count">Desired byte count</param>
-        /// <returns>Number of bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             if (transform == null)
@@ -162,6 +167,11 @@ namespace NAudio.MediaFoundation
             return bytesWritten;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void EndStreamAndDrain()
         {
             transform.ProcessMessage(MFT_MESSAGE_TYPE.MFT_MESSAGE_NOTIFY_END_OF_STREAM, IntPtr.Zero);
@@ -177,6 +187,11 @@ namespace NAudio.MediaFoundation
             initializedForStreaming = false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ClearOutputBuffer()
         {
             outputBufferCount = 0;
@@ -184,11 +199,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Attempts to read from the transform
-        /// Some useful info here:
-        /// http://msdn.microsoft.com/en-gb/library/windows/desktop/aa965264%28v=vs.85%29.aspx#process_data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int ReadFromTransform()
         {
             var outputDataBuffer = new MFT_OUTPUT_DATA_BUFFER[1];
@@ -232,13 +246,23 @@ namespace NAudio.MediaFoundation
             Marshal.ReleaseComObject(outputMediaBuffer);
             return outputBufferLength;
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static long BytesToNsPosition(int bytes, WaveFormat waveFormat)
         {
             long nsPosition = (10000000L * bytes) / waveFormat.AverageBytesPerSecond;
             return nsPosition;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private IMFSample ReadFromSource()
         {
             // we always read a full second
@@ -264,6 +288,11 @@ namespace NAudio.MediaFoundation
             return sample;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int ReadFromOutputBuffer(byte[] buffer, int offset, int needed)
         {
             int bytesFromOutputBuffer = Math.Min(needed, outputBufferCount);
@@ -278,8 +307,10 @@ namespace NAudio.MediaFoundation
         }
 
         /// <summary>
-        /// Indicate that the source has been repositioned and completely drain out the transforms buffers
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reposition()
         {
             if (initializedForStreaming)

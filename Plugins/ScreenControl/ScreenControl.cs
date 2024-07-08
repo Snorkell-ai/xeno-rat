@@ -22,9 +22,19 @@ namespace Plugin
         int moniter_index = -1;
         double scale = 1;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("SHCore.dll", SetLastError = true)]
         public static extern int SetProcessDpiAwareness(int awareness);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -151,6 +161,12 @@ namespace Plugin
             }
             GC.Collect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task ScreenShotThread() 
         {
             try
@@ -179,6 +195,12 @@ namespace Plugin
             }
             catch { }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<bool> AcceptSubSubNode(Node node) 
         {
             byte[] id = await node.ReceiveAsync();
@@ -212,15 +234,31 @@ namespace Plugin
     }
     public class InputHandler
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool SetCursorPos(int x, int y);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, IntPtr dwExtraInfo);
 
         private const int KEYEVENTF_KEYDOWN = 0x0000;
         private const int KEYEVENTF_KEYUP = 0x0002;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
 
@@ -237,7 +275,11 @@ namespace Plugin
         private const uint MOUSEEVENTF_HWHEEL = 0x1000;
         private const uint MOUSEEVENTF_ABSOLUTE = 0x8000;
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseClick(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -246,6 +288,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseDoubleClick(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -257,6 +304,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseDown(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -264,6 +316,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseUp(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -271,11 +328,21 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseMove(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseRightClick(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -284,6 +351,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseScroll(Point screenCoords, int scrollAmount)
         {
             const int WHEEL_DELTA = 120;
@@ -294,6 +366,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_WHEEL, 0, 0, (uint)scrollLines, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateMouseMiddleClick(Point screenCoords)
         {
             SetCursorPos(screenCoords.X, screenCoords.Y);
@@ -302,6 +379,11 @@ namespace Plugin
             mouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, IntPtr.Zero);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void SimulateKeyPress(int keyCode)
         {
             // Simulate keydown
@@ -329,14 +411,29 @@ namespace Plugin
             public int y;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         static extern bool GetCursorInfo(out CURSORINFO pci);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         static extern bool DrawIcon(IntPtr hDC, int X, int Y, IntPtr hIcon);
 
         const Int32 CURSOR_SHOWING = 0x00000001;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] TakeScreenshot(int quality, int screenIndex, bool captureCursor, double scaleImageSize = 1)
         {
             Screen[] screens = Screen.AllScreens;
@@ -391,6 +488,12 @@ namespace Plugin
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static ImageCodecInfo GetEncoderInfo(ImageFormat format)
         {
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
@@ -406,6 +509,11 @@ namespace Plugin
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string[] AvailableMonitors()
         {
             Screen[] screens = Screen.AllScreens;

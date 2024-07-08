@@ -55,6 +55,11 @@ namespace NAudio.Wave
 
         private static List<DirectSoundDeviceInfo> devices;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool EnumCallback(IntPtr lpGuid, IntPtr lpcstrDescription, IntPtr lpcstrModule, IntPtr lpContext)
         {
             var device = new DirectSoundDeviceInfo();
@@ -129,8 +134,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Begin playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Play()
         {
             if (playbackState == PlaybackState.Stopped)
@@ -152,8 +159,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Stop playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             // Try and tidy up nicely
@@ -174,8 +183,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Pause Playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Pause()
         {
             lock (m_LockObject)
@@ -185,11 +196,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the current position in bytes from the wave output device.
-        /// (n.b. this is not the same thing as the position within your reader
-        /// stream)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Position in bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetPosition()
         {
             if (playbackState != Wave.PlaybackState.Stopped)
@@ -223,17 +233,22 @@ namespace NAudio.Wave
             }
         }
 
-
         /// <summary>
-        /// Initialise playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveProvider">The waveprovider to be played</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Init(IWaveProvider waveProvider)
         {
             this.waveStream = waveProvider;
             this.waveFormat = waveProvider.WaveFormat;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void InitializeDirectSound()
         {
             // Open DirectSound
@@ -368,8 +383,10 @@ namespace NAudio.Wave
         public WaveFormat OutputWaveFormat => waveFormat;
 
         /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             Stop();
@@ -377,21 +394,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Determines whether the SecondaryBuffer is lost.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>
-        /// 	<c>true</c> if [is buffer lost]; otherwise, <c>false</c>.
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool IsBufferLost()
         {
             return (secondaryBuffer.GetStatus() & DirectSoundBufferStatus.DSBSTATUS_BUFFERLOST) != 0 ? true : false;
         }
 
         /// <summary>
-        /// Convert ms to bytes size according to WaveFormat
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="ms">The ms</param>
-        /// <returns>number of byttes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int MsToBytes(int ms)
         {
             int bytes = ms * (waveFormat.AverageBytesPerSecond / 1000);
@@ -400,8 +416,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Processes the samples in a separate thread.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void PlaybackThreadFunc()
         {
             // Used to determine if playback is halted
@@ -527,6 +545,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaisePlaybackStopped(Exception e)
         {
             var handler = PlaybackStopped;
@@ -543,10 +566,11 @@ namespace NAudio.Wave
             }
         }
 
-
         /// <summary>
-        /// Stop playback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void StopPlayback()
         {
             lock (this.m_LockObject)
@@ -574,19 +598,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Clean up the SecondaryBuffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <remarks>
-        /// <para>
-        /// In DirectSound, when playback is started,
-        /// the rest of the sound that was played last time is played back as noise.
-        /// This happens even if the secondary buffer is completely silenced,
-        /// so it seems that the buffer in the primary buffer or higher is not cleared.
-        /// </para>
-        /// <para>
-        /// To solve this problem fill the secondary buffer with silence data when stop playback.
-        /// </para>
-        /// </remarks>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CleanUpSecondaryBuffer()
         {
             if (secondaryBuffer != null)
@@ -618,11 +633,11 @@ namespace NAudio.Wave
             }
         }
 
-
         /// <summary>
-        /// Feeds the SecondaryBuffer with the WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bytesToCopy">number of bytes to feed</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int Feed(int bytesToCopy)
         {
             int bytesRead = bytesToCopy;
@@ -861,11 +876,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Instanciate DirectSound from the DLL
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="GUID">The GUID.</param>
-        /// <param name="directSound">The direct sound.</param>
-        /// <param name="pUnkOuter">The p unk outer.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("dsound.dll", EntryPoint = "DirectSoundCreate", SetLastError = true, CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         static extern void DirectSoundCreate(ref Guid GUID, [Out, MarshalAs(UnmanagedType.Interface)] out IDirectSound directSound, IntPtr pUnkOuter);
 
@@ -902,17 +916,18 @@ namespace NAudio.Wave
         delegate bool DSEnumCallback(IntPtr lpGuid, IntPtr lpcstrDescription, IntPtr lpcstrModule, IntPtr lpContext);
 
         /// <summary>
-        /// The DirectSoundEnumerate function enumerates the DirectSound drivers installed in the system.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="lpDSEnumCallback">callback function</param>
-        /// <param name="lpContext">User context</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("dsound.dll", EntryPoint = "DirectSoundEnumerateA", SetLastError = true, CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         static extern void DirectSoundEnumerate(DSEnumCallback lpDSEnumCallback, IntPtr lpContext);
 
         /// <summary>
-        /// Gets the HANDLE of the desktop window.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>HANDLE of the Desktop window</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         private static extern IntPtr GetDesktopWindow();
 #endregion

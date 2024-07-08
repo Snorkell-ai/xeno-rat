@@ -9,6 +9,11 @@ namespace NAudio.SoundFont
         private string chunkID;
         private BinaryReader riffFile;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static RiffChunk GetTopLevelChunk(BinaryReader file)
         {
             RiffChunk r = new RiffChunk(file);
@@ -25,9 +30,10 @@ namespace NAudio.SoundFont
         }
 
         /// <summary>
-        /// just reads a chunk ID at the current position
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>chunk ID</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string ReadChunkID()
         {
             byte[] cid = riffFile.ReadBytes(4);
@@ -39,8 +45,10 @@ namespace NAudio.SoundFont
         }
 
         /// <summary>
-        /// reads a chunk at the current position
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadChunk()
         {
             this.chunkID = ReadChunkID();
@@ -49,10 +57,10 @@ namespace NAudio.SoundFont
         }
 
         /// <summary>
-        /// creates a new riffchunk from current position checking that we're not
-        /// at the end of this chunk first
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>the new chunk</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public RiffChunk GetNextSubChunk()
         {
             if (riffFile.BaseStream.Position + 8 < DataOffset + ChunkSize)
@@ -65,6 +73,11 @@ namespace NAudio.SoundFont
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public byte[] GetData()
         {
             riffFile.BaseStream.Position = DataOffset;
@@ -77,9 +90,10 @@ namespace NAudio.SoundFont
         }
 
         /// <summary>
-        /// useful for chunks that just contain a string
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>chunk as string</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string GetDataAsString()
         {
             byte[] data = GetData();
@@ -88,6 +102,11 @@ namespace NAudio.SoundFont
             return ByteEncoding.Instance.GetString(data, 0, data.Length);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public T GetDataAsStructure<T>(StructureBuilder<T> s)
         {
             riffFile.BaseStream.Position = DataOffset;
@@ -98,6 +117,11 @@ namespace NAudio.SoundFont
             return s.Read(riffFile);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public T[] GetDataAsStructureArray<T>(StructureBuilder<T> s)
         {
             riffFile.BaseStream.Position = DataOffset;
@@ -138,6 +162,11 @@ namespace NAudio.SoundFont
 
         public long DataOffset { get; private set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("RiffChunk ID: {0} Size: {1} Data Offset: {2}", ChunkID, ChunkSize, DataOffset);

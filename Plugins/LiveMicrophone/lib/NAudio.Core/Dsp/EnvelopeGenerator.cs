@@ -117,6 +117,11 @@ namespace NAudio.Dsp
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static float CalcCoef(float rate, float targetRatio)
         {
             return (float)Math.Exp(-Math.Log((1.0f + targetRatio) / targetRatio) / rate);
@@ -139,8 +144,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Sets the attack curve
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void SetTargetRatioAttack(float targetRatio)
         {
             if (targetRatio < 0.000000001f)
@@ -150,8 +157,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Sets the decay release curve
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void SetTargetRatioDecayRelease(float targetRatio)
         {
             if (targetRatio < 0.000000001f)
@@ -162,9 +171,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Read the next volume multiplier from the envelope generator
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A volume multiplier</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float Process()
         {
             switch (state)
@@ -202,9 +212,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Trigger the gate
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="gate">If true, enter attack phase, if false enter release phase (unless already idle)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Gate(bool gate)
         {
             if (gate)
@@ -225,8 +236,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Reset to idle state
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             state = EnvelopeState.Idle;
@@ -234,8 +247,10 @@ namespace NAudio.Dsp
         }
 
         /// <summary>
-        /// Get the current output level
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float GetOutput()
         {
             return output;

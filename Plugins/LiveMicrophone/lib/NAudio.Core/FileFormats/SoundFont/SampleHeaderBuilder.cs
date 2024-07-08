@@ -5,6 +5,12 @@ namespace NAudio.SoundFont
 {
     class SampleHeaderBuilder : StructureBuilder<SampleHeader>
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override SampleHeader Read(BinaryReader br)
         {
             SampleHeader sh = new SampleHeader();
@@ -24,12 +30,22 @@ namespace NAudio.SoundFont
             return sh;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, SampleHeader sampleHeader)
         {
         }
 
         public override int Length => 46;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal void RemoveEOS()
         {
             data.RemoveAt(data.Count - 1);

@@ -17,10 +17,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Gets a pointer to the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="numFramesRequested">Number of frames requested</param>
-        /// <returns>Pointer to the buffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IntPtr GetBuffer(int numFramesRequested)
         {
             Marshal.ThrowExceptionForHR(audioRenderClientInterface.GetBuffer(numFramesRequested, out var bufferPointer));
@@ -28,18 +28,20 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Release buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="numFramesWritten">Number of frames written</param>
-        /// <param name="bufferFlags">Buffer flags</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ReleaseBuffer(int numFramesWritten,AudioClientBufferFlags bufferFlags)
         {
             Marshal.ThrowExceptionForHR(audioRenderClientInterface.ReleaseBuffer(numFramesWritten, bufferFlags));
         }
 
         /// <summary>
-        /// Release the COM object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioRenderClientInterface != null)

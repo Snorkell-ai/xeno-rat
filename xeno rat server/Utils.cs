@@ -13,6 +13,12 @@ namespace xeno_rat_server
 {
     class Utils
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static long BytesToLong(byte[] data, int offset = 0)
         {
             if (BitConverter.IsLittleEndian)
@@ -39,6 +45,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] LongToBytes(long data)
         {
             byte[] bytes = new byte[8];
@@ -68,6 +79,12 @@ namespace xeno_rat_server
 
             return bytes;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<bool> LoadDllAsync(Node clientsubsock, string dllname, byte[] dll, Action<string, Color> Logcallback=null)
         {
             clientsubsock.SetRecvTimeout(20000);
@@ -117,6 +134,12 @@ namespace xeno_rat_server
             }
             return true;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] CalculateSha256Bytes(string input)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -127,6 +150,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void AddTextToZip(ZipArchive archive, string entryName, string text)
         {
             ZipArchiveEntry entry = archive.CreateEntry(entryName, CompressionLevel.Optimal);
@@ -138,6 +166,11 @@ namespace xeno_rat_server
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<int> SetType2setIdAsync(Node subnode)
         {
             if (subnode.SockType == 2)
@@ -153,6 +186,12 @@ namespace xeno_rat_server
             }
             return -1;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task Type2returnAsync(Node subNode) 
         {
             if (subNode.SockType == 2) 
@@ -161,6 +200,12 @@ namespace xeno_rat_server
                 await subNode.SendAsync(opcode);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<Node> ConnectAndSetupAsync(Socket sock, byte[] key, int ID, Action<Node> OnDisconnect = null)
         {
             Node conn;

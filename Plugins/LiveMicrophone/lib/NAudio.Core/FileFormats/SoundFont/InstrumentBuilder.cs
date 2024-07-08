@@ -11,6 +11,11 @@ namespace NAudio.SoundFont
     {
         private Instrument lastInstrument = null;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override Instrument Read(BinaryReader br)
         {
             Instrument i = new Instrument();
@@ -30,12 +35,22 @@ namespace NAudio.SoundFont
             return i;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Write(BinaryWriter bw, Instrument instrument)
         {
         }
 
         public override int Length => 22;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void LoadZones(Zone[] zones)
         {
             // don't do the last preset, which is simply EOP

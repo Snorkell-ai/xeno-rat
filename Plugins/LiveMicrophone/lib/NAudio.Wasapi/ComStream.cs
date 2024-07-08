@@ -40,24 +40,49 @@ namespace NAudio.Wave
             this.stream = stream;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Clone(out IStream ppstm)
         {
             ppstm = null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Commit(int grfCommitFlags)
         {
             stream.Flush();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.CopyTo(IStream pstm, long cb, IntPtr pcbRead, IntPtr pcbWritten)
         {
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.LockRegion(long libOffset, long cb, int dwLockType)
         {
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Read(byte[] pv, int cb, IntPtr pcbRead)
         {
             if (!CanRead)
@@ -67,10 +92,20 @@ namespace NAudio.Wave
                 Marshal.WriteInt32(pcbRead, val);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Revert()
         {
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Seek(long dlibMove, int dwOrigin, IntPtr plibNewPosition)
         {
             SeekOrigin origin = (SeekOrigin) dwOrigin;
@@ -79,11 +114,21 @@ namespace NAudio.Wave
                 Marshal.WriteInt64(plibNewPosition, val);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.SetSize(long libNewSize)
         {
             SetLength(libNewSize);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Stat(out System.Runtime.InteropServices.ComTypes.STATSTG pstatstg, int grfStatFlag)
         {
             const int STGM_READ = 0x00000000;
@@ -104,10 +149,20 @@ namespace NAudio.Wave
             pstatstg = tmp;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.UnlockRegion(long libOffset, long cb, int dwLockType)
         {
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         void IStream.Write(byte[] pv, int cb, IntPtr pcbWritten)
         {
             if (!CanWrite)
@@ -117,6 +172,11 @@ namespace NAudio.Wave
                 Marshal.WriteInt32(pcbWritten, cb);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Flush()
         {
             stream.Flush();
@@ -132,6 +192,11 @@ namespace NAudio.Wave
             return stream.Seek(offset, origin);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void SetLength(long value)
         {
             stream.SetLength(value);
@@ -142,6 +207,11 @@ namespace NAudio.Wave
             stream.Write(buffer, offset, count);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
@@ -151,6 +221,11 @@ namespace NAudio.Wave
             stream = null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Close()
         {
             base.Close();

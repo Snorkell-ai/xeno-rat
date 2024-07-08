@@ -49,9 +49,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Add a new input to the mixer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveStream">The wave input to add</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddInputStream(WaveStream waveStream)
         {
             if (waveStream.WaveFormat.Encoding != WaveFormatEncoding.IeeeFloat)
@@ -82,9 +83,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Remove a WaveStream from the mixer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveStream">waveStream to remove</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RemoveInputStream(WaveStream waveStream)
         {
             lock (inputsLock)
@@ -113,13 +115,10 @@ namespace NAudio.Wave
         public bool AutoStop { get; set; }
 
         /// <summary>
-        /// Reads bytes from this wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">buffer to read into</param>
-        /// <param name="offset">offset into buffer</param>
-        /// <param name="count">number of bytes required</param>
-        /// <returns>Number of bytes read.</returns>
-        /// <exception cref="ArgumentException">Thrown if an invalid number of bytes requested</exception>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             if (AutoStop)
@@ -165,8 +164,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Actually performs the mixing
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         static unsafe void Sum32BitAudio(byte[] destBuffer, int offset, byte[] sourceBuffer, int bytesRead)
         {
             fixed (byte* pDestBuffer = &destBuffer[offset],
@@ -224,8 +225,10 @@ namespace NAudio.Wave
         public override WaveFormat WaveFormat => waveFormat;
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

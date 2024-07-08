@@ -32,6 +32,12 @@ namespace xeno_rat_server.Forms
             InitializeAsync();
 
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task InitializeAsync() 
         {
             ImageNode = await CreateImageNode();
@@ -39,6 +45,12 @@ namespace xeno_rat_server.Forms
             await RefreshMons();
             await RecvThread();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void TempOnDisconnect(Node node)
         {
             if (node == client || (node == ImageNode && ImageNode != null))
@@ -54,6 +66,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RefreshMons() 
         {
             string[] monitors = await GetMonitors();
@@ -70,14 +88,31 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task start() 
         {
             await client.SendAsync(new byte[] { 0 });
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task stop()
         {
             await client.SendAsync(new byte[] { 1 });
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<string[]> GetMonitors()
         {
             await client.SendAsync(new byte[] { 2 });
@@ -85,11 +120,22 @@ namespace xeno_rat_server.Forms
             string[] mons = monsString.Split('\n');
             return mons;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SetQuality(int quality) 
         {
             await client.SendAsync(client.sock.Concat(new byte[] { 3 }, client.sock.IntToBytes(quality)));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task SetMonitor(int monitorIndex)
         {
             monitor_index = monitorIndex;
@@ -101,6 +147,11 @@ namespace xeno_rat_server.Forms
             UpdateScaleSize();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task UpdateScaleSize() 
         {
             if (pictureBox1.Width > ((Size)current_mon_size).Width || pictureBox1.Height > ((Size)current_mon_size).Height)
@@ -117,6 +168,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RecvThread() 
         {
             while (ImageNode.Connected()) 
@@ -151,6 +207,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Node> CreateImageNode()
         {
             if (ImageNode != null)
@@ -178,6 +240,12 @@ namespace xeno_rat_server.Forms
             }
             return SubSubNode;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public Point TranslateCoordinates(Point originalCoords, Size originalScreenSize, PictureBox targetControl)
         {
             // Calculate the scaling factors
@@ -194,6 +262,11 @@ namespace xeno_rat_server.Forms
             return translatedCoords;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Point UnzoomedAndAdjusted(PictureBox pictureBox, Point scaledPoint)
         {
             // Calculate the zoom factor
@@ -210,6 +283,12 @@ namespace xeno_rat_server.Forms
 
             return new Point(translatedX, translatedY);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Point Unzoomed(PictureBox pictureBox, Point zoomedPoint)
         {
             // Get the scaling factor
@@ -227,6 +306,11 @@ namespace xeno_rat_server.Forms
             return new Point(imageX, imageY);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Rectangle GetImageDisplayRectangle(PictureBox pictureBox)
         {
             if (pictureBox.SizeMode == PictureBoxSizeMode.Normal)
@@ -253,31 +337,53 @@ namespace xeno_rat_server.Forms
             }
         }
 
-
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ScreenControl_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button2_Click(object sender, EventArgs e)
         {
             await start();
             playing = true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button3_Click(object sender, EventArgs e)
         {
             await stop();
             playing = false;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void button1_Click(object sender, EventArgs e)
         {
             await RefreshMons();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox1.SelectedIndex;
@@ -287,6 +393,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox2.SelectedIndex;
@@ -297,6 +408,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             if (pictureBox1.Image == null || !playing || !checkBox1.Checked) return;
@@ -317,6 +433,11 @@ namespace xeno_rat_server.Forms
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (current_mon_size==null|| pictureBox1.Image == null || !playing || e.Button == MouseButtons.Right || e.Button==MouseButtons.Middle || !checkBox1.Checked) return;
@@ -326,6 +447,11 @@ namespace xeno_rat_server.Forms
             await client.SendAsync(payload);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             //return;
@@ -336,6 +462,11 @@ namespace xeno_rat_server.Forms
             await client.SendAsync(payload);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (current_mon_size == null || pictureBox1.Image == null || !playing || !checkBox1.Checked) return;
@@ -346,6 +477,11 @@ namespace xeno_rat_server.Forms
             await client.SendAsync(payload);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             //return;
@@ -356,32 +492,62 @@ namespace xeno_rat_server.Forms
             await client.SendAsync(payload);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void pictureBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (current_mon_size == null || pictureBox1.Image == null || !playing || !checkBox1.Checked) return;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ScreenControl_KeyPress(object sender, KeyPressEventArgs e)
         {
             
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ScreenControl_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async void ScreenControl_KeyUp(object sender, KeyEventArgs e)
         {
             if (current_mon_size == null || pictureBox1.Image == null || !playing || !checkBox1.Checked) return;
             await client.SendAsync(client.sock.Concat(new byte[] { 12 }, client.sock.IntToBytes(e.KeyValue)));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -394,6 +560,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void pictureBox1_SizeChanged(object sender, EventArgs e)
         {
             UpdateScaleSize();

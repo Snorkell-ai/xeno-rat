@@ -25,12 +25,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Write data to the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="data">Data to write</param>
-        /// <param name="offset">Offset into data</param>
-        /// <param name="count">Number of bytes to write</param>
-        /// <returns>number of bytes written</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Write(byte[] data, int offset, int count)
         {
             lock (lockObject)
@@ -60,12 +58,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Read from the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="data">Buffer to read into</param>
-        /// <param name="offset">Offset into read buffer</param>
-        /// <param name="count">Bytes to read</param>
-        /// <returns>Number of bytes actually read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] data, int offset, int count)
         {
             lock (lockObject)
@@ -116,8 +112,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Resets the buffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             lock (lockObject)
@@ -126,6 +124,11 @@ namespace NAudio.Utils
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ResetInner()
         {
             byteCount = 0;
@@ -134,9 +137,10 @@ namespace NAudio.Utils
         }
 
         /// <summary>
-        /// Advances the buffer, discarding bytes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="count">Bytes to advance</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Advance(int count)
         {
             lock (lockObject)

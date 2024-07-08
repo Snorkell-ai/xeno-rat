@@ -8,9 +8,12 @@ namespace NAudio.Utils
     /// </summary>
     public static class FieldDescriptionHelper
     {
+
         /// <summary>
-        /// Describes the Guid  by looking for a FieldDescription attribute on the specified class
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string Describe(Type t, Guid guid)
         {
             // when we go to .NET 3.5, use LINQ for this

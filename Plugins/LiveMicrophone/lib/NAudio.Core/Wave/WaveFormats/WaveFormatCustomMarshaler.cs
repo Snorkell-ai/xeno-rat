@@ -10,12 +10,12 @@ namespace NAudio.Wave
     public sealed class WaveFormatCustomMarshaler : ICustomMarshaler
     {
         private static WaveFormatCustomMarshaler marshaler = null;
-        
+
         /// <summary>
-        /// Gets the instance of this marshaller
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="cookie"></param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static ICustomMarshaler GetInstance(string cookie)
         {
             if (marshaler == null)
@@ -26,41 +26,50 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Clean up managed data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void CleanUpManagedData(object ManagedObj)
         {
             
         }
 
         /// <summary>
-        /// Clean up native data
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="pNativeData"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void CleanUpNativeData(IntPtr pNativeData)
         {
             Marshal.FreeHGlobal(pNativeData);
         }
 
         /// <summary>
-        /// Get native data size
-        /// </summary>        
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int GetNativeDataSize()
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Marshal managed to native
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public IntPtr MarshalManagedToNative(object ManagedObj)
         {
             return WaveFormat.MarshalToPtr((WaveFormat)ManagedObj);            
         }
 
         /// <summary>
-        /// Marshal Native to Managed
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public object MarshalNativeToManaged(IntPtr pNativeData)
         {
             return WaveFormat.MarshalFromPtr(pNativeData);

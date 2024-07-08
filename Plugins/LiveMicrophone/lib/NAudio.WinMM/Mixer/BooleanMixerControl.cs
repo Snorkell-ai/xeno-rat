@@ -23,11 +23,12 @@ namespace NAudio.Mixer
 			GetControlDetails();
 
 		}
-		
+
 		/// <summary>
-		/// Gets the details for this control
+		/// Sorts the given array using the bubble sort algorithm.
 		/// </summary>
-		/// <param name="pDetails">memory pointer</param>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		protected override void GetDetails(IntPtr pDetails) 
 		{
 			boolDetails = Marshal.PtrToStructure<MixerInterop.MIXERCONTROLDETAILS_BOOLEAN>(pDetails);

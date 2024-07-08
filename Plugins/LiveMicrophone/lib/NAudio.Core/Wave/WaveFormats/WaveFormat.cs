@@ -47,10 +47,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the size of a wave buffer equivalent to the latency in milliseconds.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="milliseconds">The milliseconds.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int ConvertLatencyToByteSize(int milliseconds)
         {
             int bytes = (int) ((AverageBytesPerSecond/1000.0)*milliseconds);
@@ -63,15 +63,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates a WaveFormat with custom members
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="tag">The encoding</param>
-        /// <param name="sampleRate">Sample Rate</param>
-        /// <param name="channels">Number of channels</param>
-        /// <param name="averageBytesPerSecond">Average Bytes Per Second</param>
-        /// <param name="blockAlign">Block Align</param>
-        /// <param name="bitsPerSample">Bits Per Sample</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat CreateCustomFormat(WaveFormatEncoding tag, int sampleRate, int channels, int averageBytesPerSecond, int blockAlign, int bitsPerSample)
         {
             WaveFormat waveFormat = new WaveFormat();
@@ -86,22 +81,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates an A-law wave format
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">Sample Rate</param>
-        /// <param name="channels">Number of Channels</param>
-        /// <returns>Wave Format</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat CreateALawFormat(int sampleRate, int channels)
         {
             return CreateCustomFormat(WaveFormatEncoding.ALaw, sampleRate, channels, sampleRate * channels, channels, 8);
         }
 
         /// <summary>
-        /// Creates a Mu-law wave format
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">Sample Rate</param>
-        /// <param name="channels">Number of Channels</param>
-        /// <returns>Wave Format</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat CreateMuLawFormat(int sampleRate, int channels)
         {
             return CreateCustomFormat(WaveFormatEncoding.MuLaw, sampleRate, channels, sampleRate * channels, channels, 8);
@@ -128,10 +121,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates a new 32 bit IEEE floating point wave format
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">sample rate</param>
-        /// <param name="channels">number of channels</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat CreateIeeeFloatWaveFormat(int sampleRate, int channels)
         {
             var wf = new WaveFormat();
@@ -146,10 +139,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Helper function to retrieve a WaveFormat structure from a pointer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="pointer">WaveFormat structure</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat MarshalFromPtr(IntPtr pointer)
         {
             var waveFormat = Marshal.PtrToStructure<WaveFormat>(pointer);
@@ -180,10 +173,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Helper function to marshal WaveFormat to an IntPtr
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="format">WaveFormat</param>
-        /// <returns>IntPtr to WaveFormat structure (needs to be freed by callee)</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IntPtr MarshalToPtr(WaveFormat format)
         {
             int formatSize = Marshal.SizeOf(format);
@@ -193,12 +186,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads in a WaveFormat (with extra data) from a fmt chunk (chunk identifier and
-        /// length should already have been read)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="br">Binary reader</param>
-        /// <param name="formatChunkLength">Format chunk length</param>
-        /// <returns>A WaveFormatExtraData</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat FromFormatChunk(BinaryReader br, int formatChunkLength)
         {
             var waveFormat = new WaveFormatExtraData();
@@ -207,6 +198,11 @@ namespace NAudio.Wave
             return waveFormat;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void ReadWaveFormat(BinaryReader br, int formatChunkLength)
         {
             if (formatChunkLength < 16)
@@ -239,9 +235,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reports this WaveFormat as a string
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>String describing the wave format</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             switch (waveFormatTag)
@@ -258,10 +255,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Compares with another WaveFormat object
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="obj">Object to compare to</param>
-        /// <returns>True if the objects are the same</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override bool Equals(object obj)
         {
             var other = obj as WaveFormat;
@@ -278,9 +275,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Provides a Hashcode for this WaveFormat
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A hashcode</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetHashCode()
         {
             return (int) waveFormatTag ^ 
@@ -297,9 +295,10 @@ namespace NAudio.Wave
         public WaveFormatEncoding Encoding => waveFormatTag;
 
         /// <summary>
-        /// Writes this WaveFormat object to a stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="writer">the output stream</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public virtual void Serialize(BinaryWriter writer)
         {
             writer.Write((int)(18 + extraSize)); // wave format length

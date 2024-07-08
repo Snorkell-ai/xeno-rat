@@ -49,9 +49,10 @@ namespace NAudio.Wave
         public int SamplesPerBuffer { get; private set; }
 
         /// <summary>
-        /// Converts all the recorded audio into a buffer of 32 bit floating point samples, interleaved by channel
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <samples>The samples as 32 bit floating point, interleaved</samples>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int GetAsInterleavedSamples(float[] samples)
         {
             int channels = InputBuffers.Length;

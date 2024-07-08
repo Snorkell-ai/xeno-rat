@@ -49,45 +49,67 @@ namespace NAudio.CoreAudioApi
         private static Guid IID_IAudioClient = new Guid("1CB9AD4C-DBFA-4c32-B178-C2F568A703B2");
         private static Guid IDD_IAudioSessionManager = new Guid("BFA971F1-4D5E-40BB-935E-967039BFBEE4");
         private static Guid IDD_IDeviceTopology = new Guid("2A07407E-6497-4A18-9787-32F79BD0D98F");
-        // ReSharper restore InconsistentNaming
-        #endregion
 
-        #region Init
         /// <summary>
-        /// Initializes the device's property store.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="stgmAccess">The storage-access mode to open store for.</param>
-        /// <remarks>Administrative client is required for Write and ReadWrite modes.</remarks>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void GetPropertyInformation(StorageAccessMode stgmAccess = StorageAccessMode.Read)
         {
             Marshal.ThrowExceptionForHR(deviceInterface.OpenPropertyStore(stgmAccess, out var propstore));
             propertyStore = new PropertyStore(propstore);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private AudioClient GetAudioClient()
         {
             Marshal.ThrowExceptionForHR(deviceInterface.Activate(ref IID_IAudioClient, ClsCtx.ALL, IntPtr.Zero, out var result));
             return new AudioClient(result as IAudioClient);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void GetAudioMeterInformation()
         {
             Marshal.ThrowExceptionForHR(deviceInterface.Activate(ref IID_IAudioMeterInformation, ClsCtx.ALL, IntPtr.Zero, out var result));
             audioMeterInformation = new AudioMeterInformation(result as IAudioMeterInformation);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void GetAudioEndpointVolume()
         {
             Marshal.ThrowExceptionForHR(deviceInterface.Activate(ref IID_IAudioEndpointVolume, ClsCtx.ALL, IntPtr.Zero, out var result));
             audioEndpointVolume = new AudioEndpointVolume(result as IAudioEndpointVolume);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void GetAudioSessionManager()
         {
             Marshal.ThrowExceptionForHR(deviceInterface.Activate(ref IDD_IAudioSessionManager, ClsCtx.ALL, IntPtr.Zero, out var result));
             audioSessionManager = new AudioSessionManager(result as IAudioSessionManager);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void GetDeviceTopology()
         {
             Marshal.ThrowExceptionForHR(deviceInterface.Activate(ref IDD_IDeviceTopology, ClsCtx.ALL, IntPtr.Zero, out var result));
@@ -302,19 +324,22 @@ namespace NAudio.CoreAudioApi
         {
             deviceInterface = realDevice;
         }
-        #endregion
 
         /// <summary>
-        /// To string
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return FriendlyName;
         }
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             this.audioEndpointVolume?.Dispose();

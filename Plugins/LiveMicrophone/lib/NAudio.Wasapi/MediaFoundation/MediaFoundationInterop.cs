@@ -14,101 +14,130 @@ namespace NAudio.MediaFoundation
     /// </summary>
     public static class MediaFoundationInterop
     {
+
         /// <summary>
-        /// Initializes Microsoft Media Foundation.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFStartup(int version, int dwFlags = 0);
 
         /// <summary>
-        /// Shuts down the Microsoft Media Foundation platform
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFShutdown();
 
         /// <summary>
-        /// Creates an empty media type.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFCreateMediaType(out IMFMediaType ppMFType);
-        
+
         /// <summary>
-        /// Initializes a media type from a WAVEFORMATEX structure. 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFInitMediaTypeFromWaveFormatEx([In] IMFMediaType pMFType, [In] WaveFormat pWaveFormat, [In] int cbBufSize);
 
         /// <summary>
-        /// Converts a Media Foundation audio media type to a WAVEFORMATEX structure.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// TODO: try making second parameter out WaveFormatExtraData
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFCreateWaveFormatExFromMFMediaType(IMFMediaType pMFType, ref IntPtr ppWF, ref int pcbSize, int flags = 0);
 
         /// <summary>
-        /// Creates the source reader from a URL.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfreadwrite.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFCreateSourceReaderFromURL([In, MarshalAs(UnmanagedType.LPWStr)] string pwszURL, [In] IMFAttributes pAttributes,
                                                                 [Out, MarshalAs(UnmanagedType.Interface)] out IMFSourceReader ppSourceReader);
 
         /// <summary>
-        /// Creates the source reader from a byte stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfreadwrite.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFCreateSourceReaderFromByteStream([In] IMFByteStream pByteStream, [In] IMFAttributes pAttributes, [Out, MarshalAs(UnmanagedType.Interface)] out IMFSourceReader ppSourceReader);
 
         /// <summary>
-        /// Creates the sink writer from a URL or byte stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfreadwrite.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFCreateSinkWriterFromURL([In, MarshalAs(UnmanagedType.LPWStr)] string pwszOutputURL,
                                                            [In] IMFByteStream pByteStream, [In] IMFAttributes pAttributes, [Out] out IMFSinkWriter ppSinkWriter);
 
-
         /// <summary>
-        /// Creates a Microsoft Media Foundation byte stream that wraps an IRandomAccessStream object.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFCreateMFByteStreamOnStreamEx([MarshalAs(UnmanagedType.IUnknown)] object punkStream, out IMFByteStream ppByteStream);
 
         /// <summary>
-        /// Creates a Microsoft Media Foundation byte stream that wraps an IRandomAccessStream object.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFCreateMFByteStreamOnStream([In] IStream punkStream, out IMFByteStream ppByteStream);
 
         /// <summary>
-        /// Gets a list of Microsoft Media Foundation transforms (MFTs) that match specified search criteria. 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFTEnumEx([In] Guid guidCategory, [In] _MFT_ENUM_FLAG flags, [In] MFT_REGISTER_TYPE_INFO pInputType, [In] MFT_REGISTER_TYPE_INFO pOutputType,
                                             [Out] out IntPtr pppMFTActivate, [Out] out int pcMFTActivate);
 
         /// <summary>
-        /// Creates an empty media sample.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFCreateSample([Out] out IMFSample ppIMFSample);
 
         /// <summary>
-        /// Allocates system memory and creates a media buffer to manage it.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFCreateMemoryBuffer(
             int cbMaxLength, [Out] out IMFMediaBuffer ppBuffer);
 
         /// <summary>
-        /// Creates an empty attribute store. 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mfplat.dll", ExactSpelling = true, PreserveSig = false)]
         internal static extern void MFCreateAttributes(
             [Out, MarshalAs(UnmanagedType.Interface)] out IMFAttributes ppMFAttributes,
             [In] int cInitialSize);
 
         /// <summary>
-        /// Gets a list of output formats from an audio encoder.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("mf.dll", ExactSpelling = true, PreserveSig = false)]
         public static extern void MFTranscodeGetAudioOutputAvailableTypes(
             [In, MarshalAs(UnmanagedType.LPStruct)] Guid guidSubType,

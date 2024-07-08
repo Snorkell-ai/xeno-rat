@@ -61,8 +61,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Read from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int sampRead = sourceStream.Read(buffer, offset, count);
@@ -128,6 +130,11 @@ namespace NAudio.Wave.SampleProviders
             set { pitch = value; }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private float Limiter(float sample)
         {
             float res;

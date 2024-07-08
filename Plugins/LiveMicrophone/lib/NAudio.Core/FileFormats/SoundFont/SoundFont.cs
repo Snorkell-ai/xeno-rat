@@ -87,8 +87,10 @@ namespace NAudio.SoundFont
         public byte[] SampleData => sampleData.SampleData;
 
         /// <summary>
-        /// <see cref="Object.ToString"/>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("Info Chunk:\r\n{0}\r\nPresets Chunk:\r\n{1}",

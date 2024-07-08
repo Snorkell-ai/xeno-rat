@@ -15,13 +15,12 @@ namespace NAudio.Wave
     /// </summary>
     public class MediaFoundationEncoder : IDisposable
     {
+
         /// <summary>
-        /// Queries the available bitrates for a given encoding output type, sample rate and number of channels
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="audioSubtype">Audio subtype - a value from the AudioSubtypes class</param>
-        /// <param name="sampleRate">The sample rate of the PCM to encode</param>
-        /// <param name="channels">The number of channels of the PCM to encode</param>
-        /// <returns>An array of available bitrates in average bits per second</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int[] GetEncodeBitrates(Guid audioSubtype, int sampleRate, int channels)
         {
             return GetOutputMediaTypes(audioSubtype)
@@ -33,10 +32,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets all the available media types for a particular 
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="audioSubtype">Audio subtype - a value from the AudioSubtypes class</param>
-        /// <returns>An array of available media types that can be encoded with this subtype</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MediaType[] GetOutputMediaTypes(Guid audioSubtype)
         {
             IMFCollection availableTypes;
@@ -72,12 +71,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Helper function to simplify encoding Window Media Audio
-        /// Should be supported on Vista and above (not tested)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputProvider">Input provider, must be PCM</param>
-        /// <param name="outputFile">Output file path, should end with .wma</param>
-        /// <param name="desiredBitRate">Desired bitrate. Use GetEncodeBitrates to find the possibilities for your input type</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void EncodeToWma(IWaveProvider inputProvider, string outputFile, int desiredBitRate = 192000)
         {
             var mediaType = SelectMediaType(AudioSubtypes.MFAudioFormat_WMAudioV8, inputProvider.WaveFormat, desiredBitRate);
@@ -104,12 +101,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Helper function to simplify encoding to MP3
-        /// By default, will only be available on Windows 8 and above
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputProvider">Input provider, must be PCM</param>
-        /// <param name="outputFile">Output file path, should end with .mp3</param>
-        /// <param name="desiredBitRate">Desired bitrate. Use GetEncodeBitrates to find the possibilities for your input type</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void EncodeToMp3(IWaveProvider inputProvider, string outputFile, int desiredBitRate = 192000)
         {
             var mediaType = SelectMediaType(AudioSubtypes.MFAudioFormat_MP3, inputProvider.WaveFormat, desiredBitRate);
@@ -136,12 +131,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Helper function to simplify encoding to AAC
-        /// By default, will only be available on Windows 7 and above
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="inputProvider">Input provider, must be PCM</param>
-        /// <param name="outputFile">Output file path, should end with .mp4 (or .aac on Windows 8)</param>
-        /// <param name="desiredBitRate">Desired bitrate. Use GetEncodeBitrates to find the possibilities for your input type</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void EncodeToAac(IWaveProvider inputProvider, string outputFile, int desiredBitRate = 192000)
         {
             // Information on configuring an AAC media type can be found here:
@@ -176,12 +169,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Tries to find the encoding media type with the closest bitrate to that specified
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="audioSubtype">Audio subtype, a value from AudioSubtypes</param>
-        /// <param name="inputFormat">Your encoder input format (used to check sample rate and channel count)</param>
-        /// <param name="desiredBitRate">Your desired bitrate</param>
-        /// <returns>The closest media type, or null if none available</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MediaType SelectMediaType(Guid audioSubtype, WaveFormat inputFormat, int desiredBitRate)
         {
             return GetOutputMediaTypes(audioSubtype)
@@ -206,10 +197,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Encodes a file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputFile">Output filename (container type is deduced from the filename)</param>
-        /// <param name="inputProvider">Input provider (should be PCM, some encoders will also allow IEEE float)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Encode(string outputFile, IWaveProvider inputProvider)
         {
             if (inputProvider.WaveFormat.Encoding != WaveFormatEncoding.Pcm && inputProvider.WaveFormat.Encoding != WaveFormatEncoding.IeeeFloat)
@@ -264,6 +255,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static IMFSinkWriter CreateSinkWriter(string outputFile)
         {
             // n.b. could try specifying the container type using attributes, but I think
@@ -309,6 +305,11 @@ namespace NAudio.Wave
             return writer;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void PerformEncode(IMFSinkWriter writer, int streamIndex, IWaveProvider inputProvider)
         {
             int maxLength = inputProvider.WaveFormat.AverageBytesPerSecond * 4;
@@ -327,12 +328,22 @@ namespace NAudio.Wave
             writer.DoFinalize();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static long BytesToNsPosition(int bytes, WaveFormat waveFormat)
         {
             long nsPosition = (10000000L * bytes) / waveFormat.AverageBytesPerSecond;
             return nsPosition;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long ConvertOneBuffer(IMFSinkWriter writer, int streamIndex, IWaveProvider inputProvider, long position, byte[] managedBuffer)
         {
             long durationConverted = 0;
@@ -369,9 +380,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this instance
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected void Dispose(bool disposing)
         {
             Marshal.ReleaseComObject(outputMediaType.MediaFoundationObject);

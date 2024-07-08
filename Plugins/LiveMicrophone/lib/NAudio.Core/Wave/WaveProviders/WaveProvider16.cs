@@ -30,18 +30,20 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Allows you to specify the sample rate and channels for this WaveProvider
-        /// (should be initialised before you pass it to a wave player)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetWaveFormat(int sampleRate, int channels)
         {
             this.waveFormat = new WaveFormat(sampleRate, 16, channels);
         }
 
         /// <summary>
-        /// Implements the Read method of IWaveProvider by delegating to the abstract
-        /// Read method taking a short array
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             WaveBuffer waveBuffer = new WaveBuffer(buffer);

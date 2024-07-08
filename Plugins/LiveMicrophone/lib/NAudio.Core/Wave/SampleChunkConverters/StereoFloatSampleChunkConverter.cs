@@ -9,12 +9,22 @@ namespace NAudio.Wave.SampleProviders
         private WaveBuffer sourceWaveBuffer;
         private int sourceSamples;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool Supports(WaveFormat waveFormat)
         {
             return waveFormat.Encoding == WaveFormatEncoding.IeeeFloat &&
                 waveFormat.Channels == 2;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void LoadNextChunk(IWaveProvider source, int samplePairsRequired)
         {
             int sourceBytesRequired = samplePairsRequired * 8;
@@ -24,6 +34,11 @@ namespace NAudio.Wave.SampleProviders
             sourceSample = 0;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool GetNextSample(out float sampleLeft, out float sampleRight)
         {
             if (sourceSample < sourceSamples)

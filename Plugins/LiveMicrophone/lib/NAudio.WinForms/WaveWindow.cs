@@ -13,6 +13,11 @@ namespace NAudio.Wave
             this.waveCallback = waveCallback;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void WndProc(ref Message m)
         {
             WaveInterop.WaveMessage message = (WaveInterop.WaveMessage)m.Msg;

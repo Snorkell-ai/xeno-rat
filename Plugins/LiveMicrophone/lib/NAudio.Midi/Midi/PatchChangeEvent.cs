@@ -12,8 +12,10 @@ namespace NAudio.Midi
         private byte patch;
 
         /// <summary>
-        /// Gets the default MIDI instrument names
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string GetPatchName(int patchNumber)
         {
             return patchNames[patchNumber];
@@ -86,9 +88,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Describes this patch change event
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>String describing the patch change event</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("{0} {1}",
@@ -97,19 +100,20 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Gets as a short message for sending with the midiOutShortMsg API
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>short message</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int GetAsShortMessage()
         {
             return base.GetAsShortMessage() + (this.patch << 8);
         }
 
         /// <summary>
-        /// Calls base class export first, then exports the data 
-        /// specific to this event
-        /// <seealso cref="MidiEvent.Export">MidiEvent.Export</seealso>
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override void Export(ref long absoluteTime, BinaryWriter writer)
         {
             base.Export(ref absoluteTime, writer);

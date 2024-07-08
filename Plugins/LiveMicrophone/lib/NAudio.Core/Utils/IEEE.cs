@@ -9,36 +9,53 @@ namespace NAudio.Utils
     /// </summary>
     public static class IEEE
     {
-        #region Helper Methods
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static double UnsignedToFloat(ulong u)
         {
             return (((double)((long)(u - 2147483647L - 1))) + 2147483648.0);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static double ldexp(double x, int exp)
         {
             return x * Math.Pow(2, exp);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static double frexp(double x, out int exp)
         {
             exp = (int)Math.Floor(Math.Log(x) / Math.Log(2)) + 1;
             return 1 - (Math.Pow(2, exp) - x) / Math.Pow(2, exp);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static ulong FloatToUnsigned(double f)
         {
             return ((ulong)(((long)(f - 2147483648.0)) + 2147483647L) + 1);
         }
-        #endregion
 
-        #region ConvertToIeeeExtended
         /// <summary>
-        /// Converts a C# double precision number to an 80-bit
-        /// IEEE extended double precision number (occupying 10 bytes).
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="num">The double precision number to convert to IEEE extended.</param>
-        /// <returns>An array of 10 bytes containing the IEEE extended number.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] ConvertToIeeeExtended(double num)
         {
             int sign;
@@ -100,15 +117,12 @@ namespace NAudio.Utils
 
             return bytes;
         }
-        #endregion
 
-        #region ConvertFromIeeeExtended
         /// <summary>
-        /// Converts an IEEE 80-bit extended precision number to a
-        /// C# double precision number.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bytes">The 80-bit IEEE extended number (as an array of 10 bytes).</param>
-        /// <returns>A C# double precision number that is a close representation of the IEEE extended number.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static double ConvertFromIeeeExtended(byte[] bytes)
         {
             if (bytes.Length != 10) throw new Exception("Incorrect length for IEEE extended.");

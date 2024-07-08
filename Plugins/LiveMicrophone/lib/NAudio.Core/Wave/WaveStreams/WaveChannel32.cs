@@ -70,11 +70,21 @@ namespace NAudio.Wave
             position = 0;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long SourceToDest(long sourceBytes)
         {
             return (sourceBytes / sourceBytesPerSample) * destBytesPerSample;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long DestToSource(long destBytes)
         {
             return (destBytes / destBytesPerSample) * sourceBytesPerSample;
@@ -129,14 +139,11 @@ namespace NAudio.Wave
             }
         }
 
-
         /// <summary>
-        /// Reads bytes from this wave stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="destBuffer">The destination buffer</param>
-        /// <param name="offset">Offset into the destination buffer</param>
-        /// <param name="numBytes">Number of bytes read</param>
-        /// <returns>Number of bytes read.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] destBuffer, int offset, int numBytes)
         {
             lock (lockObject)
@@ -211,9 +218,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Determines whether this channel has any data to play
-        /// to allow optimisation to not read, but bump position forward
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override bool HasData(int count)
         {
             // Check whether the source stream has data.
@@ -229,8 +237,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this WaveStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -257,8 +267,10 @@ namespace NAudio.Wave
         private SampleEventArgs sampleEventArgs = new SampleEventArgs(0,0);
 
         /// <summary>
-        /// Raise the sample event (no check for null because it has already been done)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaiseSample(float left, float right)
         {
             sampleEventArgs.Left = left;

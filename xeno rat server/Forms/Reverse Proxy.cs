@@ -29,6 +29,12 @@ namespace xeno_rat_server.Forms
         private const string LOCAL_ADDR = "127.0.0.1";
         private List<Node> killnodes = new List<Node>();
         private Socket new_socket = null;
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void TempOnDisconnect(Node node)
         {
             if (node == client)
@@ -47,6 +53,12 @@ namespace xeno_rat_server.Forms
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static Socket CreateSocket()
         {
             try
@@ -62,6 +74,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool BindPort(Socket sock, int LOCAL_PORT)
         {
             try
@@ -90,7 +107,11 @@ namespace xeno_rat_server.Forms
             return true;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Node> CreateSubSubNode(Node client)
         {
             Node SubSubNode = await client.Parent.CreateSubNodeAsync(2);
@@ -119,7 +140,11 @@ namespace xeno_rat_server.Forms
             return SubSubNode;
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<byte[]> RecvAll(Socket sock, int size)
         {
             byte[] data = new byte[size];
@@ -147,6 +172,11 @@ namespace xeno_rat_server.Forms
             return data;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<bool> replyMethodSelection(Socket sock, byte method_code) 
         {
             byte[] reply = new byte[] { 5, method_code };
@@ -157,6 +187,11 @@ namespace xeno_rat_server.Forms
             return (await sock.SendAsync(new ArraySegment<byte>(reply), SocketFlags.None))!=0;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<bool> replyRequestError(Socket sock, byte rep_err_code)
         {
             byte[] reply = new byte[] { 5, rep_err_code, 0x00, Socks5Const.AddressType.IPv4, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
@@ -167,6 +202,11 @@ namespace xeno_rat_server.Forms
             return (await sock.SendAsync(new ArraySegment<byte>(reply), SocketFlags.None)) != 0;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<bool> StartNegotiations(Socket client_sock)
         {
             byte[] version_header = await RecvAll(client_sock, 1);
@@ -195,6 +235,11 @@ namespace xeno_rat_server.Forms
             return true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task DisconnectSockAsync(Socket sock)
         {
             try
@@ -211,6 +256,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleConnectAndProxy(Socket client_sock)
         {
             // on all returns decomission the sockets
@@ -345,6 +395,11 @@ namespace xeno_rat_server.Forms
             listView1.BeginInvoke((MethodInvoker)(() => { item.Remove(); }));
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task RecvSendLoop(Socket client_sock, Node subnode, int bufferSize)
         {
             while (button2.Enabled && client_sock.Connected && subnode.Connected() && new_socket != null)
@@ -386,6 +441,11 @@ namespace xeno_rat_server.Forms
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task HandleProxyCreation(Socket client_sock) 
         {
             if (await StartNegotiations(client_sock))
@@ -398,6 +458,11 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task AcceptLoop(Socket new_socket)
         {
             while (button2.Enabled)
@@ -415,6 +480,11 @@ namespace xeno_rat_server.Forms
             await DisconnectSockAsync(new_socket);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button1_Click(object sender, EventArgs e)
         {   
             int port;
@@ -434,6 +504,11 @@ namespace xeno_rat_server.Forms
             new Thread(async ()=>await AcceptLoop(new_socket)).Start();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             foreach (Node i in killnodes)
@@ -452,6 +527,11 @@ namespace xeno_rat_server.Forms
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Reverse_Proxy_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (Node i in killnodes)
@@ -467,11 +547,21 @@ namespace xeno_rat_server.Forms
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Reverse_Proxy_Load(object sender, EventArgs e)
         {
             listView1.GetType().GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).SetValue(listView1, true, null);

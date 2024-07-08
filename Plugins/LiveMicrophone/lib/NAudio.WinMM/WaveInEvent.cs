@@ -50,10 +50,10 @@ namespace NAudio.Wave
         public static int DeviceCount => WaveInterop.waveInGetNumDevs();
 
         /// <summary>
-        /// Retrieves the capabilities of a waveIn device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="devNumber">Device to test</param>
-        /// <returns>The WaveIn device capabilities</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveInCapabilities GetCapabilities(int devNumber)
         {
             WaveInCapabilities caps = new WaveInCapabilities();
@@ -77,6 +77,11 @@ namespace NAudio.Wave
         /// </summary>
         public int DeviceNumber { get; set; }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CreateBuffers()
         {
             // Default to three buffers of 100ms each
@@ -93,6 +98,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void OpenWaveInDevice()
         {
             CloseWaveInDevice();
@@ -104,8 +114,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Start recording
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StartRecording()
         {
             if (captureState != CaptureState.Stopped)
@@ -116,6 +128,11 @@ namespace NAudio.Wave
             ThreadPool.QueueUserWorkItem((state) => RecordThread(), null);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RecordThread()
         {
             Exception exception = null;
@@ -134,6 +151,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DoRecording()
         {
             captureState = CaptureState.Capturing;
@@ -168,6 +190,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void RaiseRecordingStoppedEvent(Exception e)
         {
             var handler = RecordingStopped;
@@ -183,9 +210,12 @@ namespace NAudio.Wave
                 }
             }
         }
+
         /// <summary>
-        /// Stop recording
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void StopRecording()
         {
             if (captureState != CaptureState.Stopped)
@@ -201,10 +231,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the current position in bytes from the wave input device.
-        /// it calls directly into waveInGetPosition)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>Position in bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public long GetPosition()
         {
             MmTime mmTime = new MmTime();
@@ -223,8 +253,10 @@ namespace NAudio.Wave
         public WaveFormat WaveFormat { get; set; }
 
         /// <summary>
-        /// Dispose pattern
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
@@ -236,6 +268,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CloseWaveInDevice()
         {
             // Some drivers need the reset to properly release buffers
@@ -253,8 +290,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Microphone Level
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MixerLine GetMixerLine()
         {
             // TODO use mixerGetID instead to see if this helps with XP

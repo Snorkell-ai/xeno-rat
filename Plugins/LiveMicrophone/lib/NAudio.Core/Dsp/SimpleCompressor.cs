@@ -1,4 +1,4 @@
-// based on SimpleComp v1.10 © 2006, ChunkWare Music Software, OPEN-SOURCE
+// based on SimpleComp v1.10 Â© 2006, ChunkWare Music Software, OPEN-SOURCE
 using System;
 using NAudio.Utils;
 
@@ -29,13 +29,21 @@ namespace NAudio.Dsp
 
         public double Ratio { get; set; }
 
-        // call before runtime (in resume())
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void InitRuntime()
         {
             this.envdB = DC_OFFSET;
         }
-    
-        // // compressor runtime process
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Process(ref double in1, ref double in2)
         {
             // sidechain

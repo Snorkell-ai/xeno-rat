@@ -50,18 +50,22 @@ namespace NAudio.Midi
             this.callback = new MidiInterop.MidiInCallback(Callback);
             MmException.Try(MidiInterop.midiInOpen(out hMidiIn, (IntPtr) deviceNo,this.callback,IntPtr.Zero,MidiInterop.CALLBACK_FUNCTION),"midiInOpen");
         }
-        
+
         /// <summary>
-        /// Closes this MIDI in device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Close() 
         {
             Dispose();
         }
 
         /// <summary>
-        /// Closes this MIDI in device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose() 
         {
             GC.KeepAlive(callback);
@@ -70,34 +74,40 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Start the MIDI in device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Start()
         {
             MmException.Try(MidiInterop.midiInStart(hMidiIn), "midiInStart");
         }
 
         /// <summary>
-        /// Stop the MIDI in device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             MmException.Try(MidiInterop.midiInStop(hMidiIn), "midiInStop");
         }
 
         /// <summary>
-        /// Reset the MIDI in device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             MmException.Try(MidiInterop.midiInReset(hMidiIn), "midiInReset");
         }
 
         /// <summary>
-        /// Create a number of buffers and make them available to receive incoming Sysex messages
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bufferSize">The size of each buffer, ideally large enough to hold a complete message from the device</param>
-        /// <param name="numberOfBuffers">The number of buffers needed to handle incoming Midi while busy</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void CreateSysexBuffers(int bufferSize, int numberOfBuffers)
         {
             SysexBufferHeaders = new IntPtr[numberOfBuffers];
@@ -121,6 +131,11 @@ namespace NAudio.Midi
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void Callback(IntPtr midiInHandle, MidiInterop.MidiInMessage message, IntPtr userData, IntPtr messageParameter1, IntPtr messageParameter2)
         {
             switch(message)
@@ -174,8 +189,10 @@ namespace NAudio.Midi
         }
 
         /// <summary>
-        /// Gets the MIDI in device info
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MidiInCapabilities DeviceInfo(int midiInDeviceNumber)
         {
             MidiInCapabilities caps = new MidiInCapabilities();

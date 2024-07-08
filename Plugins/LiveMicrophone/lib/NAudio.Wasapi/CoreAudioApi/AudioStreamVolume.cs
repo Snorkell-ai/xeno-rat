@@ -18,10 +18,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Verify that the channel index is valid.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="channelIndex"></param>
-        /// <param name="parameter"></param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void CheckChannelIndex(int channelIndex, string parameter)
         {
             int channelCount = ChannelCount;
@@ -32,9 +32,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Return the current stream volumes for all channels
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>An array of volume levels between 0.0 and 1.0 for each channel in the audio stream.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float[] GetAllVolumes()
         {
             Marshal.ThrowExceptionForHR(audioStreamVolumeInterface.GetChannelCount(out var channels));
@@ -59,10 +60,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Return the current volume for the requested channel.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="channelIndex">The 0 based index into the channels.</param>
-        /// <returns>The volume level for the channel between 0.0 and 1.0.</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public float GetChannelVolume(int channelIndex)
         {
             CheckChannelIndex(channelIndex, "channelIndex");
@@ -77,15 +78,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Set the volume level for each channel of the audio stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="levels">An array of volume levels (between 0.0 and 1.0) one for each channel.</param>
-        /// <remarks>
-        /// A volume level MUST be supplied for reach channel in the audio stream.
-        /// </remarks>
-        /// <exception cref="ArgumentOutOfRangeException">
-        /// Thrown when <paramref name="levels"/> does not contain <see cref="ChannelCount"/> elements.
-        /// </exception>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetAllVolumes(float[] levels)
         {
             // Make friendly Net exceptions for common problems:
@@ -114,10 +110,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Sets the volume level for one channel in the audio stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="index">The 0-based index into the channels to adjust the volume of.</param>
-        /// <param name="level">The volume level between 0.0 and 1.0 for this channel of the audio stream.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetChannelVolume(int index, float level)
         {
             CheckChannelIndex(index, "index");
@@ -130,11 +126,11 @@ namespace NAudio.CoreAudioApi
             }
         }
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             Dispose(true);

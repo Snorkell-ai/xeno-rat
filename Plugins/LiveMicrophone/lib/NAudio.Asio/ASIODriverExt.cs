@@ -57,10 +57,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Allows adjustment of which is the first output channel we write to
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="outputChannelOffset">Output Channel offset</param>
-        /// <param name="inputChannelOffset">Input Channel offset</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetChannelOffset(int outputChannelOffset, int inputChannelOffset)
         {
             if (outputChannelOffset + numberOfOutputChannels <= Capabilities.NbOutputChannels)
@@ -89,32 +89,40 @@ namespace NAudio.Wave.Asio
         public AsioDriver Driver => driver;
 
         /// <summary>
-        /// Starts playing the buffers.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Start()
         {
             driver.Start();
         }
 
         /// <summary>
-        /// Stops playing the buffers.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             driver.Stop();
         }
 
         /// <summary>
-        /// Shows the control panel.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ShowControlPanel()
         {
             driver.ControlPanel();
         }
 
         /// <summary>
-        /// Releases this instance.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ReleaseDriver()
         {
             try
@@ -128,21 +136,20 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Determines whether the specified sample rate is supported.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">The sample rate.</param>
-        /// <returns>
-        /// 	<c>true</c> if [is sample rate supported]; otherwise, <c>false</c>.
-        /// </returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool IsSampleRateSupported(double sampleRate)
         {
             return driver.CanSampleRate(sampleRate);
         }
 
         /// <summary>
-        /// Sets the sample rate.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sampleRate">The sample rate.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetSampleRate(double sampleRate)
         {
             driver.SetSampleRate(sampleRate);
@@ -167,11 +174,10 @@ namespace NAudio.Wave.Asio
         public AsioDriverCapability Capabilities => capability;
 
         /// <summary>
-        /// Creates the buffers for playing.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="numberOfOutputChannels">The number of outputs channels.</param>
-        /// <param name="numberOfInputChannels">The number of input channel.</param>
-        /// <param name="useMaxBufferSize">if set to <c>true</c> [use max buffer size] else use Prefered size</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int CreateBuffers(int numberOfOutputChannels, int numberOfInputChannels, bool useMaxBufferSize)
         {
             if (numberOfOutputChannels < 0 || numberOfOutputChannels > capability.NbOutputChannels)
@@ -241,8 +247,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Builds the capabilities internally.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void BuildCapabilities()
         {
             capability = new AsioDriverCapability();
@@ -285,10 +293,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Callback called by the AsioDriver on fill buffer demand. Redirect call to external callback.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="doubleBufferIndex">Index of the double buffer.</param>
-        /// <param name="directProcess">if set to <c>true</c> [direct process].</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void BufferSwitchCallBack(int doubleBufferIndex, bool directProcess)
         {
             for (int i = 0; i < numberOfInputChannels; i++)
@@ -310,9 +318,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Callback called by the AsioDriver on event "Samples rate changed".
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="sRate">The sample rate.</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SampleRateDidChangeCallBack(double sRate)
         {
             // Check when this is called?
@@ -320,13 +329,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Asio message call back.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="selector">The selector.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="message">The message.</param>
-        /// <param name="opt">The opt.</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int AsioMessageCallBack(AsioMessageSelector selector, int value, IntPtr message, IntPtr opt)
         {
             // Check when this is called?
@@ -375,12 +381,10 @@ namespace NAudio.Wave.Asio
         }
 
         /// <summary>
-        /// Buffers switch time info call back.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="asioTimeParam">The asio time param.</param>
-        /// <param name="doubleBufferIndex">Index of the double buffer.</param>
-        /// <param name="directProcess">if set to <c>true</c> [direct process].</param>
-        /// <returns></returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private IntPtr BufferSwitchTimeInfoCallBack(IntPtr asioTimeParam, int doubleBufferIndex, bool directProcess)
         {
             // Check when this is called?

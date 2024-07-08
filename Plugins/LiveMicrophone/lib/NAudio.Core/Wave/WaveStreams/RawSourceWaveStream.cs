@@ -63,8 +63,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads data from the stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             try

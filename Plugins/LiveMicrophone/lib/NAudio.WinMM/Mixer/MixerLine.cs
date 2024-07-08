@@ -50,9 +50,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Creates a new Mixer Source
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="waveInDevice">Wave In Device</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static int GetMixerIdForWaveIn(int waveInDevice)
         {
             int mixerId = -1;
@@ -228,8 +229,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Gets the specified source
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public MixerLine GetSource(int sourceIndex) 
         {
             if(sourceIndex < 0 || sourceIndex >= SourceCount) 
@@ -276,8 +279,10 @@ namespace NAudio.Mixer
         }
 
         /// <summary>
-        /// Describes this Mixer Line (for diagnostic purposes)
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override string ToString()
         {
             return String.Format("{0} {1} ({2} controls, ID={3})", 

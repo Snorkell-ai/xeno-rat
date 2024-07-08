@@ -25,8 +25,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Read simply returns what the source returns, but writes to disk along the way
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(byte[] buffer, int offset, int count)
         {
             int bytesRead = source.Read(buffer, offset, count);
@@ -43,8 +45,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Closes the WAV file
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (writer != null)

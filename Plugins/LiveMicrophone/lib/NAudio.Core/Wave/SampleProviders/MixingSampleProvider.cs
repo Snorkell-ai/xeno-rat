@@ -60,10 +60,10 @@ namespace NAudio.Wave.SampleProviders
         public bool ReadFully { get; set; }
 
         /// <summary>
-        /// Adds a WaveProvider as a Mixer input.
-        /// Must be PCM or IEEE float already
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="mixerInput">IWaveProvider mixer input</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void AddMixerInput(IWaveProvider mixerInput)
         {
             AddMixerInput(SampleProviderConverters.ConvertWaveProviderIntoSampleProvider(mixerInput));
@@ -105,9 +105,10 @@ namespace NAudio.Wave.SampleProviders
         public event EventHandler<SampleProviderEventArgs> MixerInputEnded;
 
         /// <summary>
-        /// Removes a mixer input
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="mixerInput">Mixer input to remove</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RemoveMixerInput(ISampleProvider mixerInput)
         {
             lock (sources)
@@ -117,8 +118,10 @@ namespace NAudio.Wave.SampleProviders
         }
 
         /// <summary>
-        /// Removes all mixer inputs
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void RemoveAllMixerInputs()
         {
             lock (sources)
@@ -133,12 +136,10 @@ namespace NAudio.Wave.SampleProviders
         public WaveFormat WaveFormat { get; private set; }
 
         /// <summary>
-        /// Reads samples from this sample provider
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">Sample buffer</param>
-        /// <param name="offset">Offset into sample buffer</param>
-        /// <param name="count">Number of samples required</param>
-        /// <returns>Number of samples read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Read(float[] buffer, int offset, int count)
         {
             int outputSamples = 0;

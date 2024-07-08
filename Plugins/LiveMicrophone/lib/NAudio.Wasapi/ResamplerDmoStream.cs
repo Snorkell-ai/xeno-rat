@@ -54,6 +54,11 @@ namespace NAudio.Wave
         /// </summary>
         public override WaveFormat WaveFormat => outputFormat;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long InputToOutputPosition(long inputPosition)
         {
             double ratio = (double)outputFormat.AverageBytesPerSecond
@@ -66,6 +71,11 @@ namespace NAudio.Wave
             return outputPosition;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private long OutputToInputPosition(long outputPosition)
         {
             double ratio = (double)outputFormat.AverageBytesPerSecond
@@ -115,12 +125,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Reads data from input stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="buffer">buffer</param>
-        /// <param name="offset">offset into buffer</param>
-        /// <param name="count">Bytes required</param>
-        /// <returns>Number of bytes read</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public override int Read(byte[] buffer, int offset, int count)
         {
             int outputBytesProvided = 0;
@@ -173,9 +181,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="disposing">True if disposing (not from finalizer)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (inputMediaBuffer != null)

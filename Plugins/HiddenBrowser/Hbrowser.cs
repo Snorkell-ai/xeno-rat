@@ -13,6 +13,12 @@ namespace Plugin
 {
     public class Main
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string ChromeExePath() 
         {
             try
@@ -28,6 +34,12 @@ namespace Plugin
             catch { }
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public string FirefoxExePath() 
         {
             try
@@ -50,6 +62,11 @@ namespace Plugin
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void recvThread(Socket sock, Node client)
         {
             while (true)
@@ -59,6 +76,12 @@ namespace Plugin
                 sock.Send(data, data.Length, SocketFlags.None);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void sendThread(Socket sock, Node client)
         {
             while (true)
@@ -70,10 +93,21 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void FirefoxForwarder(Node node,string FireFoxPath) 
         { 
             
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ChromeForwarder(Node node, string ChromePath) 
         {
             Console.WriteLine(ChromePath);
@@ -86,6 +120,12 @@ namespace Plugin
             new Thread(() => sendThread(socket, node)).Start();
             recvThread(socket, node);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Run(Node node)
         {
             node.Send(new byte[] { 3 });//indicate that it has connected

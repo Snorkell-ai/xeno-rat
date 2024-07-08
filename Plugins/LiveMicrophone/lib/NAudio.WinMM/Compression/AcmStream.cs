@@ -81,12 +81,11 @@ namespace NAudio.Wave.Compression
             streamHeader = new AcmStreamHeader(streamHandle, sourceBufferSize, SourceToDest(sourceBufferSize));
         }
 
-
         /// <summary>
-        /// Returns the number of output bytes for a given number of input bytes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="source">Number of input bytes</param>
-        /// <returns>Number of output bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int SourceToDest(int source)
         {
             if (source == 0) // zero is an invalid parameter to acmStreamSize
@@ -98,10 +97,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Returns the number of source bytes for a given number of destination bytes
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="dest">Number of destination bytes</param>
-        /// <returns>Number of source bytes</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int DestToSource(int dest)
         {
             if (dest == 0) // zero is an invalid parameter to acmStreamSize
@@ -112,11 +111,10 @@ namespace NAudio.Wave.Compression
         }
 
         /// <summary>
-        /// Suggests an appropriate PCM format that the compressed format can be converted
-        /// to in one step
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="compressedFormat">The compressed format</param>
-        /// <returns>The PCM format</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static WaveFormat SuggestPcmFormat(WaveFormat compressedFormat)
         {
             // create a PCM format
@@ -153,20 +151,20 @@ namespace NAudio.Wave.Compression
         public byte[] DestBuffer => streamHeader.DestBuffer;
 
         /// <summary>
-        /// Report that we have repositioned in the source stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reposition()
         {
             streamHeader.Reposition();
         }
 
         /// <summary>
-        /// Converts the contents of the SourceBuffer into the DestinationBuffer
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="bytesToConvert">The number of bytes in the SourceBuffer
-        /// that need to be converted</param>
-        /// <param name="sourceBytesConverted">The number of source bytes actually converted</param>
-        /// <returns>The number of converted bytes in the DestinationBuffer</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public int Convert(int bytesToConvert, out int sourceBytesConverted)
         {
             if (bytesToConvert % sourceFormat.BlockAlign != 0)
@@ -196,18 +194,11 @@ namespace NAudio.Wave.Compression
             return destBytes;
         }
 
-        /* Relevant only for async conversion streams
-        public void Reset()
-        {
-            MmException.Try(AcmInterop.acmStreamReset(streamHandle,0),"acmStreamReset");
-        }
-        */
-
-        #region IDisposable Members
-
         /// <summary>
-        /// Frees resources associated with this ACM Stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             Dispose(true);

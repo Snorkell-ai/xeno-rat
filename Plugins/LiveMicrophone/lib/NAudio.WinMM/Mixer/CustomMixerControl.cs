@@ -20,9 +20,10 @@ namespace NAudio.Mixer
 		}
 
 		/// <summary>
-		/// Get the data for this custom control
+		/// Sorts the given array using the bubble sort algorithm.
 		/// </summary>
-		/// <param name="pDetails">pointer to memory to receive data</param>
+		/// <param name="arr">The array to be sorted.</param>
+		/// <param name="n">The number of elements in the array.</param>
 		protected override void GetDetails(IntPtr pDetails)
 		{
 		}

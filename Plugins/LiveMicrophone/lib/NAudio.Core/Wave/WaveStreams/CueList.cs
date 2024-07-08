@@ -90,9 +90,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Adds an item to the list
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="cue">Cue</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Add(Cue cue)
         {
             cues.Add(cue);
@@ -172,9 +173,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the cues as the concatenated cue and list RIFF chunks.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>RIFF chunks containing the cue data</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal byte[] GetRiffChunks()
         {
             if (Count == 0)
@@ -250,8 +252,10 @@ namespace NAudio.Wave
         public Cue this[int index] => cues[index];
 
         /// <summary>
-        /// Checks if the cue and list chunks exist and if so, creates a cue list
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal static CueList FromChunks(WaveFileReader reader)
         {
             CueList cueList = null;

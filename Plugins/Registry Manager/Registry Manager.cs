@@ -26,6 +26,12 @@ namespace Plugin
     }
     public class Main
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static RegistryHive? GetRootKeyName(string keyPath)
         {
             string[] parts = keyPath.Split('\\');
@@ -46,6 +52,12 @@ namespace Plugin
 
             return null;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static RegInfo GetRegInfo(string path)
         {
             RegistryHive? _hive = GetRootKeyName(path);
@@ -114,6 +126,11 @@ namespace Plugin
             { "Unknown", 7 }
         };
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeRegInfo(RegInfo regInfo)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -175,6 +192,12 @@ namespace Plugin
                 return memoryStream.ToArray();
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool DeleteRegistrySubkey(string path)
         {
             RegistryHive? _hive= GetRootKeyName(path);
@@ -200,6 +223,12 @@ namespace Plugin
             }
             return worked;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool DeleteRegistryValue(string path, string keyname)
         {
             RegistryHive? _hive = GetRootKeyName(path);
@@ -235,6 +264,12 @@ namespace Plugin
             }
             return worked;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
