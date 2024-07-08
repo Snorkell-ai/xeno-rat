@@ -26,6 +26,16 @@ namespace xeno_rat_client
             EncryptionKey = _EncryptionKey;
         }
 
+        /// <summary>
+        /// Asynchronously receives all data of specified size from the connected socket and returns the received data as a byte array.
+        /// </summary>
+        /// <param name="size">The size of the data to be received.</param>
+        /// <returns>The received data as a byte array. Returns null if the socket is not connected or if no data is received.</returns>
+        /// <remarks>
+        /// This method asynchronously receives data from the connected socket until the total received data size matches the specified size.
+        /// It initializes variables to track the total received data size, the remaining data size, and the timestamps for tracking the start and last send time.
+        /// If the socket is not connected, it returns null. If no data is received, it returns null.
+        /// </remarks>
         private async Task<byte[]> RecvAllAsync_ddos_unsafer(int size)
         {
             byte[] data = new byte[size];
@@ -56,7 +66,18 @@ namespace xeno_rat_client
             return data;
         }
 
-
+        /// <summary>
+        /// Asynchronously receives all the data of the specified size from the connected socket and returns it as a byte array.
+        /// </summary>
+        /// <param name="size">The size of the data to be received.</param>
+        /// <returns>The received data as a byte array. Returns null if the socket is not connected, or if the timeout is reached.</returns>
+        /// <exception cref="SocketException">Thrown when an error occurs with the socket.</exception>
+        /// <exception cref="ObjectDisposedException">Thrown when the socket has been closed.</exception>
+        /// <remarks>
+        /// This method asynchronously receives data from the connected socket until the specified size is reached.
+        /// If the socket is not connected, it returns null. If the timeout is reached, it also returns null.
+        /// This method uses asynchronous socket operations to efficiently receive data and handle timeouts.
+        /// </remarks>
         private async Task<byte[]> RecvAllAsync_ddos_safer(int size)
         {
             byte[] data = new byte[size];
@@ -115,6 +136,17 @@ namespace xeno_rat_client
             return data;
         }
 
+        /// <summary>
+        /// Concatenates two byte arrays and returns the result.
+        /// </summary>
+        /// <param name="b1">The first byte array to be concatenated. If null, an empty byte array is used.</param>
+        /// <param name="b2">The second byte array to be concatenated.</param>
+        /// <returns>The concatenation of <paramref name="b1"/> and <paramref name="b2"/>.</returns>
+        /// <remarks>
+        /// This method concatenates the input byte arrays <paramref name="b1"/> and <paramref name="b2"/> into a single byte array.
+        /// If <paramref name="b1"/> is null, an empty byte array is used as the first array for concatenation.
+        /// The resulting byte array contains all the elements of <paramref name="b1"/> followed by all the elements of <paramref name="b2"/>.
+        /// </remarks>
         public static byte[] Concat(byte[] b1, byte[] b2)
         {
             if (b1 == null) b1 = new byte[] { };
@@ -123,6 +155,16 @@ namespace xeno_rat_client
             d.Add(b2);
             return d.SelectMany(a => a).ToArray();
         }
+
+        /// <summary>
+        /// Parses the header from the given byte array and returns the header information.
+        /// </summary>
+        /// <param name="data">The byte array containing the header information.</param>
+        /// <returns>The parsed header information as a <see cref="header"/> object.</returns>
+        /// <remarks>
+        /// This method parses the header information from the input byte array. If the first byte of the array is 1, it indicates that the data is compressed, and the method sets the corresponding properties of the <see cref="header"/> object.
+        /// If the first byte is not 1, it checks if it is not 0 and returns null. Otherwise, it returns the parsed header information.
+        /// </remarks>
         private header ParseHeader(byte[] data)
         {
             header Header = new header();
@@ -138,12 +180,36 @@ namespace xeno_rat_client
             }
             return Header;
         }
+
+        /// <summary>
+        /// Truncates the input byte array from the specified offset and returns the truncated data.
+        /// </summary>
+        /// <param name="bytes">The input byte array from which data will be truncated.</param>
+        /// <param name="offset">The offset from which the truncation will start.</param>
+        /// <returns>The truncated byte array starting from the specified <paramref name="offset"/>.</returns>
+        /// <remarks>
+        /// This method creates a new byte array <paramref name="T_data"/> with a length equal to the original array's length minus the specified <paramref name="offset"/>.
+        /// It then uses Buffer.BlockCopy to copy the data from the original array starting from the specified <paramref name="offset"/> into the new array.
+        /// The truncated data is then returned as a new byte array.
+        /// </remarks>
         public byte[] BTruncate(byte[] bytes, int offset)
         {
             byte[] T_data = new byte[bytes.Length - offset];
             Buffer.BlockCopy(bytes, offset, T_data, 0, T_data.Length);
             return T_data;
         }
+
+        /// <summary>
+        /// Sends the provided byte array after performing compression, encryption, and adding protocol upgrade byte.
+        /// </summary>
+        /// <param name="data">The byte array to be sent.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the input <paramref name="data"/> is null.</exception>
+        /// <returns>True if the data is sent successfully; otherwise, false.</returns>
+        /// <remarks>
+        /// This method compresses the input <paramref name="data"/> using the Compression class, then encrypts it using the EncryptionKey.
+        /// It adds a protocol upgrade byte and sends the data using the sock object.
+        /// If an exception occurs during the process, it returns false, indicating a possible disconnection.
+        /// </remarks>
         public async Task<bool> SendAsync(byte[] data)
         {
             if (data == null)
@@ -180,6 +246,16 @@ namespace xeno_rat_client
                 return false; // should probably disconnect
             }
         }
+
+        /// <summary>
+        /// Asynchronously receives and processes data from the client.
+        /// </summary>
+        /// <returns>The received data as a byte array, or null if the client has disconnected.</returns>
+        /// <remarks>
+        /// This method continuously receives data from the client and processes it. It first receives the length of the incoming data, then the actual data.
+        /// If the client has disconnected at any point during the process, the method returns null.
+        /// The received data is processed based on the protocol and headers, including encryption, compression, and truncation.
+        /// </remarks>
         public async Task<byte[]> ReceiveAsync()
         {
             try
@@ -245,6 +321,18 @@ namespace xeno_rat_client
                 return null;//disconnect
             }
         }
+
+        /// <summary>
+        /// Converts a byte array to an integer value.
+        /// </summary>
+        /// <param name="data">The byte array to be converted.</param>
+        /// <param name="offset">The offset within the byte array where the conversion should start (default is 0).</param>
+        /// <returns>The integer value converted from the byte array.</returns>
+        /// <remarks>
+        /// This method converts the specified byte array <paramref name="data"/> to an integer value based on the endianness of the system.
+        /// If the system is little-endian, the bytes are combined in little-endian order (least significant byte first).
+        /// If the system is big-endian, the bytes are combined in big-endian order (most significant byte first).
+        /// </remarks>
         public int BytesToInt(byte[] data, int offset = 0)
         {
             if (BitConverter.IsLittleEndian)
@@ -256,6 +344,18 @@ namespace xeno_rat_client
                 return data[offset + 3] | data[offset + 2] << 8 | data[offset + 1] << 16 | data[offset] << 24;
             }
         }
+
+        /// <summary>
+        /// Converts an integer to an array of bytes.
+        /// </summary>
+        /// <param name="data">The integer to be converted to bytes.</param>
+        /// <returns>An array of bytes representing the input integer.</returns>
+        /// <remarks>
+        /// This method converts the input integer <paramref name="data"/> to an array of bytes.
+        /// It first checks the endianness of the system using BitConverter.IsLittleEndian property.
+        /// If the system is little-endian, it populates the byte array in little-endian order, otherwise in big-endian order.
+        /// The method then returns the resulting byte array.
+        /// </remarks>
         public byte[] IntToBytes(int data)
         {
             byte[] bytes = new byte[4];
@@ -278,12 +378,25 @@ namespace xeno_rat_client
             return bytes;
         }
 
-
+        /// <summary>
+        /// Sets the receive timeout for the socket.
+        /// </summary>
+        /// <param name="ms">The receive timeout value in milliseconds.</param>
+        /// <remarks>
+        /// This method sets the receive timeout for the underlying socket to the specified value in milliseconds.
+        /// </remarks>
         public void SetRecvTimeout(int ms)
         {
             socktimeout = ms;
             sock.ReceiveTimeout = ms;
         }
+
+        /// <summary>
+        /// Resets the receive timeout for the socket.
+        /// </summary>
+        /// <remarks>
+        /// This method sets the receive timeout for the socket to zero, effectively disabling the timeout.
+        /// </remarks>
         public void ResetRecvTimeout()
         {
             socktimeout = 0;

