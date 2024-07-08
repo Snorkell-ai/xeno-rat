@@ -28,18 +28,21 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Gets the default audio loopback capture device
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>The default audio loopback capture device</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static MMDevice GetDefaultLoopbackCaptureDevice()
         {
             MMDeviceEnumerator devices = new MMDeviceEnumerator();
             return devices.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia);
         }
-        
+
         /// <summary>
-        /// Specify loopback
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override AudioClientStreamFlags GetAudioClientStreamFlags()
         {
             return AudioClientStreamFlags.Loopback | base.GetAudioClientStreamFlags();

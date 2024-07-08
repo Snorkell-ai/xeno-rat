@@ -20,6 +20,11 @@ namespace NAudio.CoreAudioApi
         private AudioStreamVolume audioStreamVolume;
         private AudioClientShareMode shareMode;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<AudioClient> ActivateAsync(string deviceInterfacePath, AudioClientProperties? audioClientProperties)
         {
             var icbh = new ActivateAudioInterfaceCompletionHandler(
@@ -78,14 +83,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Initializes the Audio Client
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="shareMode">Share Mode</param>
-        /// <param name="streamFlags">Stream Flags</param>
-        /// <param name="bufferDuration">Buffer Duration</param>
-        /// <param name="periodicity">Periodicity</param>
-        /// <param name="waveFormat">Wave Format</param>
-        /// <param name="audioSessionGuid">Audio Session GUID (can be null)</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Initialize(AudioClientShareMode shareMode,
             AudioClientStreamFlags streamFlags,
             long bufferDuration,
@@ -239,17 +240,21 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Determines whether if the specified output format is supported
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="shareMode">The share mode.</param>
-        /// <param name="desiredFormat">The desired format.</param>
-        /// <returns>True if the format is supported</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public bool IsFormatSupported(AudioClientShareMode shareMode,
             WaveFormat desiredFormat)
         {
             return IsFormatSupported(shareMode, desiredFormat, out _);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private IntPtr GetPointerToPointer()
         {
             return Marshal.AllocHGlobal(Marshal.SizeOf<IntPtr>());
@@ -300,46 +305,50 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Starts the audio stream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Start()
         {
             audioClientInterface.Start();
         }
 
         /// <summary>
-        /// Stops the audio stream.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Stop()
         {
             audioClientInterface.Stop();
         }
 
         /// <summary>
-        /// Set the Event Handle for buffer synchro.
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <param name="eventWaitHandle">The Wait Handle to setup</param>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void SetEventHandle(IntPtr eventWaitHandle)
         {
             audioClientInterface.SetEventHandle(eventWaitHandle);
         }
 
         /// <summary>
-        /// Resets the audio stream
-        /// Reset is a control method that the client calls to reset a stopped audio stream. 
-        /// Resetting the stream flushes all pending data and resets the audio clock stream 
-        /// position to 0. This method fails if it is called on a stream that is not stopped
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Reset()
         {
             audioClientInterface.Reset();
         }
 
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (audioClientInterface != null)

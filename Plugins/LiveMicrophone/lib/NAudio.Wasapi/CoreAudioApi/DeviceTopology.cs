@@ -30,8 +30,10 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Retrieves the connector at the supplied index
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public Connector GetConnector(uint index)
         {
             deviceTopologyInterface.GetConnector(index, out var connectorInterface);

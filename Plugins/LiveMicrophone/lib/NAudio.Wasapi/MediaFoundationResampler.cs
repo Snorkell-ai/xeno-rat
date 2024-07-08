@@ -12,6 +12,11 @@ namespace NAudio.Wave
     {
         private int resamplerQuality;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static bool IsPcmOrIeeeFloat(WaveFormat waveFormat)
         {
             var wfe = waveFormat as WaveFormatExtensible;
@@ -48,12 +53,22 @@ namespace NAudio.Wave
         private static readonly Guid IMFTransformIid = new Guid("bf94c121-5b05-4e6f-8000-ba598961414d");
         private IMFActivate activate;
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void FreeComObject(object comObject)
         {
             if (activate != null) activate.ShutdownObject();
             Marshal.ReleaseComObject(comObject);
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private object CreateResamplerComObject()
         {
 #if NETFX_CORE            
@@ -63,6 +78,11 @@ namespace NAudio.Wave
 #endif
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private object CreateResamplerComObjectUsingActivator()
         {
             var transformActivators = MediaFoundationApi.EnumerateTransforms(MediaFoundationTransformCategories.AudioEffect);
@@ -93,9 +113,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates and configures the actual Resampler transform
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
-        /// <returns>A newly created and configured resampler MFT</returns>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override IMFTransform CreateTransform()
         {
             var comObject = CreateResamplerComObject();// new ResamplerMediaComObject();
@@ -138,6 +159,11 @@ namespace NAudio.Wave
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static WaveFormat CreateOutputFormat(WaveFormat inputFormat, int outputSampleRate)
         {
             WaveFormat outputFormat;
@@ -160,8 +186,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Disposes this resampler
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override void Dispose(bool disposing)
         {
             if (activate != null)

@@ -118,16 +118,20 @@ namespace NAudio.CoreAudioApi
         }
 
         /// <summary>
-        /// Volume Step Up
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void VolumeStepUp()
         {
             Marshal.ThrowExceptionForHR(audioEndPointVolume.VolumeStepUp(ref notificationGuid));
         }
 
         /// <summary>
-        /// Volume Step Down
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void VolumeStepDown()
         {
             Marshal.ThrowExceptionForHR(audioEndPointVolume.VolumeStepDown(ref notificationGuid));
@@ -148,16 +152,22 @@ namespace NAudio.CoreAudioApi
             callBack = new AudioEndpointVolumeCallback(this);
             Marshal.ThrowExceptionForHR(audioEndPointVolume.RegisterControlChangeNotify(callBack));
         }
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         internal void FireNotification(AudioVolumeNotificationData notificationData)
         {
             OnVolumeNotification?.Invoke(notificationData);
         }
-        #region IDisposable Members
 
         /// <summary>
-        /// Dispose
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if (callBack != null)

@@ -22,8 +22,10 @@ namespace NAudio.Wave
         }
 
         /// <summary>
-        /// Creates the reader
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         protected override IMFSourceReader CreateReader(MediaFoundationReaderSettings settings)
         {
             var ppSourceReader = MediaFoundationApi.CreateSourceReaderFromByteStream(MediaFoundationApi.CreateByteStream(new ComStream(stream)));

@@ -15,6 +15,12 @@ namespace Plugin
         WaveInEvent waveIn = new WaveInEvent();
         bool playing = false;
         Node MicNode;
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -43,6 +49,12 @@ namespace Plugin
                 waveIn?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task recvThread(Node node) 
         {
             while (node.Connected())

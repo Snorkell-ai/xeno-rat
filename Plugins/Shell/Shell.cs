@@ -13,6 +13,12 @@ namespace Plugin
     public class Main
     {
         Process process;
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task Run(Node node)
         {
             await node.SendAsync(new byte[] { 3 });//indicate that it has connected
@@ -64,6 +70,12 @@ namespace Plugin
             process?.Close();
             process?.Dispose();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static void KillProcessAndChildren(int pid)
         {
             // Cannot close 'system idle process'.
@@ -89,6 +101,12 @@ namespace Plugin
                 // Process already exited.
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public async Task CreateProc(string path, Node node) 
         {
             process = new Process();

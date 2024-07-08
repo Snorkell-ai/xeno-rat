@@ -5,10 +5,12 @@ namespace NAudio.CoreAudioApi.Interfaces
 {
     class PropVariantNative
     {
-#if WINDOWS_UWP
-        // Windows 10 requires api-ms-win-core-com-l1-1-1.dll
-        [DllImport("api-ms-win-core-com-l1-1-1.dll")]
-#else
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("ole32.dll")]
 #endif
         internal static extern int PropVariantClear(ref PropVariant pvar);

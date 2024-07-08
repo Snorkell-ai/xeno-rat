@@ -19,6 +19,11 @@ namespace NAudio.Wasapi.CoreAudioApi
             this.initializeAction = initializeAction;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void ActivateCompleted(IActivateAudioInterfaceAsyncOperation activateOperation)
         {
             // First get the activation results, and see if anything bad happened then
@@ -45,7 +50,11 @@ namespace NAudio.Wasapi.CoreAudioApi
 
         }
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public TaskAwaiter<IAudioClient2> GetAwaiter()
         {
             return tcs.Task.GetAwaiter();

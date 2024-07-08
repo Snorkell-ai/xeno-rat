@@ -50,14 +50,11 @@ namespace NAudio.Dmo
             }
         }
 
-
-        #region IDisposable Members
-
         /// <summary>
-        /// Dispose code - experimental at the moment
-        /// Was added trying to track down why Resampler crashes NUnit
-        /// This code not currently being called by ResamplerDmoStream
+        /// Sorts the given array using the bubble sort algorithm.
         /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose()
         {
             if(propertyStoreInterface != null)

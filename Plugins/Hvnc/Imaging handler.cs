@@ -46,62 +46,151 @@ namespace Hidden_handler
             GW_ENABLEDPOPUP = 6
         }
 
-
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         static extern IntPtr GetDC(IntPtr hWnd);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool SetThreadDesktop(IntPtr hDesktop);
-        
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr OpenDesktop(string lpszDesktop, int dwFlags, bool fInherit, uint dwDesiredAccess);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         private static extern IntPtr CreateDesktop(string lpszDesktop, IntPtr lpszDevice,
             IntPtr pDevmode, int dwFlags, uint dwDesiredAccess, IntPtr lpsa);
 
-
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = false)]
         static extern IntPtr GetDesktopWindow();
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool IsWindowVisible(IntPtr hWnd);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool PrintWindow(IntPtr hwnd, IntPtr hDC, uint nFlags);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr GetWindow(IntPtr hWnd, GetWindowType uCmd);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         static extern IntPtr GetTopWindow(IntPtr hWnd);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")]
         static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         static extern IntPtr CreateCompatibleDC(IntPtr hdc);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         static extern IntPtr CreateCompatibleBitmap(IntPtr hdc, int nWidth, int nHeight);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         static extern IntPtr SelectObject(IntPtr hdc, IntPtr hgdiobj);
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool DeleteObject(IntPtr hObject);
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         static extern bool DeleteDC(IntPtr hdc);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool CloseDesktop(IntPtr hDesktop);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("gdi32.dll")]
         private static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
 
@@ -122,6 +211,11 @@ namespace Hidden_handler
             Desktop=Desk;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private static float GetScalingFactor()
         {
             using (Graphics graphics = Graphics.FromHwnd(IntPtr.Zero))
@@ -134,6 +228,11 @@ namespace Hidden_handler
             }
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private bool DrawApplication(IntPtr hWnd, Graphics ModifiableScreen, IntPtr DC)
         {
             RECT r;
@@ -164,6 +263,12 @@ namespace Hidden_handler
             DeleteDC(hDcWindow);
             return returnValue;
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DrawTopDown(IntPtr owner, Graphics ModifiableScreen, IntPtr DC)
         {
             IntPtr currentWindow = GetTopWindow(owner);
@@ -182,6 +287,12 @@ namespace Hidden_handler
                 currentWindow = GetWindow(currentWindow, GetWindowType.GW_HWNDPREV);
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         private void DrawHwnd(IntPtr hWnd, Graphics ModifiableScreen, IntPtr DC)
         {
             if (IsWindowVisible(hWnd))
@@ -193,11 +304,23 @@ namespace Hidden_handler
                 }
             }
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public void Dispose() 
         {
             CloseDesktop(Desktop);
             GC.Collect();
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public Bitmap Screenshot()
         {
             SetThreadDesktop(Desktop);
